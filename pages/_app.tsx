@@ -1,18 +1,20 @@
-import { FC } from 'react';
-import type { AppProps /*, AppContext */ } from 'next/app';
-import Sidebar from '../components/sidebar';
+import { FC } from "react";
+import type { AppProps } from "next/app";
+import Head from "next/head";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <div style={{ display: 'flex', maxWidth: 1100 }}>
-      <div style={{ flexBasis: '30%', margin: 25 }}>
-        <Sidebar />
-      </div>
-      <div style={{ flexBasis: '70%', margin: 25 }}>
-        <Component {...pageProps} />
-      </div>
-    </div>
+    <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        />
+      </Head>
+      <Component {...pageProps} />
+    </>
   );
 };
 
 export default MyApp;
+// export default wrapper.withRedux(MyApp);
