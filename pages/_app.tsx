@@ -2,6 +2,7 @@ import { FC } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
+
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
