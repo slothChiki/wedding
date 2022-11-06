@@ -1,3 +1,7 @@
 .next
 .yalc
 node_modules
+# compiled output
+/dist
+/node_modules
+/.next

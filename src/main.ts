@@ -1,3 +1,5 @@
+// import { ValidationPipe } from "@nestjs/common/pipes/validation.pipe";
+import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { RenderModule } from "nest-next";
 import Next from "next";
@@ -18,6 +20,14 @@ async function bootstrap() {
 
   // bind Nest.js app and Next.js app
   renderer.register(server, app);
+  
+  server.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  );
 
   await server.listen(3000);
 }
