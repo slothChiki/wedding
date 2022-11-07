@@ -1,45 +1,23 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "target": "es5", // 'es3', 'es5', 'es2015', 'es2016', 'es2017','es2018', 'esnext' 가능
-    "module": "commonjs", //무슨 import 문법 쓸건지 'commonjs', 'amd', 'es2015', 'esnext'
-    "jsx": "preserve",
-    "strict": true,
-    "pretty": true,
-    "noImplicitAny": true,
-    "alwaysStrict": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "baseUrl": ".",
-    "typeRoots": [
-      "node_modules/@types",
-      "./typings"
-    ],
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "jsx": "preserve",
     "incremental": true
   },
-  "include": [
-    "./pages/**/*",
-    "./src/**/*",
-    "./ui/**/*",
-    "types.ts"
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx",
+    ".eslintrc.js"
   ],
-  "exclude": [
-    "node_modules", "test", "dist", "**/*spec.ts"
-  ]
+  "exclude": ["node_modules"]
 }

@@ -1,4 +1,9 @@
-export const load = (data) => {
+export const load = (data: {
+    apiPath: any;
+    method: any;
+    param: any;
+    config: any;
+}) => {
     return {
         type: data.apiPath,
         method: data.method,
