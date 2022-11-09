@@ -22,12 +22,23 @@ export class UserInfoService {
         const userList: UserInfoApi[] = [];
         for (const entity of result) {
             const properties = entity.properties;
-            userList.push({
+            userList.push( {
                 idx: entity.id,
-                name: properties['name']['DATE'][0]['plain_text'],
-                tel: properties['tel']['rich_text'][0]['plain_text'],
-                contactDate: properties['contactDate']['date']['start'],
-            });
+                name: await this.notionService.getPropertiesValue(
+                    properties['name'],
+                    PropertiesType.TITLE,
+                ),
+                tel: await this.notionService.getPropertiesValue(
+                    properties['tel'],
+                    PropertiesType.RICH_TEXT,
+                ),
+                contactDate: new Date(
+                    await this.notionService.getPropertiesValue(
+                        properties['contactDate'],
+                        PropertiesType.DATE,
+                    ),
+                ),
+            } as UserInfoApi);
         }
 
         return userList;

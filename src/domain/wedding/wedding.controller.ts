@@ -8,10 +8,10 @@ export class WeddingController {
     constructor(private readonly userInfoService: UserInfoService) {}
 
     @Get('/')
-    @Render('Main')
+    @Render('/Main')
     async index() {
-        const notionData: UserInfoApi[] =
-            await this.userInfoService.getUserInfoList();
+        // const notionData: UserInfoApi[] =
+        //     await this.userInfoService.getUserInfoList();
 
         return {
             aaa: 'notionData',

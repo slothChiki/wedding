@@ -960,6 +960,8 @@ const Main: NextPage<any> = ({ aaa }) => {
 
 export async function getServerSideProps(ctx: NextPageContext) {
     const server_prop = JSON.parse(JSON.stringify(ctx.query));
+    console.log(`aaaaa`);
+    
     const props: Props = {
         aaa: server_prop.aaa as any,
     };
