@@ -1,4 +1,4 @@
-import { HttpModule, Module } from '@nestjs/common';
+import { HttpModule, Module, Scope } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
 import Next from 'next';
 import { AppController } from './app.controller';
@@ -7,6 +7,8 @@ import { NotionService } from './common/notion/notion.service';
 import { CustomHttpService } from './common/custom-http/customHttp.service';
 import { UserInfoService } from './domain/wedding/userInfo.service';
 import { ConfigModule } from '@nestjs/config';
+import { APP_PIPE } from '@nestjs/core';
+import { ValidationPipe } from './core/validation/validation.pipe';
 
 @Module({
     imports: [
@@ -20,6 +22,15 @@ import { ConfigModule } from '@nestjs/config';
         ConfigModule.forRoot(),
     ],
     controllers: [AppController, WeddingController],
-    providers: [NotionService, CustomHttpService, UserInfoService],
+    providers: [
+        NotionService,
+        CustomHttpService,
+        UserInfoService,
+        {
+            provide: APP_PIPE,
+            scope: Scope.REQUEST,
+            useClass: ValidationPipe,
+        },
+    ],
 })
 export class AppModule {}

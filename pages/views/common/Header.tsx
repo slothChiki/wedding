@@ -1,16 +1,12 @@
 import { NextPage, NextPageContext } from 'next';
 import { useEffect } from 'react';
+import Metainfo from './MetaInfo';
 
-interface Props {
-    aaa: string;
-}
-const Card01: NextPage<any> = ({ aaa }) => {
-    useEffect(() => {
-        console.log(`hi ${aaa}`);
-    }, []);
+interface Props {}
+const Header: NextPage<Props> = ({}) => {
     return (
         <>
-            <div style={{ marginBottom: 25 }}>{aaa}</div>
+            <Metainfo />
         </>
     );
 };
@@ -22,4 +18,4 @@ export async function getServerSideProps(ctx: NextPageContext) {
     };
     return { props };
 }
-export default Card01;
+export default Header;
