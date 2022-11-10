@@ -27,10 +27,10 @@ const nextConfig = {
         // Enables the styled-components SWC transform
         styledComponents: true,
     },
-    experimental: {
-        // Enables the styled-components SWC transform
-        styledComponents: true,
-    },
+    // experimental: {
+    //     // Enables the styled-components SWC transform
+    //     styledComponents: true,
+    // },
     // webpack5: true,
     // webpack: (config) => {
     //     config.resolve.fallback = { fs: false };

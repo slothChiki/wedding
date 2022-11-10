@@ -23,11 +23,10 @@ interface Props {}
 const StyleImport: NextPage<Props> = ({}) => {
     return (
         <>
-            {' '}
-            <style jsx global>
+            <style jsx global key={'css_main'}>
                 {Main}
             </style>
-            <style jsx global>
+            <style jsx global key={'css_all'}>
                 {All}
             </style>
             <style jsx global>
@@ -40,19 +39,16 @@ const StyleImport: NextPage<Props> = ({}) => {
                 {RegularMin}
             </style>
             <style jsx global>
-                {Aos}
+                {Bootstrap}
+            </style>
+            <style jsx global>
+                {BootstrapMin}
             </style>
             <style jsx global>
                 {Solid}
             </style>
             <style jsx global>
                 {SolidMin}
-            </style>
-            <style jsx global>
-                {Bootstrap}
-            </style>
-            <style jsx global>
-                {BootstrapMin}
             </style>
             <style jsx global>
                 {Brand}
@@ -81,6 +77,9 @@ const StyleImport: NextPage<Props> = ({}) => {
             <style jsx global>
                 {V4ShimsMin}
             </style>
+            {/*<style jsx global>*/}
+            {/*    {Aos}*/}
+            {/*/!*</style>*!/ 얘가 문제임*/}
         </>
     );
 };
