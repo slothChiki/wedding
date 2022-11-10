@@ -22,7 +22,7 @@ export class UserInfoService {
         const userList: UserInfoApi[] = [];
         for (const entity of result) {
             const properties = entity.properties;
-            userList.push( {
+            userList.push({
                 idx: entity.id,
                 name: await this.notionService.getPropertiesValue(
                     properties['name'],
@@ -103,16 +103,12 @@ export class UserInfoService {
     ): Promise<UserInfoApi | null> {
         const userMap: Map<string, UserInfoApi> = await this.getUserInfoMap();
 
-        const user = new UserInfoApi();
-
         const findOne = userMap.get('name');
 
         if (!findOne) {
             return null;
         }
         return findOne;
-
-        return user;
     }
 
     // async putUserInfoPage (data:UserInfoApi) {

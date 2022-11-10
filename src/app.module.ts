@@ -9,6 +9,8 @@ import { UserInfoService } from './domain/wedding/userInfo.service';
 import { ConfigModule } from '@nestjs/config';
 import { APP_PIPE } from '@nestjs/core';
 import { ValidationPipe } from './core/validation/validation.pipe';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import path from 'path';
 
 @Module({
     imports: [
@@ -20,6 +22,9 @@ import { ValidationPipe } from './core/validation/validation.pipe';
         ),
         HttpModule,
         ConfigModule.forRoot(),
+        ServeStaticModule.forRoot({
+            rootPath: path.resolve(__dirname, '../public'),
+        }), // 이미지 렌더!! ㅜㅜㅜㅜㅜ 찾았다
     ],
     controllers: [AppController, WeddingController],
     providers: [

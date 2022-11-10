@@ -1,4 +1,4 @@
-export declare enum PropertiesType {
+export const enum PropertiesType {
     RICH_TEXT = 'rich_text',
     DATE = 'date',
     TITLE = 'title',

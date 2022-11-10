@@ -20,9 +20,9 @@ import { PropertiesType } from './enums/notion.enum';
 export class NotionService {
     notion = new Client({ auth: Notionkey });
 
-    async getDBDataList(dataBaseKey: string):Promise<QueryDatabaseResponse> {
-        if(!dataBaseKey){
-            throw new NotFoundException;
+    async getDBDataList(dataBaseKey: string): Promise<QueryDatabaseResponse> {
+        if (!dataBaseKey) {
+            throw new NotFoundException();
         }
         const res = await this.notion.databases.query({
             database_id: dataBaseKey,
@@ -41,9 +41,9 @@ export class NotionService {
         return res;
     }
 
-    async getPageData (dataBaseKey: string):Promise<GetPageResponse> {
-        if(!dataBaseKey){
-            throw new NotFoundException;
+    async getPageData(dataBaseKey: string): Promise<GetPageResponse> {
+        if (!dataBaseKey) {
+            throw new NotFoundException();
         }
         const res = await this.notion.pages.retrieve({
             page_id: dataBaseKey,
@@ -52,23 +52,28 @@ export class NotionService {
         return res;
     }
 
-       
-    async setPageData(dataBaseKey: string, data : CreatePageParameters):Promise<CreatePageResponse>{
-        if(!data) {
-            throw new NotFoundException;
+    async setPageData(
+        dataBaseKey: string,
+        data: CreatePageParameters,
+    ): Promise<CreatePageResponse> {
+        if (!data) {
+            throw new NotFoundException();
         }
 
         return await this.notion.pages.create(data);
     }
 
-    async getPropertiesValue(data:Record<string,any>,type:PropertiesType):Promise<string> {
-        switch(type){
+    async getPropertiesValue(
+        data: Record<string, any>,
+        type: PropertiesType,
+    ): Promise<string> {
+        switch (type) {
             case PropertiesType.TITLE:
-                return data["title"][0]["plain_text"];
+                return data['title'][0]['plain_text'];
             case PropertiesType.RICH_TEXT:
-                return data["rich_text"][0]["plain_text"];
+                return data['rich_text'][0]['plain_text'];
             case PropertiesType.DATE:
-                return data["start"];
+                return data['start'];
             default:
                 return '';
         }

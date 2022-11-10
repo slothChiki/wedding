@@ -11,6 +11,8 @@ const Card01: NextPage<any> = ({ aaa }) => {
     return (
         <>
             <div style={{ marginBottom: 25 }}>{aaa}</div>
+            <img src={'/bride.jpg'} />
+            <div style={{ background: 'url(/bride.jpg)' }}> ddd </div>
         </>
     );
 };
