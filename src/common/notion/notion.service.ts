@@ -14,7 +14,7 @@ import {
     QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
-import { PropertiesType } from './enums/notion.enum';
+import { PropertiesType } from '../../enums/notion.enum';
 
 @Injectable()
 export class NotionService {

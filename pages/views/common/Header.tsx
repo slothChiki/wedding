@@ -2,6 +2,7 @@ import { NextPage, NextPageContext } from 'next';
 import { useEffect } from 'react';
 import Metainfo from './MetaInfo';
 import Head from 'next/head';
+import NaverMap from '../component/location/NaverMapScript';
 
 interface Props {}
 const Header: NextPage<Props> = ({}) => {
@@ -11,65 +12,28 @@ const Header: NextPage<Props> = ({}) => {
                 <meta charSet="UTF-8" />
                 <meta name="format-detection" content="telephone=no" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossOrigin="crossorigin"
-                />
-                <link
-                    rel="preload"
-                    as="style"
-                    href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&amp;display=swap"
-                />
-                <link
-                    rel="stylesheet"
-                    href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&amp;display=swap"
-                    media="print"
-                />
-                <noscript>
-                    <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&amp;display=swap"
-                    />
-                </noscript>
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossOrigin="crossorigin"
-                />
-                <link
-                    rel="preload"
-                    as="style"
-                    href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap"
-                />
+
+                {/* 네이버 지도 */}
+                <script src="../../docs/js/jquery-1.9.1.js"></script>
+                <script
+                    type="text/javascript"
+                    src="../../docs/js/examples-base.js"
+                ></script>
+                <script
+                    type="text/javascript"
+                    src="../../docs/js/highlight.min.js"
+                ></script>
+                <script
+                    type="text/javascript"
+                    src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2qbc932mh5"
+                ></script>
                 <link
                     rel="stylesheet"
-                    href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap"
-                    media="print"
+                    type="text/css"
+                    href="../../docs/css/examples-base.css"
                 />
-                <noscript>
-                    <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap"
-                    />
-                </noscript>
-                <link
-                    rel="apple-touch-icon"
-                    sizes="180x180"
-                    href="/images/favicon/apple-touch-icon.png"
-                ></link>
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="32x32"
-                    href="/images/favicon/favicon-32x32.png"
-                ></link>
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="16x16"
-                    href="/images/favicon/favicon-16x16.png"
-                ></link>
+                {/* 네이버 지도 */}
+                <NaverMap />
             </Head>
             <Metainfo />
         </>

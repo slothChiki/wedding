@@ -9,6 +9,7 @@ const Banner: NextPage<any> = () => {
         <>
             <div className="card-banner">
                 <Timer />
+                <img src={'/images/home-img.jpg'} />
             </div>
         </>
     );

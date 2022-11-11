@@ -35,6 +35,7 @@ export default class MyDocument extends Document {
     }
     render() {
         return (
+            // <Html data-dark='true'>
             <Html>
                 <Head></Head>
                 <body>

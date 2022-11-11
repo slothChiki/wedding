@@ -19,15 +19,18 @@ const Main: NextPage<any> = ({ aaa }) => {
     }, []);
     return (
         <>
+            <Header />
             <div className="container">
-                <div className="wrap-main">
+                <div className="wrap">
                     <Banner />
+                    <h2>Navbar</h2>
                     <NavBar />
+                    <h2>Groom & Bride</h2>
                     <Introduce />
+                    <h2>Location</h2>
                     <Location />
+                    <h2>Board</h2>
                     <Board />
-                </div>
-                <div className="wrap-popup">
                     <PopupImage />
                     <PopupShare />
                 </div>

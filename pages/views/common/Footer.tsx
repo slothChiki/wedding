@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import Scripts from '../component/location/Script';
 
 interface Props {
     aaa: string;
@@ -8,10 +9,11 @@ const Footer: NextPage<any> = ({ aaa }) => {
         <>
             <script src="/scripts/jquery.min.js?ver=1.1.0"></script>
             <script src="/scripts/bootstrap.bundle.min.js?ver=1.1.0"></script>
-            <script src="/scripts/aos.js?ver=1.1.0"></script>
-            {/* 얘 때문에 에러 나는데... 어카징*/}
-            <script src="/scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
-            <script src="/scripts/main.js?ver=1.1.0"></script>
+            <script
+                type="text/javascript"
+                src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2qbc932mh5"
+            ></script>
+            <Scripts />
         </>
     );
 };

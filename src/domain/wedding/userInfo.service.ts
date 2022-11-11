@@ -9,7 +9,7 @@ import { json } from 'stream/consumers';
 import { UserInfoApi } from './api/userInfo.api';
 import { NotionService } from '../../common/notion/notion.service';
 import * as notionKey from '../../common/notion/notionKey';
-import { PropertiesType } from '../../common/notion/enums/notion.enum';
+import { PropertiesType } from '../../enums/notion.enum';
 
 @Injectable()
 export class UserInfoService {
