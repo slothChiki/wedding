@@ -6,7 +6,7 @@ interface Props {
 const NavBar: NextPage<any> = () => {
     return (
         <>
-            <div className="card-navbar">Navbar</div>
+            <div className="card-"></div>
         </>
     );
 };

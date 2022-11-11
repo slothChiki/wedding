@@ -33,25 +33,15 @@ export default class MyDocument extends Document {
             sheet.seal();
         }
     }
-    // render() {
-    //     return (
-    //         <Html>
-    //             <Head>
-    //                 {/*<noscript>*/}
-    //                 {/*    <style type="text/css">*/}
-    //                 {/*        [data-aos] {*/}
-    //                 {/*        opacity: 1 !important;*/}
-    //                 {/*        transform: translate(0) scale(1) !important;*/}
-    //                 {/*    }*/}
-    //                 {/*    </style>*/}
-    //                 {/*</noscript>*/}
-    //             </Head>
-    //             <body>
-    //                 <Main />
-    //                 <NextScript />
-    //
-    //             </body>
-    //         </Html>
-    //     );
-    // }
+    render() {
+        return (
+            <Html>
+                <Head></Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        );
+    }
 }

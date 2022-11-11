@@ -3,11 +3,11 @@ import { NextPage } from 'next';
 interface Props {
     aaa: string;
 }
-const NavBar: NextPage<any> = () => {
+const Board: NextPage<any> = () => {
     return (
         <>
-            <div className="card-navbar">Navbar</div>
+            <div className="card-board">Board</div>
         </>
     );
 };
-export default NavBar;
+export default Board;
