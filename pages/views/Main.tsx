@@ -4,6 +4,7 @@ import Header from './common/Header';
 import Footer from './common/Footer';
 import Home from './component/Home';
 import NavBar from './component/NavBar';
+import Introduce from './component/Introduce';
 
 interface Props {
     aaa: string;
