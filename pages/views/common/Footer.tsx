@@ -1,4 +1,6 @@
 import { NextPage } from 'next';
+import React from 'react';
+import SendScript from '../component/introduce/SendScript';
 import Scripts from '../component/location/Script';
 
 interface Props {

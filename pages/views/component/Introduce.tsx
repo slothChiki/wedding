@@ -18,20 +18,6 @@ const Introduce: NextPage<any> = () => {
                         </div>
                         <p>안녕하세요 안상민입니다.</p>
                         <Account />
-                        <div className="account">
-                            <div className="kakao">
-                                {' '}
-                                <Link href={'#'}>kakao send</Link>
-                            </div>
-                            <div className="toss">
-                                {' '}
-                                <Link href={'#'}>toss send</Link>
-                            </div>
-                            <div className="copy">
-                                {' '}
-                                <Link href={'#'}>account copy</Link>
-                            </div>
-                        </div>
                     </li>
                     <li className="dear col-md-6">
                         <div>나연</div>
