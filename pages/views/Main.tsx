@@ -1,5 +1,5 @@
 import { NextPage, NextPageContext } from 'next';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Header from './common/Header';
 import Footer from './common/Footer';
 import Banner from './component/Banner';
@@ -9,6 +9,7 @@ import Location from './component/Location';
 import Board from './component/Board';
 import PopupImage from './component/PopupImage';
 import PopupShare from './component/PopupShare';
+import Album from './component/Album';
 
 interface Props {
     aaa: string;
@@ -29,6 +30,8 @@ const Main: NextPage<any> = ({ aaa }) => {
                     <Introduce />
                     <h2>Location</h2>
                     <Location />
+                    <h2>Album</h2>
+                    <Album />
                     <h2>Board</h2>
                     <Board />
                     <PopupImage />

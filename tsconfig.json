@@ -38,7 +38,7 @@
         "next.config.ss",
         ".eslintrc.js",
         "pm2_*.config.js"
-    ],
+, "src/common/kakao/kakao-navi.js"    ],
     "exclude": ["node_modules", "dist"],
     "declaration": true,
     "emitDecoratorMetadata": true,

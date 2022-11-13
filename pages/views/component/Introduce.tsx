@@ -1,5 +1,7 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
+import React from 'react';
+import Account from './introduce/Account';
 
 interface Props {
     aaa: string;
@@ -15,6 +17,7 @@ const Introduce: NextPage<any> = () => {
                             <img src={'/images/groom.jpg'} />
                         </div>
                         <p>안녕하세요 안상민입니다.</p>
+                        <Account />
                         <div className="account">
                             <div className="kakao">
                                 {' '}
