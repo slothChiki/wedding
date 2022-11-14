@@ -9,8 +9,7 @@ interface Props {
 }
 const LocationShare: NextPage<any> = () => {
     useEffect(() => {
-        const jsKey = "9465e2e289de83befa54172bf23c2929";
-
+        const jsKey = '9465e2e289de83befa54172bf23c2929';
         // SDK는 한 번만 초기화해야 한다.
         // 중복되는 초기화를 막기 위해 isInitialized()로 SDK 초기화 여부를 판단한다.
         if (!window.Kakao.isInitialized()) {
@@ -18,20 +17,34 @@ const LocationShare: NextPage<any> = () => {
             window.Kakao.init(jsKey);
             // SDK 초기화 여부를 확인하자.
             console.log(window.Kakao.isInitialized());
-
         }
     }, []);
 
-    // const { Kakao } = window.Kakao;
-    const startNavigation = () => {
-        console.log('카카오네비');
-        
-        Kakao.Navi.start({
-            name: '중앙컨벤션센터',
-            x: 35.8836624,
-            y: 128.5959743,
-            coordType: 'wgs84',
-        });
+    const handlerNavi = (navi: Navigation) => {
+        switch (navi) {
+            case Navigation.KAKAO: {
+                window.Kakao.Navi.start({
+                    name: '중앙컨벤션센터',
+                    x: 35.8836624,
+                    y: 128.5959743,
+                    coordType: 'wgs84',
+                });
+                break;
+            }
+            case Navigation.TMAP: {
+                window.open(`tmap://search?name=${weddingHallName}`);
+                break;
+            }
+            case Navigation.NAVER:
+            default: {
+                window.open(
+                    `nmap://search?query=${encodeURIComponent(
+                        weddingHallName,
+                    )}&appname=http://localhost:3000`,
+                );
+                break;
+            }
+        }
     };
 
     const weddingHallName = '중앙컨벤션센터';
@@ -43,14 +56,17 @@ const LocationShare: NextPage<any> = () => {
                     <div
                         className="navi"
                         key="navi-1"
+                        onClick={() => {
+                            handlerNavi(Navigation.TMAP);
+                        }}
                     >
-                        <Link href={`tmap://search?name=${weddingHallName}`}>
-                            티맵
-                        </Link>
+                        Tmap
                     </div>
                     <div
                         className="navi"
-                        onClick={startNavigation}
+                        onClick={() => {
+                            handlerNavi(Navigation.KAKAO);
+                        }}
                         key="navi-2"
                     >
                         카카오
@@ -58,12 +74,12 @@ const LocationShare: NextPage<any> = () => {
                     <div
                         className="navi"
                         key="navi-3"
+                        onClick={() => {
+                            handlerNavi(Navigation.NAVER);
+                        }}
                     >
-                        <Link href={`nmap://search?query=${encodeURIComponent(weddingHallName)}&appname=http://localhost:3000`}>
-                            네이버 길찾기
-                        </Link>
+                        네이버 길찾기
                     </div>
-
                 </div>
             </div>
         </>

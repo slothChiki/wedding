@@ -4,9 +4,7 @@ export default function SendScript() {
             type="text/javascript"
             dangerouslySetInnerHTML={{
                 __html: `
-
                 (function($){
-
                     var redirect = function() {
                         var web2appOptions = {
                             urlScheme: 'kakaotalk://kakaopay/money/to/qr?qr_code=FGvNZV8Af',
@@ -36,7 +34,8 @@ export default function SendScript() {
                     }
                 })(jQuery);
                 
-` }}
+`,
+            }}
         />
     );
 }

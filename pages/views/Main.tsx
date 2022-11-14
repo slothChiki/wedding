@@ -1,5 +1,5 @@
 import { NextPage, NextPageContext } from 'next';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './common/Header';
 import Footer from './common/Footer';
 import Banner from './component/Banner';
@@ -10,14 +10,13 @@ import Board from './component/Board';
 import PopupImage from './component/PopupImage';
 import PopupShare from './component/PopupShare';
 import Album from './component/Album';
+import { ImageDto } from '../../src/domain/wedding/dto/image.dto';
 
 interface Props {
     aaa: string;
 }
 const Main: NextPage<any> = ({ aaa }) => {
-    useEffect(() => {
-        console.log(`hi ${aaa}`);
-    }, []);
+    const [ImageInfo, setImage] = useState(new ImageDto({}));
     return (
         <>
             <Header />
@@ -44,8 +43,6 @@ const Main: NextPage<any> = ({ aaa }) => {
 
 export async function getServerSideProps(ctx: NextPageContext) {
     const server_prop = JSON.parse(JSON.stringify(ctx.query));
-    console.log(`aaaaa`);
-
     const props: Props = {
         aaa: server_prop.aaa as any,
     };

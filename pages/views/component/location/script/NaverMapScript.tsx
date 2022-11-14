@@ -1,6 +1,20 @@
 export default function NaverMapScript() {
     return (
         <>
+            {/* 네이버 지도 */}
+            <script src="/js/jquery-1.9.1.js"></script>
+            {/*<script type="text/javascript" src="/js/examples-base.js"></script>*/}
+            <script type="text/javascript" src="/js/highlight.min.js"></script>
+            {/*<link*/}
+            {/*    rel="stylesheet"*/}
+            {/*    type="text/css"*/}
+            {/*    href="/css/examples-base.css"*/}
+            {/*/>*/}
+            <script
+                type="text/javascript"
+                src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2qbc932mh5"
+            ></script>
+
             <script
                 type="text/javascript"
                 dangerouslySetInnerHTML={{

@@ -11,20 +11,20 @@ import {
     Max,
     IsString,
     IsNumber,
-    isDate
-  } from 'class-validator';
+    isDate,
+} from 'class-validator';
 
 export class UserInfoApi {
-    constructor(){}
+    constructor() {}
     @IsString()
-    idx!:string;
+    idx!: string;
 
     @IsString()
-    name!:string;
+    name!: string;
 
     @IsString()
-    tel?:string;
+    tel?: string;
 
     @IsDate()
-    contactDate?:Date;
+    contactDate?: Date;
 }
