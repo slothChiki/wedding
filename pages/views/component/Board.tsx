@@ -1,4 +1,6 @@
 import { NextPage } from 'next';
+import React from 'react';
+import InputComment from './board/InputComment';
 
 interface Props {
     aaa: string;
@@ -6,7 +8,9 @@ interface Props {
 const Board: NextPage<any> = () => {
     return (
         <>
-            <div className="card-board"></div>
+            <div className="card-board">
+                <InputComment />
+            </div>
         </>
     );
 };
