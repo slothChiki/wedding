@@ -2,6 +2,7 @@ import rootReducer from 'modules/rootReducer';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension'; // 리덕스 개발자 도구
 import * as weddingReducer from 'modules/reducer/wedding'
 import { useDispatch } from 'react-redux';
 
@@ -9,7 +10,7 @@ interface Props {
     aaa: string;
 }
 const InputComment: NextPage<any> = () => {
-    const store = createStore(rootReducer);
+    const store = createStore(rootReducer, composeWithDevTools());
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
 
@@ -20,7 +21,7 @@ const InputComment: NextPage<any> = () => {
     const inputComment = (e) => {
         setComment(e.target.value);
     }
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const submitComment = () => {
         // TODO : api 만들어야 함 notion 보내는 
@@ -28,9 +29,6 @@ const InputComment: NextPage<any> = () => {
         console.log(name + ' / ' + comment);
         store.dispatch(weddingReducer.initDetailInfo({aaa:"fhkfhkfhk"}));
     }
-
-    
-
 
     return (
         <>
