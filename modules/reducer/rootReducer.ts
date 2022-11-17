@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { HYDRATE } from 'next-redux-wrapper';
-import wedding from './reducer/wedding';
+import wedding from './wedding';
 
 /**
  * 리듀서 컴바인

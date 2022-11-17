@@ -6,6 +6,10 @@ import Document, {
     DocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import Script from 'next/script';
+import React from 'react';
+import NaverMap from './views/component/location/script/NaverMapScript';
+import SendScript from './views/component/introduce/SendScript';
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
@@ -37,7 +41,15 @@ export default class MyDocument extends Document {
         return (
             // <Html data-dark='true'>
             <Html>
-                <Head></Head>
+                <Head>
+                    <script
+                        src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.js"
+                        integrity="sha384-geDMoEPQD/YUg5vIzKYMrqDwvs/7jrTormn7E/g4EqLSSAssbMDTe0n+bc+hkAyi"
+                        crossOrigin="anonymous"
+                    />
+                    <NaverMap />
+                    {/*<SendScript />*/}
+                </Head>
                 <body>
                     <Main />
                     <NextScript />

@@ -11,12 +11,23 @@ import PopupImage from './component/PopupImage';
 import PopupShare from './component/PopupShare';
 import Album from './component/Album';
 import { ImageDto } from '../../src/domain/wedding/dto/image.dto';
+import wrapper from '../../modules/store/store';
+import * as weddingReducer from '../../modules/reducer/wedding';
+import { useDispatch } from 'react-redux';
+import { initDetailInfo } from '../../modules/reducer/wedding';
 
 interface Props {
     aaa: string;
 }
 const Main: NextPage<any> = ({ aaa }) => {
     const [ImageInfo, setImage] = useState(new ImageDto({}));
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(weddingReducer.initDetailInfo('ssss'));
+    }, []);
+
     return (
         <>
             <Header />
@@ -41,11 +52,15 @@ const Main: NextPage<any> = ({ aaa }) => {
     );
 };
 
-export async function getServerSideProps(ctx: NextPageContext) {
-    const server_prop = JSON.parse(JSON.stringify(ctx.query));
-    const props: Props = {
-        aaa: server_prop.aaa as any,
-    };
-    return { props };
-}
+export const getServerSideProps = wrapper.getServerSideProps(
+    (store) => async (res) => {
+        const server_prop = JSON.parse(JSON.stringify(res.query));
+        const props: Props = {
+            aaa: server_prop.aaa as any,
+        };
+        console.log(`안해?`);
+        store.dispatch(weddingReducer.initDetailInfo(props.aaa));
+        return { props };
+    },
+);
 export default Main;

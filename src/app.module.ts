@@ -11,6 +11,8 @@ import { APP_PIPE } from '@nestjs/core';
 import { ValidationPipe } from './core/validation/validation.pipe';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import path from 'path';
+import { BoardController } from './domain/board/board.controller';
+import { BoardService } from './domain/board/board.service';
 
 @Module({
     imports: [
@@ -26,11 +28,12 @@ import path from 'path';
             rootPath: path.resolve(__dirname, '../public'),
         }), // 이미지 렌더!! ㅜㅜㅜㅜㅜ 찾았다
     ],
-    controllers: [AppController, WeddingController],
+    controllers: [AppController, WeddingController, BoardController],
     providers: [
         NotionService,
         CustomHttpService,
         UserInfoService,
+        BoardService,
         {
             provide: APP_PIPE,
             scope: Scope.REQUEST,
