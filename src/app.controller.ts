@@ -6,4 +6,10 @@ export class AppController {
     check(): string {
         return 'ok';
     }
+
+    @Get('/mega')
+    @Render('/card/Mega')
+    mega() {
+        return;
+    }
 }

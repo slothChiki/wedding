@@ -5,7 +5,9 @@ import Head from 'next/head';
 import '../public/css/main.css';
 import '../public/css/common_my.css';
 import '../public/css/examples-base.css';
-import StyleImport from './views/common/styleImport';
+import '../public/css/bootstrap.css';
+import '../public/css/bootstrap.min.css';
+import '../public/css/bootstrap.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
     return (
@@ -16,7 +18,6 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
                     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
                 />
             </Head>
-            <StyleImport />
             <Component {...pageProps} />
         </>
     );
