@@ -4,10 +4,13 @@ export const enum Navigation {
     NAVER = 2,
 }
 
-export const enum NavMenu {
+export const enum BannerManu {
     MOVIE_INFO = 0,
-    CAST = 1,
     LOCATION = 2,
+}
+
+export const enum NavMenu {
+    CAST = 0,
     ALBUM = 3,
     BOOKING = 4,
     REVIEW = 5,

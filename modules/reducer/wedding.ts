@@ -1,5 +1,7 @@
-const CARD_OPEN = 'CARD_OPEN';
+import { BannerManu } from '../../src/enums/wedding.enum';
+
 const SET_INIT = 'SET_INIT';
+const BANNER_MENU_CHANGE = 'BANNER_MENU_CHANGE';
 
 interface IParam {
     type: string;
@@ -8,11 +10,11 @@ interface IParam {
 
 type State = {
     currentAction: string;
-    aaa: string;
+    bannerMenu: BannerManu;
 };
 const initialState: State = {
     currentAction: 'default(action)',
-    aaa: '',
+    bannerMenu: BannerManu.MOVIE_INFO,
 };
 
 export const initDetailInfo = (param) => ({
@@ -20,22 +22,26 @@ export const initDetailInfo = (param) => ({
     param: param,
 });
 
+export const bannerMenuChange = (param) => ({
+    type: BANNER_MENU_CHANGE,
+    param: param,
+});
+
 type WeddingAction = IParam;
 
 function wedding(state = initialState, action: WeddingAction) {
     switch (action.type) {
-        case CARD_OPEN:
-            return {
-                ...state,
-                currentAction: action.type,
-                aaa: action.param,
-            };
         case SET_INIT:
-            console.log('안오냐고?');
             return {
                 ...state,
                 currentAction: action.type,
-                aaa: action.param,
+                bannerMenu: action.param,
+            };
+        case BANNER_MENU_CHANGE:
+            return {
+                ...state,
+                currentAction: action.type,
+                bannerMenu: action.param,
             };
         default:
             return state;

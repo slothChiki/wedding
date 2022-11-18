@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import { Navigation } from '../../../../src/enums/wedding.enum';
+import { Navigation } from '../../../../../src/enums/wedding.enum';
 // import Kakao from './KakaoSdk'
 
 interface Props {

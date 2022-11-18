@@ -3,11 +3,11 @@ import { NextPage } from 'next';
 interface Props {
     aaa: string;
 }
-const Album: NextPage<any> = () => {
+const StillCut: NextPage<any> = () => {
     return (
         <>
-            <div className="card-album">Album</div>
+            <div className="card-album"></div>
         </>
     );
 };
-export default Album;
+export default StillCut;

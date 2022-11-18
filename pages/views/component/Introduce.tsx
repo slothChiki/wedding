@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
-import Account from './introduce/Account';
+import Account from './movie-info/introduce/Account';
 
 interface Props {
     aaa: string;
@@ -12,19 +12,24 @@ const Introduce: NextPage<any> = () => {
             <div className="card-introduce">
                 <ul className="dear-list row">
                     <li className="dear col-md-6">
-                        <div>상민</div>
-                        <div>
-                            <img src={'/images/groom.jpg'} />
-                        </div>
-                        <p>안녕하세요 안상민입니다.</p>
-                        <Account />
+                        <dl className="actor">
+                            <dd className="pic">
+                                <img src={'/images/groom.jpg'} />
+                            </dd>
+                            <dd className="role">주연</dd>
+                            <dd className="name">안상민</dd>
+                            <dd className="more-info">인삿말 보기</dd>
+                        </dl>
                     </li>
                     <li className="dear col-md-6">
-                        <div>나연</div>
-                        <div>
-                            <img src={'/images/bride.jpg'} />
-                        </div>
-                        <p>안녕하세요 박나연입니다.</p>
+                        <dl className="actor">
+                            <dd className="pic">
+                                <img src={'/images/bride.jpg'} />
+                            </dd>
+                            <dd className="role">주연</dd>
+                            <dd className="name">나연</dd>
+                            <dd className="more-info">인삿말 보기</dd>
+                        </dl>
                     </li>
                 </ul>
             </div>

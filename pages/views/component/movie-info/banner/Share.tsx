@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import clipBoard from '../../../../src/common/clip-board/clip-board';
+import clipBoard from '../../../../../src/common/clip-board/clip-board';
 interface Props {
     owner?: boolean;
     uid?: number;
