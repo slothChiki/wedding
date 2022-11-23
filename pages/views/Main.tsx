@@ -5,7 +5,7 @@ import Footer from './common/Footer';
 import Banner from './component/movie-info/Banner';
 import NavBar from './component/movie-info/NavBar';
 import Introduce from './component/Introduce';
-import Location from './component/theater-info/Location';
+import TheaterInfo from './component/theater-info/TheaterInfo';
 import Board from './component/movie-info/Board';
 import PopupImage from './component/PopupImage';
 import PopupShare from './component/PopupShare';
@@ -14,8 +14,8 @@ import { ImageDto } from '../../src/domain/wedding/dto/image.dto';
 import wrapper from '../../modules/store/store';
 import * as weddingReducer from '../../modules/reducer/wedding';
 import { useDispatch, useSelector } from 'react-redux';
-import { BannerManu, NavMenu } from '../../src/enums/wedding.enum';
-import HeaderMenu from './component/movie-info/banner/BannerMenu';
+import { HeaderManu, NavMenu } from '../../src/enums/wedding.enum';
+import HeaderMenu from './component/movie-info/banner/HeaderManu';
 import { RootState } from '../../modules/reducer/rootReducer';
 import wedding from '../../modules/reducer/wedding';
 import MovieInfo from './component/movie-info/MovieInfo';
@@ -28,10 +28,8 @@ const Main: NextPage<any> = ({ aaa }) => {
     const state = useSelector((state: RootState) => state.wedding);
     const dispatch = useDispatch();
 
-    const mainView = state.bannerMenu;
-    useEffect(() => {
-        dispatch(weddingReducer.initDetailInfo(BannerManu.MOVIE_INFO));
-    }, []);
+    const mainView = state.headerMenu;
+
 
     return (
         <>
@@ -40,10 +38,10 @@ const Main: NextPage<any> = ({ aaa }) => {
                 <div className="wrap">
                     <Header />
                     <HeaderMenu />
-                    {mainView == BannerManu.MOVIE_INFO ? (
+                    {mainView == HeaderManu.MOVIE_INFO ? (
                         <MovieInfo />
                     ) : (
-                        <Location />
+                        <TheaterInfo />
                     )}
                     <PopupImage />
                 </div>
@@ -58,7 +56,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
         const props: Props = {
             aaa: server_prop.aaa as any,
         };
-        store.dispatch(weddingReducer.initDetailInfo(props.aaa)); // 안되넹... ㅜㅜ
+        store.dispatch(weddingReducer.initDetailInfo(HeaderManu.MOVIE_INFO)); // 안되넹... ㅜㅜ
         return { props };
     },
 );

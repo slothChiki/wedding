@@ -1,7 +1,7 @@
-import { BannerManu } from '../../src/enums/wedding.enum';
+import { HeaderManu } from '../../src/enums/wedding.enum';
 
 const SET_INIT = 'SET_INIT';
-const BANNER_MENU_CHANGE = 'BANNER_MENU_CHANGE';
+const HEADER_MENU_CHANGE = 'HEADER_MENU_CHANGE';
 
 interface IParam {
     type: string;
@@ -10,11 +10,12 @@ interface IParam {
 
 type State = {
     currentAction: string;
-    bannerMenu: BannerManu;
+    headerMenu: HeaderManu;
 };
+
 const initialState: State = {
     currentAction: 'default(action)',
-    bannerMenu: BannerManu.MOVIE_INFO,
+    headerMenu: HeaderManu.MOVIE_INFO,
 };
 
 export const initDetailInfo = (param) => ({
@@ -22,8 +23,8 @@ export const initDetailInfo = (param) => ({
     param: param,
 });
 
-export const bannerMenuChange = (param) => ({
-    type: BANNER_MENU_CHANGE,
+export const headerMenuChange = (param) => ({
+    type: HEADER_MENU_CHANGE,
     param: param,
 });
 
@@ -35,13 +36,13 @@ function wedding(state = initialState, action: WeddingAction) {
             return {
                 ...state,
                 currentAction: action.type,
-                bannerMenu: action.param,
+                headerMenu: action.param,
             };
-        case BANNER_MENU_CHANGE:
+        case HEADER_MENU_CHANGE:
             return {
                 ...state,
                 currentAction: action.type,
-                bannerMenu: action.param,
+                headerMenu: action.param,
             };
         default:
             return state;

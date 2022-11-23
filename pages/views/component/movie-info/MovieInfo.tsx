@@ -1,28 +1,27 @@
 import { NextPage } from 'next';
-import StillCut from './album/StillCut';
-import PhotoSwiper from './album/PhotoSwiper';
 import React, { useState } from 'react';
 import { NavMenu } from '../../../../src/enums/wedding.enum';
 import NavBar from './NavBar';
 import Introduce from '../Introduce';
 import Album from './Album';
 import Board from './Board';
-
+import Main from 'pages/views/component/movie-info/main/Main';
 interface Props {
     aaa: string;
 }
 const MovieInfo: NextPage<any> = () => {
-    const [step, setStep] = useState(NavMenu.ALBUM);
+    const [step, setStep] = useState(NavMenu.MAIN);
     return (
         <>
             <div className="wrap-movie">
-                <h2>Navbar</h2>
-                <NavBar />
+                <NavBar setStep={setStep} />
                 <div className="contents">
-                    {step === NavMenu.CAST ? (
+                    {step === NavMenu.MAIN ? (
                         <>
-                            {' '}
-                            <h2>Groom & Bride</h2>
+                            <Main />
+                        </>
+                    ) : step === NavMenu.CAST ? (
+                        <>
                             <Introduce />
                         </>
                     ) : step === NavMenu.ALBUM ? (
