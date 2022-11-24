@@ -4,7 +4,7 @@ export const enum Navigation {
     NAVER = 2,
 }
 
-export const enum HeaderManu {
+export const enum MainManu {
     MOVIE_INFO = 0,
     LOCATION = 1,
 }

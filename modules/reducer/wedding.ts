@@ -1,4 +1,4 @@
-import { HeaderManu } from '../../src/enums/wedding.enum';
+import { MainManu } from '../../src/enums/wedding.enum';
 
 const SET_INIT = 'SET_INIT';
 const HEADER_MENU_CHANGE = 'HEADER_MENU_CHANGE';
@@ -10,12 +10,12 @@ interface IParam {
 
 type State = {
     currentAction: string;
-    headerMenu: HeaderManu;
+    headerMenu: MainManu;
 };
 
 const initialState: State = {
     currentAction: 'default(action)',
-    headerMenu: HeaderManu.MOVIE_INFO,
+    headerMenu: MainManu.MOVIE_INFO,
 };
 
 export const initDetailInfo = (param) => ({
