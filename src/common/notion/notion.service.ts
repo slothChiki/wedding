@@ -11,7 +11,9 @@ import {
     PageObjectResponse,
     PartialDatabaseObjectResponse,
     PartialPageObjectResponse,
+    QueryDatabaseParameters,
     QueryDatabaseResponse,
+    UpdatePageResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { PropertiesType } from '../../enums/notion.enum';
@@ -26,20 +28,27 @@ export class NotionService {
         }
         const res = await this.notion.databases.query({
             database_id: dataBaseKey,
+            sorts: [{ timestamp: 'created_time', direction: 'descending' }],
         });
 
         return res;
     }
 
-    async setDBData(dataBaseKey: string, data: CreateDatabaseParameters) {
-        const res: CreateDatabaseResponse = await this.notion.databases.create(
-            data,
-        );
-
-        // console.log(JSON.stringify(res));
-
-        return res;
-    }
+    // async getDBData(
+    //     dataBaseKey: string,
+    //     filterList: Array<QueryDatabaseParameters>,
+    // ): Promise<QueryDatabaseResponse> {
+    //     if (!dataBaseKey) {
+    //         throw new NotFoundException();
+    //     }
+    //
+    //     const res = await this.notion.databases.query({
+    //         ...filterList,
+    //         database_id: dataBaseKey,
+    //     });
+    //
+    //     return res;
+    // }
 
     async getPageData(dataBaseKey: string): Promise<GetPageResponse> {
         if (!dataBaseKey) {
@@ -77,5 +86,21 @@ export class NotionService {
             default:
                 return '';
         }
+    }
+
+    async updatePage(
+        pageId: string,
+        data: Record<string, any>,
+    ): Promise<UpdatePageResponse> {
+        return await this.notion.pages.update({
+            page_id: pageId,
+            properties: {
+                ...data,
+            },
+        });
+    }
+
+    async delPage(pageId: string): Promise<GetPageResponse> {
+        return await this.notion.pages.retrieve({ page_id: pageId });
     }
 }

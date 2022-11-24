@@ -1,8 +1,19 @@
 import { UserInfoService } from './userInfo.service';
-import { Controller, Get, Render } from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Get,
+    NotFoundException,
+    Post,
+    Render,
+    UseFilters,
+} from '@nestjs/common';
 
 import { UserInfoApi } from './api/userInfo.api';
+import { RestApi } from '../../core/decorator/rest-api.decorator';
+import { WebExceptionFilter } from '../../core/exception/web-exception.filter';
 
+@UseFilters(WebExceptionFilter)
 @Controller('')
 export class WeddingController {
     constructor(private readonly userInfoService: UserInfoService) {}
@@ -18,14 +29,31 @@ export class WeddingController {
         };
     }
 
-    @Get('/user')
-    @Render('card/Card01')
-    async getUser() {
+    @RestApi()
+    @Post('/movieInfo')
+    async movieInfo() {
+        const notionData: UserInfoApi[] =
+            await this.userInfoService.getUserInfoList();
+
+        return {
+            aaa: notionData,
+        };
+    }
+
+    @Get('/theaterInfo')
+    @Render('/TheaterInfo')
+    async theaterInfo() {
         const notionData: UserInfoApi[] =
             await this.userInfoService.getUserInfoList();
 
         return {
             aaa: 'notionData',
         };
+    }
+    @RestApi()
+    @Post('/setUser')
+    async getUser(@Body() body: UserInfoApi) {
+        console.log('user!');
+        return await this.userInfoService.putUserInfoPage(body);
     }
 }

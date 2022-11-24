@@ -7,12 +7,20 @@ import { NotionService } from './common/notion/notion.service';
 import { CustomHttpService } from './common/custom-http/customHttp.service';
 import { UserInfoService } from './domain/wedding/userInfo.service';
 import { ConfigModule } from '@nestjs/config';
-import { APP_PIPE } from '@nestjs/core';
+import { APP_FILTER, APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 import { ValidationPipe } from './core/validation/validation.pipe';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import path from 'path';
 import { BoardController } from './domain/board/board.controller';
 import { BoardService } from './domain/board/board.service';
+import { AccessLoggerService } from './core/access-log/access-logger.service';
+import { AccessLoggerInterceptor } from './core/access-log/access-logger.interceptor';
+import { Logger } from '@nestjs/common/services/logger.service';
+import {
+    RequestInfoInterceptor,
+    RequestInfoService,
+} from './core/request-info';
+import { WebExceptionFilter } from './core/exception/web-exception.filter';
 
 @Module({
     imports: [
@@ -30,14 +38,32 @@ import { BoardService } from './domain/board/board.service';
     ],
     controllers: [AppController, WeddingController, BoardController],
     providers: [
+        Logger,
         NotionService,
         CustomHttpService,
         UserInfoService,
         BoardService,
+        AccessLoggerService,
+        RequestInfoService,
         {
             provide: APP_PIPE,
             scope: Scope.REQUEST,
             useClass: ValidationPipe,
+        },
+        {
+            provide: APP_INTERCEPTOR,
+            scope: Scope.REQUEST, // 요청마다 생성되고 요청이 종료되면 삭제됨.
+            useClass: AccessLoggerInterceptor,
+        },
+        {
+            provide: APP_INTERCEPTOR,
+            scope: Scope.REQUEST, // 요청마다 생성되고 요청이 종료되면 삭제됨.
+            useClass: RequestInfoInterceptor,
+        },
+        {
+            provide: APP_FILTER,
+            scope: Scope.REQUEST, // 요청마다 생성되고 요청이 종료되면 삭제됨.
+            useClass: WebExceptionFilter,
         },
     ],
 })

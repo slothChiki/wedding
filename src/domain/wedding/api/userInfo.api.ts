@@ -1,23 +1,12 @@
-import {
-    validate,
-    validateOrReject,
-    Contains,
-    IsInt,
-    Length,
-    IsEmail,
-    IsFQDN,
-    IsDate,
-    Min,
-    Max,
-    IsString,
-    IsNumber,
-    isDate,
-} from 'class-validator';
+import { IsDate, IsOptional, IsString } from 'class-validator';
 
 export class UserInfoApi {
-    constructor() {}
+    constructor(options?: Partial<UserInfoApi>) {
+        if (options !== undefined) Object.assign(this, options);
+    }
     @IsString()
-    idx!: string;
+    @IsOptional()
+    idx?: string;
 
     @IsString()
     name!: string;
@@ -26,5 +15,6 @@ export class UserInfoApi {
     tel?: string;
 
     @IsDate()
+    @IsOptional()
     contactDate?: Date;
 }

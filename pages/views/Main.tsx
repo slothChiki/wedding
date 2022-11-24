@@ -5,7 +5,7 @@ import Footer from './common/Footer';
 import Banner from './component/movie-info/Banner';
 import NavBar from './component/movie-info/NavBar';
 import Introduce from './component/Introduce';
-import TheaterInfo from './component/theater-info/TheaterInfo';
+import Location from './component/theater-info/Location';
 import Board from './component/movie-info/Board';
 import PopupImage from './component/PopupImage';
 import PopupShare from './component/PopupShare';

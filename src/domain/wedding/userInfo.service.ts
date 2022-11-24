@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import {
     CreatePageParameters,
+    CreatePageResponse,
+    GetPageResponse,
     PageObjectResponse,
     PartialPageObjectResponse,
     QueryDatabaseResponse,
@@ -10,6 +12,9 @@ import { UserInfoApi } from './api/userInfo.api';
 import { NotionService } from '../../common/notion/notion.service';
 import * as notionKey from '../../common/notion/notionKey';
 import { PropertiesType } from '../../enums/notion.enum';
+import * as moment from 'moment';
+import 'moment/locale/ko';
+moment.locale('ko');
 
 @Injectable()
 export class UserInfoService {
@@ -111,14 +116,37 @@ export class UserInfoService {
         return findOne;
     }
 
-    // async putUserInfoPage (data:UserInfoApi) {
-    //     const inputData:CreatePageParameters = {
-    //        parent: {
-    //            database_id: '',
-    //         type?: "database_id",
-    //     },
-    //        properties: ,
+    async putUserInfoPage(data: UserInfoApi): Promise<CreatePageResponse> {
+        const inputData: CreatePageParameters = {
+            parent: {
+                database_id: notionKey.userInfoDb,
+                type: 'database_id',
+            },
+            properties: {
+                name: {
+                    title: [{ text: { content: data.name } }],
+                    type: 'title',
+                },
+                tel: {
+                    rich_text: [{ text: { content: data.tel } }],
+                    type: 'rich_text',
+                },
+                contactDate: {
+                    date: {
+                        start: moment.default().format('YYYY-MM-DD HH:mm:ss'),
+                        time_zone: 'Asia/Seoul',
+                    },
+                },
+            },
+        };
 
-    //     };
-    // }
+        return await this.notionService.setPageData(
+            notionKey.userInfoDb,
+            inputData,
+        );
+    }
+
+    async delUserPage(id: string): Promise<GetPageResponse> {
+        return await this.notionService.delPage(notionKey.userInfoDb);
+    }
 }

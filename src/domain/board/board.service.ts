@@ -1,7 +1,93 @@
 import { Injectable } from '@nestjs/common';
 import { NotionService } from '../../common/notion/notion.service';
+import { UserInfoApi } from '../wedding/api/userInfo.api';
+import {
+    CreatePageParameters,
+    CreatePageResponse,
+    GetPageResponse,
+    QueryDatabaseResponse,
+} from '@notionhq/client/build/src/api-endpoints';
+import * as notionKey from '../../common/notion/notionKey';
+import { PropertiesType } from '../../enums/notion.enum';
+import { boardDB } from '../../common/notion/notionKey';
+import { BoardListApi } from './api/board-list.api';
+import * as moment from 'moment';
 
 @Injectable()
 export class BoardService {
     constructor(private readonly notionService: NotionService) {}
+
+    async getBoardList(): Promise<BoardListApi[]> {
+        const notionData: QueryDatabaseResponse =
+            await this.notionService.getDBDataList(notionKey.boardDB);
+        const result: Record<string, any>[] = notionData.results;
+        const boardList: BoardListApi[] = [];
+        for (const entity of result) {
+            const properties = entity.properties;
+            boardList.push({
+                idx: entity.id,
+                name: await this.notionService.getPropertiesValue(
+                    properties['name'],
+                    PropertiesType.TITLE,
+                ),
+                contents: await this.notionService.getPropertiesValue(
+                    properties['contents'],
+                    PropertiesType.RICH_TEXT,
+                ),
+                tel: await this.notionService.getPropertiesValue(
+                    properties['tel'],
+                    PropertiesType.RICH_TEXT,
+                ),
+                regDate: new Date(
+                    await this.notionService.getPropertiesValue(
+                        properties['regDate'],
+                        PropertiesType.DATE,
+                    ),
+                ),
+            } as BoardListApi);
+        }
+        return boardList;
+    }
+
+    async putBoardPage(data: BoardListApi): Promise<CreatePageResponse> {
+        const inputData: CreatePageParameters = {
+            parent: {
+                database_id: notionKey.boardDB,
+                type: 'database_id',
+            },
+            properties: {
+                name: {
+                    title: [{ text: { content: data.name } }],
+                    type: 'title',
+                },
+                contents: {
+                    rich_text: [{ text: { content: data.contents } }],
+                    type: 'rich_text',
+                },
+                tel: {
+                    rich_text: [{ text: { content: data.tel } }],
+                    type: 'rich_text',
+                },
+                regDate: {
+                    date: {
+                        start: moment.default().format('YYYY-MM-DD HH:mm:ss'),
+                        time_zone: 'Asia/Seoul',
+                    },
+                },
+            },
+        };
+
+        return await this.notionService.setPageData(
+            notionKey.boardDB,
+            inputData,
+        );
+    }
+
+    async updateBoardPage(data: BoardListApi) {
+        return await this.notionService.updatePage(notionKey.boardDB, {});
+    }
+
+    async delBoardPage(id: string): Promise<GetPageResponse> {
+        return await this.notionService.delPage(notionKey.boardDB);
+    }
 }
