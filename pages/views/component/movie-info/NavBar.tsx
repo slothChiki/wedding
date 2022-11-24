@@ -1,12 +1,21 @@
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 import { NavMenu } from 'src/enums/wedding.enum';
 
 interface Props {
     setStep: any;
 }
 const NavBar: NextPage<Props> = ({ setStep = null }) => {
+    const dispatch = useDispatch();
+    const router = useRouter();
+
     const goNavMenu = (step: NavMenu) => {
         setStep(step);
+    }
+
+    const goPage = (path: string) => {
+        router.push(path);
     }
     return (
         <>
@@ -25,7 +34,7 @@ const NavBar: NextPage<Props> = ({ setStep = null }) => {
                         <button className="nav-menu" onClick={() => { goNavMenu(NavMenu.BOOKING) }}>예약하기</button>
                     </li>
                     <li>
-                        <button className="nav-menu" onClick={() => { goNavMenu(NavMenu.REVIEW) }}>방명록</button>
+                        <button className="nav-menu" onClick={() => { goPage('/board') }}>방명록</button>
                     </li>
                 </ul>
             </div>

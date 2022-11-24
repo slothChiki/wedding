@@ -13,6 +13,7 @@ import { UserInfoApi } from './api/userInfo.api';
 import { RestApi } from '../../core/decorator/rest-api.decorator';
 import { WebExceptionFilter } from '../../core/exception/web-exception.filter';
 import { BoardService } from '../board/board.service';
+import { MainManu } from 'src/enums/wedding.enum';
 
 @UseFilters(WebExceptionFilter)
 @Controller('')
@@ -29,7 +30,7 @@ export class WeddingController {
             await this.userInfoService.getUserInfoList();
 
         return {
-            aaa: 'notionData',
+            headerMenu: MainManu.MOVIE_INFO,
         };
     }
 

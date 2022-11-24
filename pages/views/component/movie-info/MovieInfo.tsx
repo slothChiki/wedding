@@ -4,7 +4,7 @@ import { NavMenu } from '../../../../src/enums/wedding.enum';
 import NavBar from './NavBar';
 import Introduce from '../Introduce';
 import Album from './Album';
-import Board from './Board';
+import Board from '../../Board';
 import Main from 'pages/views/component/movie-info/main/Main';
 interface Props {
     aaa: string;

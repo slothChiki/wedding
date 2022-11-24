@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../../../modules/reducer/rootReducer';
-import { BoardListApi } from '../../../../../src/domain/board/api/board-list.api';
+import { RootState } from '../../../modules/reducer/rootReducer';
+import { BoardListApi } from '../../../src/domain/board/api/board-list.api';
 
 interface Props {
     boardList: BoardListApi[];

@@ -2,12 +2,13 @@ import { NextPage, NextPageContext } from 'next';
 import React, { useEffect } from 'react';
 import InputComment from './board/InputComment';
 import { useDispatch } from 'react-redux';
-import { load } from '../../../../modules/load';
+import { load } from '../../modules/load';
 import BoardView from './board/BoardView';
-import wrapper from '../../../../modules/store/store';
-import * as weddingReducer from '../../../../modules/reducer/wedding';
-import { MainManu } from '../../../../src/enums/wedding.enum';
-import { BoardListApi } from '../../../../src/domain/board/api/board-list.api';
+import wrapper from '../../modules/store/store';
+import * as weddingReducer from '../../modules/reducer/wedding';
+import { MainManu } from '../../src/enums/wedding.enum';
+import { BoardListApi } from '../../src/domain/board/api/board-list.api';
+import HeaderMenu from './component/movie-info/banner/HeaderManu';
 
 interface Props {
     boardList: BoardListApi[];
@@ -17,10 +18,14 @@ const Board: NextPage<any> = ({ boardList }: Props) => {
 
     return (
         <>
-            board
-            <div className="card-board">
-                <BoardView boardList={boardList} />
-                <InputComment />
+            <div className="container">
+                <div className="wrap">
+                    <HeaderMenu />
+                    <div className="card-board">
+                        <BoardView boardList={boardList} />
+                        <InputComment />
+                    </div>
+                </div>
             </div>
         </>
     );
