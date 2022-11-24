@@ -9,7 +9,7 @@ export function* loadSaga(action) {
         else if (action.method === 'POST')
             response = yield call(requestPOST, action);
 
-        if (response.data.error == ErrorCode.SUCCESS) {
+        if (response.data.code == ErrorCode.SUCCESS) {
             yield put({
                 type: action.type + '_SUCCESS',
                 param: response.data,

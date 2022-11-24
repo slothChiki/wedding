@@ -9,10 +9,13 @@ exports.__esModule = true;
 exports.UserInfoApi = void 0;
 var class_validator_1 = require("class-validator");
 var UserInfoApi = /** @class */ (function () {
-    function UserInfoApi() {
+    function UserInfoApi(options) {
+        if (options !== undefined)
+            Object.assign(this, options);
     }
     __decorate([
-        (0, class_validator_1.IsString)()
+        (0, class_validator_1.IsString)(),
+        (0, class_validator_1.IsOptional)()
     ], UserInfoApi.prototype, "idx");
     __decorate([
         (0, class_validator_1.IsString)()
@@ -21,7 +24,8 @@ var UserInfoApi = /** @class */ (function () {
         (0, class_validator_1.IsString)()
     ], UserInfoApi.prototype, "tel");
     __decorate([
-        (0, class_validator_1.IsDate)()
+        (0, class_validator_1.IsDate)(),
+        (0, class_validator_1.IsOptional)()
     ], UserInfoApi.prototype, "contactDate");
     return UserInfoApi;
 }());

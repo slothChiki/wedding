@@ -33,6 +33,7 @@ export class ResponseInterceptor implements NestInterceptor {
                     return new ResponseApiBase(data);
                 } else return data;
             }),
+            // tap(async () => {}),
         );
     }
 }

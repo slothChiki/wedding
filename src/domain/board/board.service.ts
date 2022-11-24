@@ -12,6 +12,8 @@ import { PropertiesType } from '../../enums/notion.enum';
 import { boardDB } from '../../common/notion/notionKey';
 import { BoardListApi } from './api/board-list.api';
 import * as moment from 'moment';
+import { WebException } from '../../core/exception/web-exception';
+import { ErrorCode } from '../../core/exception/errorCode';
 
 @Injectable()
 export class BoardService {
@@ -22,6 +24,9 @@ export class BoardService {
             await this.notionService.getDBDataList(notionKey.boardDB);
         const result: Record<string, any>[] = notionData.results;
         const boardList: BoardListApi[] = [];
+        if (!result) {
+            return boardList;
+        }
         for (const entity of result) {
             const properties = entity.properties;
             boardList.push({
@@ -50,6 +55,25 @@ export class BoardService {
     }
 
     async putBoardPage(data: BoardListApi): Promise<CreatePageResponse> {
+        if (!data.name) {
+            throw new WebException(
+                ErrorCode.BOARD_NAME_NULL,
+                `[putBoardPage] name null`,
+            );
+        }
+        if (!data.tel) {
+            throw new WebException(
+                ErrorCode.BOARD_TEL_NULL,
+                `[putBoardPage] tel null`,
+            );
+        }
+        if (!data.contents) {
+            throw new WebException(
+                ErrorCode.BOARD_CONTENTS_NULL,
+                `[putBoardPage] contents null`,
+            );
+        }
+        // TODO - 값 없을 때 에러 내줘서 프론트 처리해주기
         const inputData: CreatePageParameters = {
             parent: {
                 database_id: notionKey.boardDB,

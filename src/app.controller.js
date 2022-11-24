@@ -14,9 +14,16 @@ var AppController = /** @class */ (function () {
     AppController.prototype.check = function () {
         return 'ok';
     };
+    AppController.prototype.mega = function () {
+        return;
+    };
     __decorate([
         (0, common_1.Get)('/check')
     ], AppController.prototype, "check");
+    __decorate([
+        (0, common_1.Get)('/mega'),
+        (0, common_1.Render)('/card/Mega')
+    ], AppController.prototype, "mega");
     AppController = __decorate([
         (0, common_1.Controller)()
     ], AppController);

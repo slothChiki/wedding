@@ -12,11 +12,15 @@ import {
 import { UserInfoApi } from './api/userInfo.api';
 import { RestApi } from '../../core/decorator/rest-api.decorator';
 import { WebExceptionFilter } from '../../core/exception/web-exception.filter';
+import { BoardService } from '../board/board.service';
 
 @UseFilters(WebExceptionFilter)
 @Controller('')
 export class WeddingController {
-    constructor(private readonly userInfoService: UserInfoService) {}
+    constructor(
+        private readonly userInfoService: UserInfoService,
+        private readonly boardService: BoardService,
+    ) {}
 
     @Get('/')
     @Render('/Main')
@@ -49,11 +53,5 @@ export class WeddingController {
         return {
             aaa: 'notionData',
         };
-    }
-    @RestApi()
-    @Post('/setUser')
-    async getUser(@Body() body: UserInfoApi) {
-        console.log('user!');
-        return await this.userInfoService.putUserInfoPage(body);
     }
 }

@@ -48,6 +48,7 @@ export default class MyDocument extends Document {
                         crossOrigin="anonymous"
                     />
                     <NaverMap />
+
                     {/*<SendScript />*/}
                 </Head>
                 <body>

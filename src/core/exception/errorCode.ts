@@ -2,5 +2,15 @@ export enum ErrorCode {
     SUCCESS = 100,
     DEFAULT_ERROR = 200,
     VALIDATION_ERROR = 10000,
+
+    // 게시판 관련
+    BOARD_NAME_NULL = 11000,
+    BOARD_TEL_NULL = 11001,
+    BOARD_CONTENTS_NULL = 11002,
+
+    // 노션 관련
+    NOTION_DB_ID_NULL = 19000,
+    NOTION_INPUT_DATA_NULL = 19001,
+
     INTERNAL_ERROR = 20000,
 }

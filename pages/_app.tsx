@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import type { AppProps } from 'next/app';
 import wrapper from '../modules/store/store';
 import Head from 'next/head';
@@ -17,6 +17,10 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
                     name="viewport"
                     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
                 />
+                <meta charSet="UTF-8" />
+                <meta name="format-detection" content="telephone=no" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+                <title>나연 상민 모바일 청첩장</title>
             </Head>
             <Component {...pageProps} />
         </>

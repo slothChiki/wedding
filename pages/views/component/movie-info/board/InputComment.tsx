@@ -5,29 +5,44 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; // 리덕스 개발자 도구
 import * as weddingReducer from 'modules/reducer/wedding';
 import { useDispatch } from 'react-redux';
+import { load } from '../../../../../modules/load';
+import { BoardListApi } from '../../../../../src/domain/board/api/board-list.api';
 
 interface Props {
     aaa: string;
 }
 const InputComment: NextPage<any> = () => {
-    const store = createStore(rootReducer, composeWithDevTools());
     const [name, setName] = useState('');
-    const [comment, setComment] = useState('');
+    const [tel, setTel] = useState('');
+    const [contents, setContents] = useState('');
+    const dispatch = useDispatch();
 
     const inputName = (e) => {
         setName(e.target.value);
     };
 
+    const inputTel = (e) => {
+        setTel(e.target.value);
+    };
+
     const inputComment = (e) => {
-        setComment(e.target.value);
+        setContents(e.target.value);
     };
     // const dispatch = useDispatch();
 
     const submitComment = () => {
-        // TODO : api 만들어야 함 notion 보내는
-        console.log(store.getState()); // 스토어의 상태를 확인해봅시다.
-        console.log(name + ' / ' + comment);
-        store.dispatch(weddingReducer.initDetailInfo({ aaa: 'fhkfhkfhk' }));
+        const boardData = new BoardListApi({
+            name: name,
+            tel: tel,
+            contents: contents,
+        });
+        dispatch(
+            load({
+                apiPath: 'board/putBoard',
+                method: 'POST',
+                param: boardData,
+            }),
+        );
     };
 
     return (
@@ -38,17 +53,20 @@ const InputComment: NextPage<any> = () => {
                     type="text"
                     className="input-name"
                     value={name}
-                    onChange={(e) => {
-                        inputName(e);
-                    }}
+                    onChange={inputName}
+                />
+                <label htmlFor="input-name">연락처</label>
+                <input
+                    type="text"
+                    className="input-name"
+                    value={tel}
+                    onChange={inputTel}
                 />
                 <label htmlFor="input-comment">내용</label>
                 <textarea
                     className="input-comment"
-                    value={comment}
-                    onChange={(e) => {
-                        inputComment(e);
-                    }}
+                    value={contents}
+                    onChange={inputComment}
                 />
                 <button className="input-btn" onClick={submitComment}>
                     등록

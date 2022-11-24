@@ -44,9 +44,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.UserInfoService = void 0;
 var common_1 = require("@nestjs/common");
-var userInfo_api_1 = require("./api/userInfo.api");
 var notionKey = require("../../common/notion/notionKey");
-var notion_enum_1 = require("../../common/notion/enums/notion.enum");
+var moment = require("moment");
+require("moment/locale/ko");
+moment.locale('ko');
 var UserInfoService = /** @class */ (function () {
     function UserInfoService(notionService) {
         this.notionService = notionService;
@@ -72,14 +73,14 @@ var UserInfoService = /** @class */ (function () {
                         _d = {
                             idx: entity.id
                         };
-                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['name'], notion_enum_1.PropertiesType.TITLE)];
+                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['name'], "title" /* PropertiesType.TITLE */)];
                     case 3:
                         _d.name = _e.sent();
-                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['tel'], notion_enum_1.PropertiesType.RICH_TEXT)];
+                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['tel'], "rich_text" /* PropertiesType.RICH_TEXT */)];
                     case 4:
                         _d.tel = _e.sent();
                         _c = Date.bind;
-                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['contactDate'], notion_enum_1.PropertiesType.DATE)];
+                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['contactDate'], "date" /* PropertiesType.DATE */)];
                     case 5:
                         _b.apply(_a, [(_d.contactDate = new (_c.apply(Date, [void 0, _e.sent()]))(),
                                 _d)]);
@@ -112,20 +113,20 @@ var UserInfoService = /** @class */ (function () {
                         keys = Object.keys(properties);
                         //Reflection 쓰고싶다....ㅜㅜㅜㅜ
                         _b = (_a = userMap).set;
-                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['name'], notion_enum_1.PropertiesType.TITLE)];
+                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['name'], "title" /* PropertiesType.TITLE */)];
                     case 3:
                         _c = [_f.sent()];
                         _e = {
                             idx: entity.id
                         };
-                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['name'], notion_enum_1.PropertiesType.TITLE)];
+                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['name'], "title" /* PropertiesType.TITLE */)];
                     case 4:
                         _e.name = _f.sent();
-                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['tel'], notion_enum_1.PropertiesType.RICH_TEXT)];
+                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['tel'], "rich_text" /* PropertiesType.RICH_TEXT */)];
                     case 5:
                         _e.tel = _f.sent();
                         _d = Date.bind;
-                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['contactDate'], notion_enum_1.PropertiesType.DATE)];
+                        return [4 /*yield*/, this.notionService.getPropertiesValue(properties['contactDate'], "date" /* PropertiesType.DATE */)];
                     case 6:
                         //Reflection 쓰고싶다....ㅜㅜㅜㅜ
                         _b.apply(_a, _c.concat([(_e.contactDate = new (_d.apply(Date, [void 0, _f.sent()]))(),
@@ -158,18 +159,61 @@ var UserInfoService = /** @class */ (function () {
     };
     UserInfoService.prototype.findUserOneFromMap = function (name, tel) {
         return __awaiter(this, void 0, void 0, function () {
-            var userMap, user, findOne;
+            var userMap, findOne;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.getUserInfoMap()];
                     case 1:
                         userMap = _a.sent();
-                        user = new userInfo_api_1.UserInfoApi();
                         findOne = userMap.get('name');
                         if (!findOne) {
                             return [2 /*return*/, null];
                         }
                         return [2 /*return*/, findOne];
+                }
+            });
+        });
+    };
+    UserInfoService.prototype.putUserInfoPage = function (data) {
+        return __awaiter(this, void 0, void 0, function () {
+            var inputData;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        inputData = {
+                            parent: {
+                                database_id: notionKey.userInfoDb,
+                                type: 'database_id'
+                            },
+                            properties: {
+                                name: {
+                                    title: [{ text: { content: data.name } }],
+                                    type: 'title'
+                                },
+                                tel: {
+                                    rich_text: [{ text: { content: data.tel } }],
+                                    type: 'rich_text'
+                                },
+                                contactDate: {
+                                    date: {
+                                        start: moment["default"]().format('YYYY-MM-DD HH:mm:ss'),
+                                        time_zone: 'Asia/Seoul'
+                                    }
+                                }
+                            }
+                        };
+                        return [4 /*yield*/, this.notionService.setPageData(notionKey.userInfoDb, inputData)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    UserInfoService.prototype.delUserPage = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.notionService.delPage(notionKey.userInfoDb)];
+                    case 1: return [2 /*return*/, _a.sent()];
                 }
             });
         });

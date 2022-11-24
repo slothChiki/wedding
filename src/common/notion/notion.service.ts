@@ -17,6 +17,8 @@ import {
 } from '@notionhq/client/build/src/api-endpoints';
 import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { PropertiesType } from '../../enums/notion.enum';
+import { WebException } from '../../core/exception/web-exception';
+import { ErrorCode } from '../../core/exception/errorCode';
 
 @Injectable()
 export class NotionService {
@@ -24,7 +26,10 @@ export class NotionService {
 
     async getDBDataList(dataBaseKey: string): Promise<QueryDatabaseResponse> {
         if (!dataBaseKey) {
-            throw new NotFoundException();
+            throw new WebException(
+                ErrorCode.NOTION_DB_ID_NULL,
+                `[getPageData] dataBaseKey null.`,
+            );
         }
         const res = await this.notion.databases.query({
             database_id: dataBaseKey,
@@ -52,7 +57,10 @@ export class NotionService {
 
     async getPageData(dataBaseKey: string): Promise<GetPageResponse> {
         if (!dataBaseKey) {
-            throw new NotFoundException();
+            throw new WebException(
+                ErrorCode.NOTION_DB_ID_NULL,
+                `[getPageData] dataBaseKey null.`,
+            );
         }
         const res = await this.notion.pages.retrieve({
             page_id: dataBaseKey,
@@ -66,7 +74,10 @@ export class NotionService {
         data: CreatePageParameters,
     ): Promise<CreatePageResponse> {
         if (!data) {
-            throw new NotFoundException();
+            throw new WebException(
+                ErrorCode.NOTION_INPUT_DATA_NULL,
+                `[setPageData] page input data null.`,
+            );
         }
 
         return await this.notion.pages.create(data);

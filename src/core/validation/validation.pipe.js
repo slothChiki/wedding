@@ -47,7 +47,7 @@ var common_1 = require("@nestjs/common");
 var class_validator_1 = require("class-validator");
 var class_transformer_1 = require("class-transformer");
 var util = require("util");
-var WebException_1 = require("../exception/WebException");
+var web_exception_1 = require("../exception/web-exception");
 var errorCode_1 = require("../exception/errorCode");
 var ValidationPipe = /** @class */ (function () {
     function ValidationPipe() {
@@ -70,7 +70,7 @@ var ValidationPipe = /** @class */ (function () {
                         if (errors.length > 0) {
                             validationError = errors[0];
                             message = "[validation error] ".concat(validationError.property, " : ").concat(validationError.value, " / metatype : ").concat(metatype === null || metatype === void 0 ? void 0 : metatype.name, " / ").concat(util.inspect(validationError.constraints));
-                            throw new WebException_1.WebException(errorCode_1.ErrorCode.VALIDATION_ERROR, message);
+                            throw new web_exception_1.WebException(errorCode_1.ErrorCode.VALIDATION_ERROR, message);
                         }
                         return [2 /*return*/, value];
                 }

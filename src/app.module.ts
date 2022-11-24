@@ -21,6 +21,7 @@ import {
     RequestInfoService,
 } from './core/request-info';
 import { WebExceptionFilter } from './core/exception/web-exception.filter';
+import { ResponseInterceptor } from './core/respons-interceptor/response.interceptor';
 
 @Module({
     imports: [
@@ -59,6 +60,11 @@ import { WebExceptionFilter } from './core/exception/web-exception.filter';
             provide: APP_INTERCEPTOR,
             scope: Scope.REQUEST, // 요청마다 생성되고 요청이 종료되면 삭제됨.
             useClass: RequestInfoInterceptor,
+        },
+        {
+            provide: APP_INTERCEPTOR,
+            scope: Scope.REQUEST, // 요청마다 생성되고 요청이 종료되면 삭제됨.
+            useClass: ResponseInterceptor,
         },
         {
             provide: APP_FILTER,

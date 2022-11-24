@@ -44,22 +44,44 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.WeddingController = void 0;
 var common_1 = require("@nestjs/common");
+var rest_api_decorator_1 = require("../../core/decorator/rest-api.decorator");
+var web_exception_filter_1 = require("../../core/exception/web-exception.filter");
 var WeddingController = /** @class */ (function () {
-    function WeddingController(userInfoService) {
+    function WeddingController(userInfoService, boardService) {
         this.userInfoService = userInfoService;
+        this.boardService = boardService;
     }
     WeddingController.prototype.index = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var notionData;
             return __generator(this, function (_a) {
-                // const notionData: UserInfoApi[] =
-                //     await this.userInfoService.getUserInfoList();
-                return [2 /*return*/, {
-                        aaa: 'notionData'
-                    }];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.userInfoService.getUserInfoList()];
+                    case 1:
+                        notionData = _a.sent();
+                        return [2 /*return*/, {
+                                aaa: 'notionData'
+                            }];
+                }
             });
         });
     };
-    WeddingController.prototype.getUser = function () {
+    WeddingController.prototype.movieInfo = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var notionData;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.userInfoService.getUserInfoList()];
+                    case 1:
+                        notionData = _a.sent();
+                        return [2 /*return*/, {
+                                aaa: notionData
+                            }];
+                }
+            });
+        });
+    };
+    WeddingController.prototype.theaterInfo = function () {
         return __awaiter(this, void 0, void 0, function () {
             var notionData;
             return __generator(this, function (_a) {
@@ -79,10 +101,15 @@ var WeddingController = /** @class */ (function () {
         (0, common_1.Render)('/Main')
     ], WeddingController.prototype, "index");
     __decorate([
-        (0, common_1.Get)('/user'),
-        (0, common_1.Render)('card/Card01')
-    ], WeddingController.prototype, "getUser");
+        (0, rest_api_decorator_1.RestApi)(),
+        (0, common_1.Post)('/movieInfo')
+    ], WeddingController.prototype, "movieInfo");
+    __decorate([
+        (0, common_1.Get)('/theaterInfo'),
+        (0, common_1.Render)('/TheaterInfo')
+    ], WeddingController.prototype, "theaterInfo");
     WeddingController = __decorate([
+        (0, common_1.UseFilters)(web_exception_filter_1.WebExceptionFilter),
         (0, common_1.Controller)('')
     ], WeddingController);
     return WeddingController;

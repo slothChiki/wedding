@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -46,7 +57,8 @@ exports.NotionService = void 0;
 var client_1 = require("@notionhq/client");
 var notionKey_1 = require("./notionKey");
 var common_1 = require("@nestjs/common");
-var notion_enum_1 = require("./enums/notion.enum");
+var web_exception_1 = require("../../core/exception/web-exception");
+var errorCode_1 = require("../../core/exception/errorCode");
 var NotionService = /** @class */ (function () {
     function NotionService() {
         this.notion = new client_1.Client({ auth: notionKey_1.Notionkey });
@@ -58,10 +70,11 @@ var NotionService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         if (!dataBaseKey) {
-                            throw new common_1.NotFoundException;
+                            throw new web_exception_1.WebException(errorCode_1.ErrorCode.NOTION_DB_ID_NULL, "[getPageData] dataBaseKey null.");
                         }
                         return [4 /*yield*/, this.notion.databases.query({
-                                database_id: dataBaseKey
+                                database_id: dataBaseKey,
+                                sorts: [{ timestamp: 'created_time', direction: 'descending' }]
                             })];
                     case 1:
                         res = _a.sent();
@@ -70,20 +83,21 @@ var NotionService = /** @class */ (function () {
             });
         });
     };
-    NotionService.prototype.setDBData = function (dataBaseKey, data) {
-        return __awaiter(this, void 0, void 0, function () {
-            var res;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.notion.databases.create(data)];
-                    case 1:
-                        res = _a.sent();
-                        // console.log(JSON.stringify(res));
-                        return [2 /*return*/, res];
-                }
-            });
-        });
-    };
+    // async getDBData(
+    //     dataBaseKey: string,
+    //     filterList: Array<QueryDatabaseParameters>,
+    // ): Promise<QueryDatabaseResponse> {
+    //     if (!dataBaseKey) {
+    //         throw new NotFoundException();
+    //     }
+    //
+    //     const res = await this.notion.databases.query({
+    //         ...filterList,
+    //         database_id: dataBaseKey,
+    //     });
+    //
+    //     return res;
+    // }
     NotionService.prototype.getPageData = function (dataBaseKey) {
         return __awaiter(this, void 0, void 0, function () {
             var res;
@@ -91,7 +105,7 @@ var NotionService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         if (!dataBaseKey) {
-                            throw new common_1.NotFoundException;
+                            throw new web_exception_1.WebException(errorCode_1.ErrorCode.NOTION_DB_ID_NULL, "[getPageData] dataBaseKey null.");
                         }
                         return [4 /*yield*/, this.notion.pages.retrieve({
                                 page_id: dataBaseKey
@@ -109,7 +123,7 @@ var NotionService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         if (!data) {
-                            throw new common_1.NotFoundException;
+                            throw new web_exception_1.WebException(errorCode_1.ErrorCode.NOTION_INPUT_DATA_NULL, "[setPageData] page input data null.");
                         }
                         return [4 /*yield*/, this.notion.pages.create(data)];
                     case 1: return [2 /*return*/, _a.sent()];
@@ -121,16 +135,39 @@ var NotionService = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (type) {
-                    case notion_enum_1.PropertiesType.TITLE:
-                        return [2 /*return*/, data["title"][0]["plain_text"]];
-                    case notion_enum_1.PropertiesType.RICH_TEXT:
-                        return [2 /*return*/, data["rich_text"][0]["plain_text"]];
-                    case notion_enum_1.PropertiesType.DATE:
-                        return [2 /*return*/, data["start"]];
+                    case "title" /* PropertiesType.TITLE */:
+                        return [2 /*return*/, data['title'][0]['plain_text']];
+                    case "rich_text" /* PropertiesType.RICH_TEXT */:
+                        return [2 /*return*/, data['rich_text'][0]['plain_text']];
+                    case "date" /* PropertiesType.DATE */:
+                        return [2 /*return*/, data['start']];
                     default:
                         return [2 /*return*/, ''];
                 }
                 return [2 /*return*/];
+            });
+        });
+    };
+    NotionService.prototype.updatePage = function (pageId, data) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.notion.pages.update({
+                            page_id: pageId,
+                            properties: __assign({}, data)
+                        })];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    NotionService.prototype.delPage = function (pageId) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.notion.pages.retrieve({ page_id: pageId })];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
             });
         });
     };

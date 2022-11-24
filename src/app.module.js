@@ -18,6 +18,16 @@ var userInfo_service_1 = require("./domain/wedding/userInfo.service");
 var config_1 = require("@nestjs/config");
 var core_1 = require("@nestjs/core");
 var validation_pipe_1 = require("./core/validation/validation.pipe");
+var serve_static_1 = require("@nestjs/serve-static");
+var path_1 = require("path");
+var board_controller_1 = require("./domain/board/board.controller");
+var board_service_1 = require("./domain/board/board.service");
+var access_logger_service_1 = require("./core/access-log/access-logger.service");
+var access_logger_interceptor_1 = require("./core/access-log/access-logger.interceptor");
+var logger_service_1 = require("@nestjs/common/services/logger.service");
+var request_info_1 = require("./core/request-info");
+var web_exception_filter_1 = require("./core/exception/web-exception.filter");
+var response_interceptor_1 = require("./core/respons-interceptor/response.interceptor");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -30,16 +40,43 @@ var AppModule = /** @class */ (function () {
                 })),
                 common_1.HttpModule,
                 config_1.ConfigModule.forRoot(),
+                serve_static_1.ServeStaticModule.forRoot({
+                    rootPath: path_1["default"].resolve(__dirname, '../public')
+                }), // 이미지 렌더!! ㅜㅜㅜㅜㅜ 찾았다
             ],
-            controllers: [app_controller_1.AppController, wedding_controller_1.WeddingController],
+            controllers: [app_controller_1.AppController, wedding_controller_1.WeddingController, board_controller_1.BoardController],
             providers: [
+                logger_service_1.Logger,
                 notion_service_1.NotionService,
                 customHttp_service_1.CustomHttpService,
                 userInfo_service_1.UserInfoService,
+                board_service_1.BoardService,
+                access_logger_service_1.AccessLoggerService,
+                request_info_1.RequestInfoService,
                 {
                     provide: core_1.APP_PIPE,
                     scope: common_1.Scope.REQUEST,
                     useClass: validation_pipe_1.ValidationPipe
+                },
+                {
+                    provide: core_1.APP_INTERCEPTOR,
+                    scope: common_1.Scope.REQUEST,
+                    useClass: access_logger_interceptor_1.AccessLoggerInterceptor
+                },
+                {
+                    provide: core_1.APP_INTERCEPTOR,
+                    scope: common_1.Scope.REQUEST,
+                    useClass: request_info_1.RequestInfoInterceptor
+                },
+                {
+                    provide: core_1.APP_INTERCEPTOR,
+                    scope: common_1.Scope.REQUEST,
+                    useClass: response_interceptor_1.ResponseInterceptor
+                },
+                {
+                    provide: core_1.APP_FILTER,
+                    scope: common_1.Scope.REQUEST,
+                    useClass: web_exception_filter_1.WebExceptionFilter
                 },
             ]
         })

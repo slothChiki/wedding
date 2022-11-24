@@ -2,7 +2,7 @@ export const load = (data: {
     apiPath: any;
     method: any;
     param: any;
-    config: any;
+    config?: any;
 }) => {
     return {
         type: data.apiPath,
