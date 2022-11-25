@@ -22,7 +22,7 @@ export class WeddingController {
     ) {}
 
     @Get('/')
-    @Render('movie-info/Main')
+    @Render('nsFlix/Main')
     async index() {
         const notionData: UserInfoApi[] =
             await this.userInfoService.getUserInfoList();

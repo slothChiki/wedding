@@ -22,7 +22,6 @@ import {
 } from './core/request-info';
 import { WebExceptionFilter } from './core/exception/web-exception.filter';
 import { ResponseInterceptor } from './core/respons-interceptor/response.interceptor';
-import { MovieInfoController } from './domain/wedding/movie-info.controller';
 
 @Module({
     imports: [
@@ -38,12 +37,7 @@ import { MovieInfoController } from './domain/wedding/movie-info.controller';
             rootPath: path.resolve(__dirname, '../public'),
         }), // 이미지 렌더!! ㅜㅜㅜㅜㅜ 찾았다
     ],
-    controllers: [
-        AppController,
-        WeddingController,
-        BoardController,
-        MovieInfoController,
-    ],
+    controllers: [AppController, WeddingController, BoardController],
     providers: [
         Logger,
         NotionService,

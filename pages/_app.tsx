@@ -8,6 +8,8 @@ import '../public/css/examples-base.css';
 import '../public/css/bootstrap.css';
 import '../public/css/bootstrap.min.css';
 import '../public/css/bootstrap.css';
+import '../public/css/index.css';
+import '../public/font/font.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
     return (
@@ -15,7 +17,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
             <Head>
                 <meta
                     name="viewport"
-                    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
+                    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
                 />
                 <meta charSet="UTF-8" />
                 <meta name="format-detection" content="telephone=no" />

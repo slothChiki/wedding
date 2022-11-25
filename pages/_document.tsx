@@ -8,8 +8,8 @@ import Document, {
 import { ServerStyleSheet } from 'styled-components';
 import Script from 'next/script';
 import React from 'react';
-import NaverMap from './views/theater-info/location/script/NaverMapScript';
-import SendScript from './views/movie-info/introduce/SendScript';
+import NaverMap from './views/component/theater-info/location/script/NaverMapScript';
+import SendScript from './views/component/movie-info/introduce/SendScript';
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
@@ -46,6 +46,17 @@ export default class MyDocument extends Document {
                         src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.js"
                         integrity="sha384-geDMoEPQD/YUg5vIzKYMrqDwvs/7jrTormn7E/g4EqLSSAssbMDTe0n+bc+hkAyi"
                         crossOrigin="anonymous"
+                    />
+                    <link
+                        rel="stylesheet"
+                        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+                    />
+                    <link
+                        rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+                        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+                        crossOrigin="anonymous"
+                        referrerPolicy="no-referrer"
                     />
                     <NaverMap />
 

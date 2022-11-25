@@ -1,0 +1,65 @@
+import { NextPage } from 'next';
+import { Swiper, SwiperSlide } from 'swiper/react'; // basic
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+import 'swiper/css'; //basic
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+interface Props {
+    aaa: string;
+}
+
+
+const PhotoSwiper: NextPage<any> = () => {
+    const photoList = [
+        "/photo/photo_01.jpg",
+        "/photo/photo_02.jpg",
+        "/photo/photo_03.jpg",
+        "/photo/photo_04.jpg",
+        "/photo/photo_05.jpg",
+        "/photo/photo_06.jpg",
+        "/photo/photo_07.jpg",
+        "/photo/photo_08.jpg",
+        "/photo/photo_09.jpg",
+        "/photo/photo_10.jpg",
+        "/photo/photo_11.jpg",
+        "/photo/photo_12.jpg",
+        "/photo/photo_13.jpg",
+        "/photo/photo_14.jpg",
+        "/photo/photo_15.jpg",
+        "/photo/photo_16.jpg",
+        "/photo/photo_17.jpg",
+        "/photo/photo_18.jpg",
+        "/photo/photo_19.jpg",
+        "/photo/photo_20.jpg"
+    ];
+    return (
+        <>
+            <div className="swiper">
+                <Swiper
+                    spaceBetween={50}
+                    slidesPerView={3}
+                    scrollbar={{ draggable: true }}
+                    navigation
+                    pagination={{ clickable: true }}
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 7,
+                        },
+                    }}
+                >
+                    {photoList.map((v, i) => {
+                        return (
+                        <SwiperSlide
+                        key={`photo-swiper${i}`}
+                        >
+                            <img src={v}/>
+                        </SwiperSlide>)
+                    })}
+
+                </Swiper>
+            </div>
+        </>
+    );
+};
+export default PhotoSwiper;
