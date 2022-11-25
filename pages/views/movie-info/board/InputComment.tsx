@@ -5,8 +5,8 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; // 리덕스 개발자 도구
 import * as weddingReducer from 'modules/reducer/wedding';
 import { useDispatch } from 'react-redux';
-import { load } from '../../../modules/load';
-import { BoardListApi } from '../../../src/domain/board/api/board-list.api';
+import { load } from '../../../../modules/load';
+import { BoardListApi } from '../../../../src/domain/board/api/board-list.api';
 
 interface Props {
     aaa: string;

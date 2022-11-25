@@ -1,16 +1,14 @@
 import { UserInfoService } from './userInfo.service';
 import {
-    Body,
     Controller,
     Get,
-    NotFoundException,
-    Post,
     Render,
+    Request,
+    Response,
     UseFilters,
 } from '@nestjs/common';
 
 import { UserInfoApi } from './api/userInfo.api';
-import { RestApi } from '../../core/decorator/rest-api.decorator';
 import { WebExceptionFilter } from '../../core/exception/web-exception.filter';
 import { BoardService } from '../board/board.service';
 import { MainManu } from 'src/enums/wedding.enum';
@@ -24,7 +22,7 @@ export class WeddingController {
     ) {}
 
     @Get('/')
-    @Render('/Main')
+    @Render('movie-info/Main')
     async index() {
         const notionData: UserInfoApi[] =
             await this.userInfoService.getUserInfoList();
@@ -34,19 +32,8 @@ export class WeddingController {
         };
     }
 
-    @RestApi()
-    @Post('/movieInfo')
-    async movieInfo() {
-        const notionData: UserInfoApi[] =
-            await this.userInfoService.getUserInfoList();
-
-        return {
-            aaa: notionData,
-        };
-    }
-
-    @Get('/theaterInfo')
-    @Render('/TheaterInfo')
+    @Get('/theater-info')
+    @Render('theater-info/TheaterInfo')
     async theaterInfo() {
         const notionData: UserInfoApi[] =
             await this.userInfoService.getUserInfoList();

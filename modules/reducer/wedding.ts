@@ -10,12 +10,10 @@ interface IParam {
 
 type State = {
     currentAction: string;
-    headerMenu: MainManu;
 };
 
 const initialState: State = {
     currentAction: 'default(action)',
-    headerMenu: MainManu.MOVIE_INFO,
 };
 
 export const initDetailInfo = (param) => ({
@@ -36,13 +34,11 @@ function wedding(state = initialState, action: WeddingAction) {
             return {
                 ...state,
                 currentAction: action.type,
-                headerMenu: action.param,
             };
         case HEADER_MENU_CHANGE:
             return {
                 ...state,
                 currentAction: action.type,
-                headerMenu: action.param,
             };
         default:
             return state;

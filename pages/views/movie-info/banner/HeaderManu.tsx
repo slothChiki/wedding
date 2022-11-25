@@ -1,15 +1,29 @@
 import { NextPage } from 'next';
 import React from 'react';
-import * as weddingReducer from '../../../../../modules/reducer/wedding';
 import { useDispatch } from 'react-redux';
-import { MainManu } from '../../../../../src/enums/wedding.enum';
+import { MainManu } from '../../../../src/enums/wedding.enum';
+import { useRouter } from 'next/router';
 
 interface Props {}
 const HeaderMenu: NextPage<Props> = ({}) => {
     const dispatch = useDispatch();
+    const router = useRouter();
     const goHeaderMenu = (menu: MainManu) => {
-        dispatch(weddingReducer.headerMenuChange(menu));
+        let path = '';
+        switch (menu) {
+            case MainManu.THEATER_INFO: {
+                path = '/theater-info';
+                break;
+            }
+            case MainManu.MOVIE_INFO:
+            default: {
+                path = '/movie-info';
+                break;
+            }
+        }
+        router.push(path);
     };
+
     return (
         <>
             <div className="header-menu">
@@ -20,7 +34,9 @@ const HeaderMenu: NextPage<Props> = ({}) => {
                         </div>
                     </li>
                     <li>
-                        <div onClick={() => goHeaderMenu(MainManu.LOCATION)}>
+                        <div
+                            onClick={() => goHeaderMenu(MainManu.THEATER_INFO)}
+                        >
                             상영관 안내
                         </div>
                     </li>

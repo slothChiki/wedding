@@ -10,17 +10,6 @@ import { BoardViewDto } from './api/board-view.dto';
 export class BoardController {
     constructor(private readonly boardService: BoardService) {}
 
-    @Get('')
-    @Render('/Board')
-    async Board(): Promise<BoardViewDto> {
-        const boardList: BoardListApi[] =
-            await this.boardService.getBoardList();
-
-        return {
-            boardList: JSON.parse(JSON.stringify(boardList)),
-        };
-    }
-
     @RestApi()
     @Post('/putBoard')
     async putBoard(@Body() body: BoardListApi) {

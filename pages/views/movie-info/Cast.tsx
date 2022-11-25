@@ -1,12 +1,12 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
-import Account from './movie-info/introduce/Account';
+import Account from './introduce/Account';
 
 interface Props {
     aaa: string;
 }
-const Introduce: NextPage<any> = () => {
+const Cast: NextPage<any> = () => {
     return (
         <>
             <div className="card-introduce">
@@ -36,4 +36,4 @@ const Introduce: NextPage<any> = () => {
         </>
     );
 };
-export default Introduce;
+export default Cast;

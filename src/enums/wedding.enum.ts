@@ -6,7 +6,7 @@ export const enum Navigation {
 
 export const enum MainManu {
     MOVIE_INFO = 0,
-    LOCATION = 1,
+    THEATER_INFO = 1,
 }
 
 export const enum NavMenu {

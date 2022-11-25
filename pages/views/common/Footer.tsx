@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import React from 'react';
-import SendScript from '../component/movie-info/introduce/SendScript';
-import Scripts from '../component/theater-info/location/script/Script';
+import SendScript from '../movie-info/introduce/SendScript';
+import Scripts from '../theater-info/location/script/Script';
 
 interface Props {
     aaa: string;

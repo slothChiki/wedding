@@ -1,16 +1,13 @@
 import { NextPage } from 'next';
 import React, { useState } from 'react';
-import Header from './common/Header';
-import PopupImage from './component/PopupImage';
-import { ImageDto } from '../../src/domain/wedding/dto/image.dto';
-import wrapper from '../../modules/store/store';
-import * as weddingReducer from '../../modules/reducer/wedding';
+import { ImageDto } from '../../../src/domain/wedding/dto/image.dto';
+import wrapper from '../../../modules/store/store';
+import * as weddingReducer from '../../../modules/reducer/wedding';
 import { useDispatch, useSelector } from 'react-redux';
-import { MainManu } from '../../src/enums/wedding.enum';
-import HeaderMenu from './component/movie-info/banner/HeaderManu';
-import { RootState } from '../../modules/reducer/rootReducer';
-import MovieInfo from './component/movie-info/MovieInfo';
-import TheaterInfo from './component/theater-info/TheaterInfo';
+import { MainManu } from '../../../src/enums/wedding.enum';
+import HeaderMenu from './banner/HeaderManu';
+import { RootState } from '../../../modules/reducer/rootReducer';
+import NavBar from './NavBar';
 
 interface Props {
     headerMenu: MainManu;
@@ -27,12 +24,10 @@ const Main: NextPage<Props> = ({ headerMenu }) => {
             <div className="container">
                 <div className="wrap">
                     <HeaderMenu />
-                    {mainView == MainManu.MOVIE_INFO ? (
-                        <MovieInfo />
-                    ) : (
-                        <TheaterInfo />
-                    )}
-                    <PopupImage />
+                    <div className="wrap-card">
+                        <NavBar />
+                        <div className="contents">메인페이지</div>
+                    </div>
                 </div>
             </div>
         </>
