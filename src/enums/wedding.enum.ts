@@ -16,3 +16,8 @@ export const enum NavMenu {
     BOOKING = 4,
     REVIEW = 5,
 }
+
+export const enum PosterTyep {
+    TOP10 = 0,
+    GENERAL = 1,
+}

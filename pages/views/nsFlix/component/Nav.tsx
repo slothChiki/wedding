@@ -14,16 +14,10 @@ const Nav: NextPage<props> = ({}) => {
                     <div className="mobile-menu">메뉴</div>
                     <ul className="menu-list">
                         <li>
-                            <a href="#">홈</a>
-                        </li>
-                        <li>
                             <a href="#">시리즈</a>
                         </li>
                         <li>
                             <a href="#">영화</a>
-                        </li>
-                        <li>
-                            <a href="#">NEW! 요즘 대세 콘텐츠</a>
                         </li>
                         <li>
                             <a href="#">내가 찜한 콘텐츠</a>
