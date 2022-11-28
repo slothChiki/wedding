@@ -33,7 +33,7 @@ export class WeddingController {
     }
 
     @Get('/theater-info')
-    @Render('theater-info/TheaterInfo')
+    @Render('component/theater-info/TheaterInfo')
     async theaterInfo() {
         const notionData: UserInfoApi[] =
             await this.userInfoService.getUserInfoList();

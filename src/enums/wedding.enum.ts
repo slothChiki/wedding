@@ -21,3 +21,20 @@ export const enum PosterTyep {
     TOP10 = 0,
     GENERAL = 1,
 }
+
+export const enum moveMedia {
+    PC = 1024,
+    TAB = 768,
+    MOBILE = 460,
+}
+
+export const enum imageMedia {
+    PC = 230,
+    TAB = 180,
+    MOBILE = 160,
+}
+export const enum top10Media {
+    PC = 320,
+    TAB = 250,
+    MOBILE = 220,
+}

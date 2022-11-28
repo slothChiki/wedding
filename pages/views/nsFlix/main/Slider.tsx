@@ -6,30 +6,56 @@ import 'swiper/css';
 import Poster from './Poster';
 import { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
 import { useState } from 'react';
+import { PosterDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
+import {
+    imageMedia,
+    moveMedia,
+    top10Media,
+} from '../../../../src/enums/wedding.enum';
 
 interface Props {
-    movePx: number;
+    movePx: moveMedia;
     title: string;
-    list: string[];
+    list: PosterDto[];
 }
-const Slider: NextPage<Props> = ({ title = '', list = [], movePx = 1128 }) => {
+const Slider: NextPage<Props> = ({
+    title = '',
+    list = [],
+    movePx = moveMedia.PC,
+}) => {
     const [slidePx, setSlidePx] = useState(0);
     const [limit, setLimit] = useState(movePx);
 
-    useEffect(() => {
-        console.log(`movePx--> ${movePx}`);
+    const findLimit = (imgSize: top10Media) => {
+        const listLength = list.length;
+        const compLegth = listLength * (imgSize + 20);
 
-        setLimit(-1*movePx * list.length);
-        console.log(`limit----> ${limit}`);
-        console.log(`${title} slidePx--> ${slidePx}`);
-    }, [slidePx]);
+        const part = compLegth / movePx;
+        console.log(`part -> ${part}`);
+        setLimit(part * movePx * -1);
+        console.log(`slider -> ${limit}`);
+    };
+
+    useEffect(() => {
+        let mediaImgae: top10Media;
+        switch (movePx) {
+            case moveMedia.TAB:
+                mediaImgae = top10Media.TAB;
+            case moveMedia.MOBILE:
+                mediaImgae = top10Media.MOBILE;
+            case moveMedia.PC:
+            default:
+                mediaImgae = top10Media.PC;
+        }
+        findLimit(mediaImgae);
+    }, []);
 
     const slidePrev = () => {
         slidePx < 0 && setSlidePx(slidePx + movePx);
-    }
+    };
     const slideNext = () => {
         slidePx > limit && setSlidePx(slidePx - movePx);
-    }
+    };
 
     const [curPos, serCurPos] = useState(0);
 
@@ -53,7 +79,7 @@ const Slider: NextPage<Props> = ({ title = '', list = [], movePx = 1128 }) => {
     }
 
     function touchStart(e) {
-        e.stopPropagation()
+        e.stopPropagation();
         console.log(`touchStart --- ${e.changedTouches[0].pageX}`);
         setStartX(e.changedTouches[0].pageX);
     }
@@ -74,27 +100,43 @@ const Slider: NextPage<Props> = ({ title = '', list = [], movePx = 1128 }) => {
     return (
         <>
             <h1>{title}</h1>
-            <ul className='poster-container' onTouchStart={touchStart} onTouchEnd={touchEnd}>
+            <ul
+                className="poster-container"
+                onTouchStart={touchStart}
+                onTouchEnd={touchEnd}
+            >
                 {list.map((v, i) => {
                     return (
-                        <Poster key={`${title}_${i}`} src={v} slide={slidePx} />
-                    )
+                        <Poster
+                            key={`${title}_${i}`}
+                            poster={v}
+                            slide={slidePx}
+                        />
+                    );
                 })}
             </ul>
 
-            {slidePx <= 0 ? null :
-                <div className={`prev`} onClick={() => { slidePrev() }}
+            {slidePx === 0 ? null : (
+                <div
+                    className={`prev`}
+                    onClick={() => {
+                        slidePrev();
+                    }}
                 >
                     <i className={`fa-solid fa-angle-right prev-arrow`} />
                 </div>
-            }
-            {slidePx <= limit ? null :
-                <div className={`next`} onClick={() => { slideNext() }}
+            )}
+            {slidePx <= limit ? null : (
+                <div
+                    className={`next`}
+                    onClick={() => {
+                        slideNext();
+                    }}
                 >
                     <i className={`fa-solid fa-angle-right`} />
                 </div>
-            }
+            )}
         </>
     );
-}
+};
 export default Slider;
