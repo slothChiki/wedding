@@ -38,3 +38,9 @@ export const enum top10Media {
     TAB = 250,
     MOBILE = 220,
 }
+
+export const enum Sns {
+    TWITTER = 0,
+    FACEBOOK=1,
+    INSTARGRAM=2,
+}
