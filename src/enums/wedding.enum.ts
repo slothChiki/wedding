@@ -29,7 +29,7 @@ export const enum moveMedia {
 }
 
 export const enum imageMedia {
-    PC = 230,
+    PC = 250,
     TAB = 180,
     MOBILE = 160,
 }

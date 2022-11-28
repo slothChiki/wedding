@@ -6,22 +6,31 @@ import 'swiper/css';
 import { Navigation } from 'swiper';
 import Top10Poster from './Top10Poster';
 import { PosterDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
-import { imageMedia, moveMedia } from '../../../../src/enums/wedding.enum';
+import { imageMedia, moveMedia, top10Media } from '../../../../src/enums/wedding.enum';
+import { useMediaQuery } from 'react-responsive';
 
 interface Props {
-    movePx: number;
     title: string;
     list: PosterDto[];
 }
 const Top10Slider: NextPage<Props> = ({
     title = '',
     list = [],
-    movePx = 1128,
 }) => {
+    const [movePx, setMovePx] = useState(0);
+
+    useEffect(() => {
+        console.log(JSON.stringify(window.innerWidth));
+        console.log(movePx);
+        setMovePx(window.innerWidth);
+        console.log(movePx);
+
+    }, []);
+
     const [slidePx, setSlidePx] = useState(0);
     const [limit, setLimit] = useState(movePx);
 
-    const findLimit = (imgSize: imageMedia) => {
+    const findLimit = (imgSize: top10Media) => {
         const listLength = list.length;
         const compLegth = listLength * (imgSize + 20);
 
@@ -31,19 +40,29 @@ const Top10Slider: NextPage<Props> = ({
         console.log(`slider -> ${limit}`);
     };
 
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 1024px) and (max-width: 1279px)',
+    });
+    const isTablet = useMediaQuery({
+        query: '(min-width: 768px) and (max-width: 768px)',
+    });
+    // const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
+    const isMobileDevice = useMediaQuery({ query: '(max-width: 480px)' });
+
     useEffect(() => {
-        let mediaImgae: imageMedia;
-        switch (movePx) {
-            case moveMedia.TAB:
-                mediaImgae = imageMedia.TAB;
-            case moveMedia.MOBILE:
-                mediaImgae = imageMedia.MOBILE;
-            case moveMedia.PC:
-            default:
-                mediaImgae = imageMedia.PC;
+        let mediaImgae: top10Media;
+        if (isDesktopOrLaptop) {
+            mediaImgae = top10Media.TAB;
+        } else if (isTablet) { 
+            mediaImgae = top10Media.MOBILE; }
+        else {
+            mediaImgae = top10Media.PC;
         }
+
+
         findLimit(mediaImgae);
     }, []);
+
 
     const slidePrev = () => {
         slidePx < 0 && setSlidePx(slidePx + movePx);

@@ -1,7 +1,7 @@
 .poster-container {
     transition: 0.2s linear;
     width: 100%;
-    height: 345px;
+    /* height: 345px; */
     /*margin-bottom: 5px;*/
     display: flex;
     flex-direction: row;
@@ -14,20 +14,25 @@
 
 .poster-container li {
     flex: 1 1 20px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .poster-container .image-container {
-    max-width: 230px;
+    width: 250px;
+    height: 150px;
+    background: #262626;
+    background: linear-gradient(312deg, #262626 0%, #333333 54%, #2a2a2a 100%);
+    object-fit: cover;
+    /* max-width: 230px;
     height: 100%;
-    border-radius: 8px;
+    border-radius: 8px; */
 }
 
 .top10-container {
     transition: 0.2s linear;
     width: 100%;
     /* margin: 10px; */
-    height: 345px;
+    /* height: 345px; */
     /* margin-bottom: 5px; */
     display: flex;
     flex-direction: row;
@@ -40,11 +45,11 @@
 
 .top10-container li {
     flex: 1 1 20px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .top10-container .rank-poster {
-    width: 320px;
+    width: 250px;
     display: inline-block;
     border-radius: 8px;
     position: relative;
@@ -53,38 +58,40 @@
 .top10-container .rank {
     float: left;
     /*margin: 50%, 0, 0, 60px;*/
-    font-size: 230px;
-    font-weight: 800;
+    font-size: 220px;
+    font-weight: 600;
     text-align: right;
+    line-height: 1;
     color: #000;
     -webkit-text-stroke: 5px rgb(255, 255, 255);
     font-family: 'NetflixSans-Bold', sans-serif;
 
-    width: 90px;
+    width: 110px;
     height: 100%;
-
-    z-index: 5;
+    z-index: 4;
     position: absolute;
-    left: 5px;
-    top: 100px;
 }
 
 .top10-container .image-container {
     float: right;
-    width: 230px;
+    width: 140px;
     height: 100%;
     border-radius: 8px;
-    z-index: 4;
+    z-index: 5;
+
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1023px) {
     .poster-container {
         height: 270px;
+        border-radius: 7px; 
     }
 
     .poster-container .image-container {
         max-width: 180px;
         height: 100%;
+        border-radius: 7px; 
+        object-fit: contain;
     }
 
     .top10-container {
@@ -114,9 +121,13 @@
 @media screen and (max-width: 480px) {
     .poster-container {
         height: 240px;
+        border-radius: 7px; 
     }
     .poster-container .image-container {
         max-width: 160px;
+        height: 100%;
+        border-radius: 7px; 
+        object-fit: contain;
     }
     .top10-container {
         height: 270px;
@@ -142,9 +153,4 @@
         border-radius: 8px;
     }
 
-    .top10-container .image-container {
-        float: right;
-        max-width: 160px;
-        height: 100%;
-    }
 }

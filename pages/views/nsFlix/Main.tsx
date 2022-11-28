@@ -8,34 +8,24 @@ import Slider from './main/Slider';
 import Top10Slider from './main/Top10Slider';
 import { useMediaQuery } from 'react-responsive';
 import { studioPhotoList } from '../../../src/domain/nsflix/variable/photo-list';
+import PopupDetail from './main/PopupDetail';
 
 interface Props {
-    headerMenu: MainManu;
 }
-const Main: NextPage<Props> = ({}) => {
-    const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1024px) and (max-width: 1279px)',
-    });
-    const isTablet = useMediaQuery({
-        query: '(min-width: 768px) and (max-width: 1023px)',
-    });
-    // const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
-    const isMobileDevice = useMediaQuery({ query: '(max-width: 460px)' });
-    const [movePx, setMovePx] = useState(
-        isDesktopOrLaptop ? 1024 : isTablet ? 768 : isMobileDevice ? 460 : 1024,
-    ); // TODO - 화면 크기 가져오기 시도해보자
+const Main: NextPage<Props> = ({ }) => {
+   
     const studioList = studioPhotoList;
 
     return (
         <>
             {' '}
             <div className="container">
+            <PopupDetail />
                 <Nav />
                 <PlayMovie />
                 <section>
                     <div className="content-list">
                         <Slider
-                            movePx={movePx}
                             title={'스튜디오가 만든 콘텐츠'}
                             key={'studio'}
                             list={studioList}
@@ -44,7 +34,6 @@ const Main: NextPage<Props> = ({}) => {
                     {/* 슬라이드 10개로 잘라야 함*/}
                     <div className="content-list">
                         <Top10Slider
-                            movePx={movePx}
                             title={'오늘 한국의 TOP 10 콘텐츠'}
                             list={studioList}
                             key={'top10'}
@@ -52,7 +41,6 @@ const Main: NextPage<Props> = ({}) => {
                     </div>
                     <div className="content-list">
                         <Slider
-                            movePx={movePx}
                             title={'지금 뜨는 콘텐츠'}
                             list={studioList}
                             key={'upcontents'}
@@ -60,6 +48,7 @@ const Main: NextPage<Props> = ({}) => {
                     </div>
                 </section>
                 <Footer />
+
             </div>
         </>
     );
