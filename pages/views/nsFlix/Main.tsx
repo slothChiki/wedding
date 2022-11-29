@@ -20,7 +20,7 @@ const Main: NextPage<Props> = ({ }) => {
         <>
             {' '}
             <div className="container">
-            <PopupDetail />
+                                <PopupDetail />
                 <Nav />
                 <PlayMovie />
                 <section>

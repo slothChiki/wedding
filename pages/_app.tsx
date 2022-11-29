@@ -4,7 +4,7 @@ import wrapper from '../modules/store/store';
 import Head from 'next/head';
 import '../public/css/index.css';
 import '../public/css/component.css';
-import '../public/css/swiper.css';
+import '../public/css/modal.css';
 import '../public/font/font.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
