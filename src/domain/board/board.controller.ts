@@ -23,6 +23,12 @@ export class BoardController {
         return await this.boardService.getBoardList();
     }
 
+    // @RestApi()
+    // @Post('/getBoardOne')
+    // async getBoardOne(): Promise<BoardListApi> {
+    //     return await this.boardService.getBoardList();
+    // }
+
     @RestApi()
     @Post('/delBoard')
     async delBoard(@Body() body: { id: string }): Promise<GetPageResponse> {

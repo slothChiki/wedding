@@ -1,28 +1,20 @@
 import { Client } from '@notionhq/client';
-import { Notionkey, userInfoDb } from './notionKey';
 import {
-    CreateCommentResponse,
-    CreateDatabaseParameters,
-    CreateDatabaseResponse,
     CreatePageParameters,
     CreatePageResponse,
-    DatabaseObjectResponse,
     GetPageResponse,
-    PageObjectResponse,
-    PartialDatabaseObjectResponse,
-    PartialPageObjectResponse,
-    QueryDatabaseParameters,
     QueryDatabaseResponse,
     UpdatePageResponse,
 } from '@notionhq/client/build/src/api-endpoints';
-import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PropertiesType } from '../../enums/notion.enum';
 import { WebException } from '../../core/exception/web-exception';
 import { ErrorCode } from '../../core/exception/errorCode';
+import { CONFIG } from '../../config';
 
 @Injectable()
 export class NotionService {
-    notion = new Client({ auth: Notionkey });
+    notion = new Client({ auth: CONFIG.Notionkey });
 
     async getDBDataList(dataBaseKey: string): Promise<QueryDatabaseResponse> {
         if (!dataBaseKey) {

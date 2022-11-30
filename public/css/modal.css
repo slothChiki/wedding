@@ -1,22 +1,117 @@
-.container{
+.container.modal {
     width: 100%;
     height: 100%;
+    position: fixed;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.container.modal::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
-.modal {
+.container .detail-modal {
+    display: none;
+}
+
+.container .detail-modal.on {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    /*position: fixed;*/
     position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;       
+    top: 0;
+    left: 0;
+    /*right: 0;*/
+    bottom: 0;
 
     width: 100%;
     height: 100%;
-    display: flex;
-    background-color:rgba(0, 0, 0, 0.381); 
-    z-index: 90;
+
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: rgba(0, 0, 0, 0.381);
+    z-index: 80;
+}
+.container .detail-modal.on::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
-.modal .on {
-    display: block;
+.detail-modal .detail {
+    margin-top: 15px;
+    border-radius: 8px;
+    /*background-color: rgba(36, 36, 36, 1);*/
+    background-color: red;
+    z-index: 81;
+}
+
+.detail .detail-image img {
+    border-radius: 8px;
+    max-width: 100%;
+}
+.detail .detail-contents {
+    border-radius: 8px;
+    max-width: 100%;
+    z-index: 82;
+}
+
+.detail-contents img {
+    border-radius: 8px;
+    max-width: 100%;
+    z-index: 83;
+}
+
+.detail-contents .top-image {
+    border-radius: 8px;
+    width: 100%;
+    height: 350px;
+    z-index: 84;
+    background-size: 100%;
+    position: relative;
+}
+
+.top-image .detail-description {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+}
+
+.detail-description .detail-name {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.detail-description .share i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.detail-contents .middle-introduce {
+    display: inline-block;
+    width: 100%;
+    height: 20%;
+}
+.middle-introduce .left {
+    float: left;
+    width: 65%;
+    padding: 0% 5%;
+    font-weight: bolder;
+    font-size: 0.8rem;
+    vertical-align: center;
+}
+
+.middle-introduce .left span{
+    color: forestgreen;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.middle-introduce .left i{
+    font-size: 1rem;
+}
+.middle-introduce .right {
+    float: right;
+    width: 35%;
+    padding: 0% 3%;
+    background-color: palegoldenrod;
 }

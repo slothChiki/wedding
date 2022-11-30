@@ -1,9 +1,10 @@
 import { NextPage } from 'next';
+import Timer from '../detail/Timer';
+import moment from 'moment';
+import { TimerType } from '../../../../src/enums/wedding.enum';
 
-interface Props {
-
-}
-const PlayMovie: NextPage<Props> = ({ }) => {
+interface Props {}
+const PlayMovie: NextPage<Props> = ({}) => {
     return (
         <>
             <main>
@@ -11,12 +12,30 @@ const PlayMovie: NextPage<Props> = ({ }) => {
                     <video src="video/doctor.mp4" autoPlay muted loop />
                 </div>
                 <div className="description">
-                    <h1>Doctor Sans</h1>
-                    <h3>매주 새로운 트레일러 공개</h3>
+                    <h1>
+                        유부까지{' '}
+                        <Timer
+                            startDate={moment(new Date())
+                                .format('YYYY-MM-DD')
+                                .toString()}
+                            endDate={'2023-01-07'}
+                            type={TimerType.DDAY}
+                        />
+                        일
+                    </h1>
+                    <h3>매일 새로운 마음으로 갱신</h3>
                     <p>
-                        5월, 차원의 경계가 무너지고 닥터 스트레인지가 온다
-                        전 세계를 뒤흔들 역대급 멀티버스 전쟁의 시작! [닥터
-                        스트레인지: 대혼돈의 멀티버스] 티저 예고편 공개!
+                        2023년 1월, 차원이 다른 결혼식이 온다. 전세계를 뒤흔들{' '}
+                        <br />
+                        역대급 결혼식의 시작! [유부까지{' '}
+                        <Timer
+                            startDate={moment(new Date())
+                                .format('YYYY-MM-DD')
+                                .toString()}
+                            endDate={'2023-01-07'}
+                            type={TimerType.DDAY}
+                        />
+                        일] <br /> 오시는 길 공개!
                     </p>
                     <div className="buttons">
                         <button className="play">
@@ -25,7 +44,7 @@ const PlayMovie: NextPage<Props> = ({ }) => {
                         </button>
                         <button className="detail">
                             <i className="fa-solid fa-circle-info" />
-                            <span> 상세 정보</span>
+                            <span> 오시는 길</span>
                         </button>
                     </div>
                 </div>
@@ -36,5 +55,5 @@ const PlayMovie: NextPage<Props> = ({ }) => {
             </main>
         </>
     );
-}
+};
 export default PlayMovie;

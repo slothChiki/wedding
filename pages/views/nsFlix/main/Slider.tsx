@@ -1,43 +1,34 @@
 import { NextPage } from 'next';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'swiper/css';
 import Poster from './Poster';
-import { useState } from 'react';
 import { PosterDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
-import {
-    imageMedia,
-    moveMedia,
-    top10Media,
-} from '../../../../src/enums/wedding.enum';
+import { imageMedia } from '../../../../src/enums/wedding.enum';
 import { useMediaQuery } from 'react-responsive';
 
 interface Props {
     title: string;
     list: PosterDto[];
 }
-const Slider: NextPage<Props> = ({
-    title = '',
-    list = [],
-}) => {
+const Slider: NextPage<Props> = ({ title = '', list = [] }) => {
     const [movePx, setMovePx] = useState(0);
 
     useEffect(() => {
         const screen = window.innerWidth;
         console.log(screen);
-        setMovePx(movePx => screen);
+        setMovePx((movePx) => screen);
         console.log(movePx);
 
         let mediaImgae: imageMedia;
         if (isDesktopOrLaptop) {
             mediaImgae = imageMedia.TAB;
-        } else if (isTablet) { 
-            mediaImgae = imageMedia.MOBILE; }
-        else {
+        } else if (isTablet) {
+            mediaImgae = imageMedia.MOBILE;
+        } else {
             mediaImgae = imageMedia.PC;
         }
 
         findLimit(mediaImgae);
-
     }, [movePx]);
 
     const [slidePx, setSlidePx] = useState(0);
@@ -47,7 +38,7 @@ const Slider: NextPage<Props> = ({
         const listLength = list.length;
         const compLegth = listLength * (imgSize + 10);
 
-        const part = (compLegth / movePx)-1;
+        const part = compLegth / movePx - 1;
         setLimit(-1 * part * movePx);
     };
 

@@ -3,17 +3,15 @@ import {
     CreatePageParameters,
     CreatePageResponse,
     GetPageResponse,
-    PageObjectResponse,
-    PartialPageObjectResponse,
     QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
-import { json } from 'stream/consumers';
 import { UserInfoApi } from './api/userInfo.api';
 import { NotionService } from '../../common/notion/notion.service';
-import * as notionKey from '../../common/notion/notionKey';
 import { PropertiesType } from '../../enums/notion.enum';
 import * as moment from 'moment';
 import 'moment/locale/ko';
+import { CONFIG } from '../../config';
+
 moment.locale('ko');
 
 @Injectable()
@@ -22,7 +20,7 @@ export class UserInfoService {
 
     async getUserInfoList(): Promise<UserInfoApi[]> {
         const notionData: QueryDatabaseResponse =
-            await this.notionService.getDBDataList(notionKey.userInfoDb);
+            await this.notionService.getDBDataList(CONFIG.userInfoDb);
         const result: Record<string, any>[] = notionData.results;
         const userList: UserInfoApi[] = [];
         for (const entity of result) {
@@ -51,7 +49,7 @@ export class UserInfoService {
 
     async getUserInfoMap(): Promise<Map<string, UserInfoApi>> {
         const notionData: QueryDatabaseResponse =
-            await this.notionService.getDBDataList(notionKey.userInfoDb);
+            await this.notionService.getDBDataList(CONFIG.userInfoDb);
         const result: Record<string, any>[] = notionData.results;
         const userMap = new Map<string, UserInfoApi>();
         for (const entity of result) {
@@ -119,7 +117,7 @@ export class UserInfoService {
     async putUserInfoPage(data: UserInfoApi): Promise<CreatePageResponse> {
         const inputData: CreatePageParameters = {
             parent: {
-                database_id: notionKey.userInfoDb,
+                database_id: CONFIG.userInfoDb,
                 type: 'database_id',
             },
             properties: {
@@ -141,12 +139,12 @@ export class UserInfoService {
         };
 
         return await this.notionService.setPageData(
-            notionKey.userInfoDb,
+            CONFIG.userInfoDb,
             inputData,
         );
     }
 
     async delUserPage(id: string): Promise<GetPageResponse> {
-        return await this.notionService.delPage(notionKey.userInfoDb);
+        return await this.notionService.delPage(CONFIG.userInfoDb);
     }
 }

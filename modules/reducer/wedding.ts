@@ -1,7 +1,9 @@
-import { MainManu } from '../../src/enums/wedding.enum';
+import { PosterDto } from '../../dist/domain/nsflix/dto/nsflixs.dto';
+import { DetailType } from '../../dist/enums/wedding.enum';
 
 const SET_INIT = 'SET_INIT';
-const HEADER_MENU_CHANGE = 'HEADER_MENU_CHANGE';
+const MODAL_CHANGE = 'MODAL_CHANGE';
+const DETAIL_DATA_CHOICE = 'DETAIL_DATA_CHOICE';
 
 interface IParam {
     type: string;
@@ -10,10 +12,14 @@ interface IParam {
 
 type State = {
     currentAction: string;
+    showModal: boolean;
+    detailData: PosterDto;
 };
 
 const initialState: State = {
     currentAction: 'default(action)',
+    showModal: false,
+    detailData: { type: DetailType.IMG, src: '', name: '' },
 };
 
 export const initDetailInfo = (param) => ({
@@ -21,8 +27,13 @@ export const initDetailInfo = (param) => ({
     param: param,
 });
 
-export const headerMenuChange = (param) => ({
-    type: HEADER_MENU_CHANGE,
+export const modalChange = (param) => ({
+    type: MODAL_CHANGE,
+    param: param,
+});
+
+export const detailDataChoice = (param) => ({
+    type: DETAIL_DATA_CHOICE,
     param: param,
 });
 
@@ -35,10 +46,18 @@ function wedding(state = initialState, action: WeddingAction) {
                 ...state,
                 currentAction: action.type,
             };
-        case HEADER_MENU_CHANGE:
+        case MODAL_CHANGE:
             return {
                 ...state,
                 currentAction: action.type,
+                showModal: action.param,
+            };
+
+        case DETAIL_DATA_CHOICE:
+            return {
+                ...state,
+                currentAction: action.type,
+                detailData: action.param,
             };
         default:
             return state;

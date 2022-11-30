@@ -7,13 +7,12 @@ import {
     GetPageResponse,
     QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
-import * as notionKey from '../../common/notion/notionKey';
 import { PropertiesType } from '../../enums/notion.enum';
-import { boardDB } from '../../common/notion/notionKey';
 import { BoardListApi } from './api/board-list.api';
 import * as moment from 'moment';
 import { WebException } from '../../core/exception/web-exception';
 import { ErrorCode } from '../../core/exception/errorCode';
+import { CONFIG } from '../../config';
 
 @Injectable()
 export class BoardService {
@@ -21,7 +20,7 @@ export class BoardService {
 
     async getBoardList(): Promise<BoardListApi[]> {
         const notionData: QueryDatabaseResponse =
-            await this.notionService.getDBDataList(notionKey.boardDB);
+            await this.notionService.getDBDataList(CONFIG.boardDB);
         const result: Record<string, any>[] = notionData.results;
         const boardList: BoardListApi[] = [];
         if (!result) {
@@ -76,7 +75,7 @@ export class BoardService {
         // TODO - 값 없을 때 에러 내줘서 프론트 처리해주기
         const inputData: CreatePageParameters = {
             parent: {
-                database_id: notionKey.boardDB,
+                database_id: CONFIG.boardDB,
                 type: 'database_id',
             },
             properties: {
@@ -101,17 +100,14 @@ export class BoardService {
             },
         };
 
-        return await this.notionService.setPageData(
-            notionKey.boardDB,
-            inputData,
-        );
+        return await this.notionService.setPageData(CONFIG.boardDB, inputData);
     }
 
     async updateBoardPage(data: BoardListApi) {
-        return await this.notionService.updatePage(notionKey.boardDB, {});
+        return await this.notionService.updatePage(CONFIG.boardDB, {});
     }
 
     async delBoardPage(id: string): Promise<GetPageResponse> {
-        return await this.notionService.delPage(notionKey.boardDB);
+        return await this.notionService.delPage(CONFIG.boardDB);
     }
 }
