@@ -7,7 +7,10 @@ import Footer from './main/Footer';
 import Slider from './main/Slider';
 import Top10Slider from './main/Top10Slider';
 import { useMediaQuery } from 'react-responsive';
-import { studioPhotoList } from '../../../src/domain/nsflix/variable/photo-list';
+import {
+    posterPhotoList,
+    studioPhotoList,
+} from '../../../src/domain/nsflix/variable/photo-list';
 import PopupDetail from './detail/PopupDetail';
 import { useDispatch, useSelector } from 'react-redux';
 import wrapper from '../../../modules/store/store';
@@ -17,6 +20,7 @@ import { RootState } from '../../../modules/reducer/rootReducer';
 interface Props {}
 const Main: NextPage<Props> = ({}) => {
     const studioList = studioPhotoList;
+    const posterList = posterPhotoList;
     const state = useSelector((state: RootState) => state.wedding);
     const dispatch = useDispatch();
     const showModal = state.showModal;
@@ -31,7 +35,7 @@ const Main: NextPage<Props> = ({}) => {
                     <div className="content-list">
                         <Slider
                             title={'내가 찜한 신랑신부 소개 콘텐츠'}
-                            list={studioList}
+                            list={posterList}
                             key={'upcontents'}
                         />
                     </div>
@@ -39,14 +43,14 @@ const Main: NextPage<Props> = ({}) => {
                     <div className="content-list">
                         <Top10Slider
                             title={'나연이가 꼽은 TOP 10 콘텐츠'}
-                            list={studioList}
+                            list={posterList}
                             key={'top10'}
                         />
                     </div>
                     <div className="content-list">
                         <Top10Slider
                             title={'상민이가 꼽은 TOP 10 콘텐츠'}
-                            list={studioList}
+                            list={posterList}
                             key={'top10'}
                         />
                     </div>

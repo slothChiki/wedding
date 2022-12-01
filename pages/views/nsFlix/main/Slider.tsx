@@ -1,14 +1,14 @@
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import 'swiper/css';
-import Poster from './Poster';
-import { PosterDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
+import Photo from './Photo';
+import { PhotoDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
 import { imageMedia } from '../../../../src/enums/wedding.enum';
 import { useMediaQuery } from 'react-responsive';
 
 interface Props {
     title: string;
-    list: PosterDto[];
+    list: PhotoDto[];
 }
 const Slider: NextPage<Props> = ({ title = '', list = [] }) => {
     const [movePx, setMovePx] = useState(0);
@@ -108,9 +108,9 @@ const Slider: NextPage<Props> = ({ title = '', list = [] }) => {
             >
                 {list.map((v, i) => {
                     return (
-                        <Poster
+                        <Photo
                             key={`${title}_${i}`}
-                            poster={v}
+                            photo={v}
                             slide={slidePx}
                         />
                     );

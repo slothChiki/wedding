@@ -25,13 +25,14 @@ const DetailBody: NextPage<Props> = ({}) => {
     return (
         <>
             <div className="detail" onClick={preventEvent}>
-                {/*{data.type === DetailType.IMG ? (*/}
-                {/*    <ImageOnly src={data.src} />*/}
-                {/*) : data.type === DetailType.CONTENTS ?(*/}
-                <DetailContents data={data} />
-                {/*):(
-                <ActorIntroduce actor={actor}/>
-                )}*/}
+                {data.type === DetailType.IMG ? (
+                    <ImageOnly src={data.src} />
+                ) : data.type === DetailType.CONTENTS ? (
+                    <DetailContents data={data} />
+                ) : (
+                    <></>
+                    // <ActorIntroduce actor={actor}/>
+                )}
             </div>
         </>
     );
