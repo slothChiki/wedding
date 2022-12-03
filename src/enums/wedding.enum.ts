@@ -45,6 +45,13 @@ export enum Sns {
     INSTARGRAM = 2,
 }
 
+export enum ModalType{
+    LOCATION=0,
+    POSTER=1,
+    BOARD=2,
+    
+}
+
 export enum DetailType {
     IMG = 0,
     CONTENTS = 1,

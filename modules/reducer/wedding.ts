@@ -1,5 +1,7 @@
-import { PosterDto } from '../../dist/domain/nsflix/dto/nsflixs.dto';
-import { DetailType } from '../../dist/enums/wedding.enum';
+
+import { PosterDto } from "src/domain/nsflix/dto/nsflixs.dto";
+import { DetailType, ModalType } from "src/enums/wedding.enum";
+
 
 const SET_INIT = 'SET_INIT';
 const MODAL_CHANGE = 'MODAL_CHANGE';
@@ -14,12 +16,16 @@ type State = {
     currentAction: string;
     showModal: boolean;
     detailData: PosterDto;
+    modalType: ModalType;
+
 };
 
 const initialState: State = {
     currentAction: 'default(action)',
     showModal: false,
     detailData: { type: DetailType.IMG, src: '', name: '' },
+    modalType: ModalType.POSTER,
+
 };
 
 export const initDetailInfo = (param) => ({
@@ -50,7 +56,8 @@ function wedding(state = initialState, action: WeddingAction) {
             return {
                 ...state,
                 currentAction: action.type,
-                showModal: action.param,
+                showModal: action.param.showModal,
+                modalType: action.param.modalType,
             };
 
         case DETAIL_DATA_CHOICE:

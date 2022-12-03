@@ -1,17 +1,19 @@
 import { NextPage } from 'next';
-import { PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
 import DetailBody from './DetailBody';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../modules/reducer/rootReducer';
+import ViewLocation from './ViewLocation';
+import { ModalType } from 'src/enums/wedding.enum';
 
-interface Props {}
-const PopupDetail: NextPage<Props> = ({}) => {
+interface Props { }
+const PopupDetail: NextPage<Props> = ({ }) => {
     const state = useSelector((state: RootState) => state.wedding);
     const dispatch = useDispatch();
     const showModal = state.showModal;
+    const modalType = state.modalType;
     const offModal = (e) => {
-        dispatch(weddingReducer.modalChange(false));
+        dispatch(weddingReducer.modalChange({ showModal: false , modalType:ModalType.BOARD}));
     };
 
     return (
@@ -20,9 +22,12 @@ const PopupDetail: NextPage<Props> = ({}) => {
                 className={`detail-modal ${showModal ? 'on' : ''}`}
                 onClick={offModal}
             >
-                <i></i>
-                <DetailBody />
-                <i></i>
+                {modalType == ModalType.POSTER ?
+                    <DetailBody />
+                    : modalType == ModalType.LOCATION ?
+                        <ViewLocation />
+                        : <>방명록이요</>
+                }
             </div>
         </>
     );

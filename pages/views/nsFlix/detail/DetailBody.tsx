@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import { PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useDispatch, useSelector } from 'react-redux';
-import { DetailType } from '../../../../src/enums/wedding.enum';
+import { DetailType, ModalType } from '../../../../src/enums/wedding.enum';
 import { RootState } from '../../../../modules/reducer/rootReducer';
 import ImageOnly from './ImageOnly';
 import DetailContents from './DetailContents';
@@ -13,7 +13,7 @@ const DetailBody: NextPage<Props> = ({}) => {
     const state = useSelector((state: RootState) => state.wedding);
     const offModal = (e) => {
         e.stopPropagation();
-        dispatch(weddingReducer.modalChange(false));
+        dispatch(weddingReducer.modalChange({showModal:false, modalType:ModalType.POSTER}));
     };
     const preventEvent = (e) => {
         e.stopPropagation();
@@ -28,7 +28,7 @@ const DetailBody: NextPage<Props> = ({}) => {
                 {data.type === DetailType.IMG ? (
                     <ImageOnly src={data.src} />
                 ) : data.type === DetailType.CONTENTS ? (
-                    <DetailContents />
+                    <DetailContents poster={data}/>
                 ) : (
                     <></>
                     // <ActorIntroduce actor={actor}/>

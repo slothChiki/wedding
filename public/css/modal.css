@@ -15,9 +15,10 @@
 }
 
 .container .detail-modal.on {
-    display: grid;
-    grid-template-columns: 15% 70% 15%;
-    /*position: fixed;*/
+    /* display: grid;
+    grid-template-columns: 15% 70% 15%; */
+    display: flex;
+    /* position: fixed; */
     position: absolute;
     top: 0;
     left: 0;
@@ -43,6 +44,9 @@
     /*background-color: rgba(36, 36, 36, 1);*/
     background-color: red;
     z-index: 81;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
 }
 
 .detail .detail-image img {
@@ -51,7 +55,7 @@
 }
 .detail .detail-contents {
     border-radius: 8px;
-    max-width: 100%;
+    width: 100%;
     z-index: 82;
 }
 

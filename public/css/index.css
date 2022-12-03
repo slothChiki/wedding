@@ -77,7 +77,7 @@ nav .left .menu-list li {
 }
 
 nav .left .menu-list li a {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 nav .right {
@@ -189,7 +189,7 @@ main .description .buttons .play i {
 }
 
 main .description .buttons .play span {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 main .description .buttons .detail {
@@ -205,6 +205,9 @@ main .description .buttons .detail i {
 
 main .description .buttons .detail:hover {
   background-color: rgba(58, 58, 59, 0.7);
+}
+main .description .buttons .detail span {
+  font-size: 1.5rem;
 }
 
 main .age-info {

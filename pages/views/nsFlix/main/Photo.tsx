@@ -7,7 +7,7 @@ import {
 import { useDispatch } from 'react-redux';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { detailDataChoice } from '../../../../modules/reducer/wedding';
-import { DetailType } from '../../../../src/enums/wedding.enum';
+import { DetailType, ModalType } from '../../../../src/enums/wedding.enum';
 
 interface Props {
     photo: PhotoDto;
@@ -22,7 +22,7 @@ const Photo: NextPage<Props> = ({
     const dispatch = useDispatch();
     const detailDataChoice = () => {
         dispatch(weddingReducer.detailDataChoice({ ...photo } as PosterDto));
-        dispatch(weddingReducer.modalChange(true));
+        dispatch(weddingReducer.modalChange({showModal:true, modalType:ModalType.POSTER}));
     };
 
     return (
