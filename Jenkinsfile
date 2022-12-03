@@ -6,18 +6,18 @@ pipeline {
   stages {
       stage('Start') {
           steps {
-                sh npm install
+            sh 'npm install'
           }
       }
       stage('Build') {
           steps {
-			sh npm run build:nest
-            sh npm run build:next
+			sh 'npm run build:nest'
+            sh 'npm run build:next'
           }
       }
       stage('Run') {
           steps {
-           sh npm run start:prod
+           sh 'npm run start:prod'
           }
       }
       stage('Prune') {
