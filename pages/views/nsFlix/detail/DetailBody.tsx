@@ -28,7 +28,7 @@ const DetailBody: NextPage<Props> = ({}) => {
                 {data.type === DetailType.IMG ? (
                     <ImageOnly src={data.src} />
                 ) : data.type === DetailType.CONTENTS ? (
-                    <DetailContents data={data} />
+                    <DetailContents />
                 ) : (
                     <></>
                     // <ActorIntroduce actor={actor}/>
