@@ -74,6 +74,7 @@ nav .left .menu-list li {
   justify-content: center;
   list-style: none;
   padding: 0.2em 1em 0.5em 1em;
+  cursor: pointer;
 }
 
 nav .left .menu-list li a {
@@ -385,13 +386,19 @@ footer .wrap .options .option {
     margin-left: 10px;
   }
 
-  /* nav .left .mobile-menu:hover+.menu-list {
+  nav .left .mobile-menu.on{
     display: flex;
-  } */
+  }
 
-  
-  nav .left .menu-list .on {
+  nav .left .menu-list.on {
     display: flex;
+
+    top: 50px;
+    z-index: 999;
+    position: absolute;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.67);
+    padding: 1em 4em;
   }
 
 

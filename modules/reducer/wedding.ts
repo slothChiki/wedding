@@ -1,12 +1,13 @@
 
 import { BoardListApi } from "src/domain/board/api/board-list.api";
 import { PosterDto } from "src/domain/nsflix/dto/nsflixs.dto";
-import { DetailType, ModalType } from "src/enums/wedding.enum";
+import { ActorType, DetailType, ModalType } from "src/enums/wedding.enum";
 
 
 const SET_INIT = 'SET_INIT';
 const MODAL_CHANGE = 'MODAL_CHANGE';
 const DETAIL_DATA_CHOICE = 'DETAIL_DATA_CHOICE';
+const CHOICE_MONEY_ACTOR = 'CHOICE_MONEY_ACTOR';
 
 interface IParam {
     type: string;
@@ -19,6 +20,7 @@ type State = {
     detailData: PosterDto;
     modalType: ModalType;
     boardList: BoardListApi[];
+    sendingActor: ActorType;
 };
 
 const initialState: State = {
@@ -26,8 +28,8 @@ const initialState: State = {
     showModal: false,
     detailData: { type: DetailType.IMG, src: '', name: '' },
     modalType: ModalType.POSTER,
-    boardList: []
-
+    boardList: [],
+    sendingActor: ActorType.NY
 };
 
 export const initDetailInfo = (param) => ({
@@ -42,6 +44,11 @@ export const modalChange = (param) => ({
 
 export const detailDataChoice = (param) => ({
     type: DETAIL_DATA_CHOICE,
+    param: param,
+});
+
+export const choiceMoneyActor = (param) => ({
+    type: CHOICE_MONEY_ACTOR,
     param: param,
 });
 
@@ -68,6 +75,12 @@ function wedding(state = initialState, action: WeddingAction) {
                 currentAction: action.type,
                 detailData: action.param,
             };
+        case CHOICE_MONEY_ACTOR:
+            return {
+                ...state,
+                currentAction: action.type,
+                sendingActor: action.param,
+            }
         default:
             return state;
     }

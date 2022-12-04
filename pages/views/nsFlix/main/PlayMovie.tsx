@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import Timer from '../detail/Timer';
+import Timer from './Timer';
 import moment from 'moment';
 import { TimerType, ModalType } from '../../../../src/enums/wedding.enum';
 import { useDispatch } from 'react-redux';

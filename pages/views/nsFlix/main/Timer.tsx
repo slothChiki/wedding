@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
-import DetailBody from './ViewContents';
+import DetailBody from '../detail/ViewContents';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../modules/reducer/rootReducer';

@@ -51,6 +51,21 @@
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
+    position: relative;
+}
+
+
+.detail .modal-close{
+    position: absolute;
+    top:0;
+    left :85%;
+    background-image: url('/img/iconsX100.png') ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 90;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
 }
 
 .detail .detail-image img {

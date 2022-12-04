@@ -45,11 +45,12 @@ export enum Sns {
     INSTARGRAM = 2,
 }
 
-export enum ModalType{
-    LOCATION=0,
-    POSTER=1,
-    BOARD=2,
-    
+export enum ModalType {
+    LOCATION = 0,
+    POSTER = 1,
+    BOARD = 2,
+    MONEYGIFT = 3,
+
 }
 
 export enum DetailType {
@@ -65,4 +66,9 @@ export enum DetailMenu {
 export enum TimerType {
     DDAY = 0,
     FLOW = 1,
+}
+
+export enum ActorType {
+    NY = 0,
+    SM = 1,
 }

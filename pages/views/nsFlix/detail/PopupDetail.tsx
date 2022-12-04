@@ -1,11 +1,15 @@
 import { NextPage } from 'next';
-import ViewContents from './ViewContents';
+import React from 'react';
+
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../modules/reducer/rootReducer';
-import ViewLocation from './ViewLocation';
+
 import { ModalType } from 'src/enums/wedding.enum';
+import ViewContents from './ViewContents';
 import ViewBoard from './ViewBoard';
+import ViewLocation from './ViewLocation';
+import ViewMoney from './ViewMoney';
 
 interface Props { }
 const PopupDetail: NextPage<Props> = ({ }) => {
@@ -26,13 +30,16 @@ const PopupDetail: NextPage<Props> = ({ }) => {
             <div
                 className={`detail-modal ${showModal ? 'on' : ''}`}
                 onClick={offModal}
-            >
+            >  
                 <div className="detail" onClick={preventEvent}>
+                <div className="modal-close" onClick={offModal}></div>
                     {modalType == ModalType.POSTER ?
                         <ViewContents />
                         : modalType == ModalType.LOCATION ?
                             <ViewLocation />
-                        : <><ViewBoard /></>
+                            : modalType == ModalType.BOARD ?
+                                <><ViewBoard /></>
+                                : <><ViewMoney /></>
                     }
                 </div>
             </div>
