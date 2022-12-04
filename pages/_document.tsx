@@ -54,8 +54,6 @@ export default class MyDocument extends Document {
                         referrerPolicy="no-referrer"
                     />
                     <NaverMap />
-
-                    {/*<SendScript />*/}
                 </Head>
                 <body>
                     <Main />

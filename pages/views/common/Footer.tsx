@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import React from 'react';
-import SendScript from '../component/movie-info/introduce/SendScript';
 import Scripts from '../nsFlix/detail/location/script/Script';
 
 interface Props {
@@ -21,7 +20,6 @@ const Footer: NextPage<any> = ({ aaa }) => {
                 crossOrigin="anonymous"
             ></script>
             <Scripts />
-            <SendScript />
         </>
     );
 };
