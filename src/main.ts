@@ -10,7 +10,8 @@ import path from 'path';
 async function bootstrap() {
     const dev = process.env.NODE_ENV !== 'production';
     const app = Next({ dev ,
-        conf: { distDir: `${path.relative(process.cwd(), __dirname)}/../next` },}); // create Next.js app
+        // conf: { distDir: `${path.relative(process.cwd(), __dirname)}/../next` },
+    }); // create Next.js app
 
     await app.prepare();
 

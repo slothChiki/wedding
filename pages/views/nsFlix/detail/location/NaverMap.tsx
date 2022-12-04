@@ -87,15 +87,12 @@ const NaverMap: NextPage<any> = () => {
 
     return (
         <>
-            <div className="location-map  col-md-6">
-                <div id="wrap" className="map">
-                    <h2>예식 장소</h2>
-                    <div
-                        ref={mapDiv}
-                        style={{ width: '100%', height: '400px' }}
-                    />
-                    <code id="snippet" className="snippet" />
-                </div>
+            <div id="wrap" className="map">
+                <h2>예식 장소</h2>
+                <div
+                    ref={mapDiv}
+                />
+                <code id="snippet" className="snippet" />
             </div>
         </>
     );

@@ -7,16 +7,13 @@ import { RootState } from '../../../../modules/reducer/rootReducer';
 import ImageOnly from './ImageOnly';
 import DetailContents from './DetailContents';
 
-interface Props {}
-const DetailBody: NextPage<Props> = ({}) => {
+interface Props { }
+const ViewContents: NextPage<Props> = ({ }) => {
     const dispatch = useDispatch();
     const state = useSelector((state: RootState) => state.wedding);
     const offModal = (e) => {
         e.stopPropagation();
-        dispatch(weddingReducer.modalChange({showModal:false, modalType:ModalType.POSTER}));
-    };
-    const preventEvent = (e) => {
-        e.stopPropagation();
+        dispatch(weddingReducer.modalChange({ showModal: false, modalType: ModalType.POSTER }));
     };
 
     const data: PosterDto = state.detailData;
@@ -24,17 +21,16 @@ const DetailBody: NextPage<Props> = ({}) => {
     // const [detailMenu, setDetailMenu] = useState(DetailMenu.)
     return (
         <>
-            <div className="detail" onClick={preventEvent}>
-                {data.type === DetailType.IMG ? (
-                    <ImageOnly src={data.src} />
-                ) : data.type === DetailType.CONTENTS ? (
-                    <DetailContents poster={data}/>
-                ) : (
-                    <></>
-                    // <ActorIntroduce actor={actor}/>
-                )}
-            </div>
+            {data.type === DetailType.IMG ? (
+                <ImageOnly src={data.src} />
+            ) : data.type === DetailType.CONTENTS ? (
+                <DetailContents poster={data} />
+            ) : (
+                <></>
+                // <ActorIntroduce actor={actor}/>
+            )}
+
         </>
     );
 };
-export default DetailBody;
+export default ViewContents;

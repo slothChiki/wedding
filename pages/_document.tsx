@@ -8,7 +8,7 @@ import Document, {
 import { ServerStyleSheet } from 'styled-components';
 import Script from 'next/script';
 import React from 'react';
-import NaverMap from './views/component/theater-info/location/script/NaverMapScript';
+import NaverMap from './views/nsFlix/detail/location/script/NaverMapScript';
 import SendScript from './views/component/movie-info/introduce/SendScript';
 
 export default class MyDocument extends Document {

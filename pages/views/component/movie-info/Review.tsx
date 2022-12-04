@@ -1,9 +1,9 @@
 import { NextPage, NextPageContext } from 'next';
 import React, { useEffect } from 'react';
-import InputComment from './board/InputComment';
+import InputComment from '../../nsFlix/detail/board/InputComment';
 import { useDispatch } from 'react-redux';
 import { load } from '../../../../modules/load';
-import BoardView from './board/BoardView';
+import BoardView from '../../nsFlix/detail/board/BoardView';
 import wrapper from '../../../../modules/store/store';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { MainManu } from '../../../../src/enums/wedding.enum';

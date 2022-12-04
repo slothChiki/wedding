@@ -1,4 +1,5 @@
 
+import { BoardListApi } from "src/domain/board/api/board-list.api";
 import { PosterDto } from "src/domain/nsflix/dto/nsflixs.dto";
 import { DetailType, ModalType } from "src/enums/wedding.enum";
 
@@ -17,7 +18,7 @@ type State = {
     showModal: boolean;
     detailData: PosterDto;
     modalType: ModalType;
-
+    boardList: BoardListApi[];
 };
 
 const initialState: State = {
@@ -25,6 +26,7 @@ const initialState: State = {
     showModal: false,
     detailData: { type: DetailType.IMG, src: '', name: '' },
     modalType: ModalType.POSTER,
+    boardList: []
 
 };
 

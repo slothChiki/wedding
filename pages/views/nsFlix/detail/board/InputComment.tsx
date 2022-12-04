@@ -1,12 +1,13 @@
-import rootReducer from 'modules/reducer/rootReducer';
+import rootReducer, { RootState } from 'modules/reducer/rootReducer';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; // 리덕스 개발자 도구
 import * as weddingReducer from 'modules/reducer/wedding';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { load } from '../../../../../modules/load';
 import { BoardListApi } from '../../../../../src/domain/board/api/board-list.api';
+import { ErrorCode } from 'src/core/exception/errorCode';
 
 interface Props {
     aaa: string;
@@ -16,7 +17,8 @@ const InputComment: NextPage<any> = () => {
     const [tel, setTel] = useState('');
     const [contents, setContents] = useState('');
     const dispatch = useDispatch();
-
+    const state = useSelector((state: RootState) => state.board);
+    
     const inputName = (e) => {
         setName(e.target.value);
     };
@@ -44,6 +46,21 @@ const InputComment: NextPage<any> = () => {
             }),
         );
     };
+
+    useEffect(()=>{
+        const inputState = state.apiResult.putBoardResult;
+        if(inputState == ErrorCode.SUCCESS){
+            dispatch(
+                load({
+                    apiPath: 'board/getBoard',
+                    method: 'POST',
+                    param: {},
+                }),
+            );
+            
+        }
+      
+    },[])
 
     return (
         <>

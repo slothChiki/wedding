@@ -6,8 +6,10 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
 .container.modal::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+    display: none;
+    /* Chrome, Safari, Opera*/
 }
 
 .container .detail-modal {
@@ -34,8 +36,10 @@
     background-color: rgba(0, 0, 0, 0.381);
     z-index: 80;
 }
+
 .container .detail-modal.on::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+    display: none;
+    /* Chrome, Safari, Opera*/
 }
 
 .detail-modal .detail {
@@ -53,6 +57,7 @@
     border-radius: 8px;
     max-width: 100%;
 }
+
 .detail .detail-contents {
     border-radius: 8px;
     width: 100%;
@@ -96,6 +101,7 @@
     width: 100%;
     height: 20%;
 }
+
 .middle-introduce .left {
     float: left;
     width: 65%;
@@ -105,17 +111,34 @@
     vertical-align: center;
 }
 
-.middle-introduce .left span{
+.middle-introduce .left span {
     color: forestgreen;
     font-weight: bold;
     font-size: 0.9rem;
 }
-.middle-introduce .left i{
+
+.middle-introduce .left i {
     font-size: 1rem;
 }
+
 .middle-introduce .right {
     float: right;
     width: 35%;
     padding: 0% 3%;
     background-color: palegoldenrod;
+}
+
+.detail .location {
+    width: 100%;
+    display: flex;
+}
+
+.location .map {
+    width: '100%';
+    height: '600px'
+}
+
+.location .parking {
+    font-size: 2rem;
+    color: crimson;
 }

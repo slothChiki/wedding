@@ -4,20 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../modules/reducer/rootReducer';
 import { PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
 import { DetailType, ModalType } from 'src/enums/wedding.enum';
+import NaverMap from 'pages/views/nsFlix/detail/location/NaverMap';
+import React from 'react';
+import ParkingNotice from 'pages/views/nsFlix/detail/location/ParkingNotice';
+import LocationShare from 'pages/views/nsFlix/detail/location/LocationShare';
 
 interface Props {
 }
 const ViewLocation: NextPage<Props> = ({ }) => {
-    const state = useSelector((state: RootState) => state.wedding);
-    const dispatch = useDispatch();
-    const showModal = state.showModal;
-    const offModal = (e) => {
-        dispatch(weddingReducer.modalChange({ showModal: false, modalType:ModalType.LOCATION  }));
-    }
-
     return (
         <>
-            durls wleh
+            <div className="location" >
+                <NaverMap />
+                <LocationShare />
+                <ParkingNotice />
+            </div>
         </>
     );
 

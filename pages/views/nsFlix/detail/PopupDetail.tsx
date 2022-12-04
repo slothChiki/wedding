@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import DetailBody from './DetailBody';
+import ViewContents from './ViewContents';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../modules/reducer/rootReducer';
@@ -13,8 +13,12 @@ const PopupDetail: NextPage<Props> = ({ }) => {
     const showModal = state.showModal;
     const modalType = state.modalType;
     const offModal = (e) => {
-        dispatch(weddingReducer.modalChange({ showModal: false , modalType:ModalType.BOARD}));
+        dispatch(weddingReducer.modalChange({ showModal: false, modalType: ModalType.BOARD }));
     };
+    const preventEvent = (e) => {
+        e.stopPropagation();
+    };
+
 
     return (
         <>
@@ -22,12 +26,15 @@ const PopupDetail: NextPage<Props> = ({ }) => {
                 className={`detail-modal ${showModal ? 'on' : ''}`}
                 onClick={offModal}
             >
-                {modalType == ModalType.POSTER ?
-                    <DetailBody />
-                    : modalType == ModalType.LOCATION ?
-                        <ViewLocation />
-                        : <>방명록이요</>
-                }
+                <div className="detail" onClick={preventEvent}>
+                    {modalType == ModalType.POSTER ?
+                        <ViewContents />
+                        : modalType == ModalType.LOCATION ?
+                            <ViewLocation />
+
+                            : <>방명록이요</>
+                    }
+                </div>
             </div>
         </>
     );
