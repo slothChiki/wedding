@@ -28,6 +28,11 @@ const ViewBoard: NextPage<Props> = ({ }) => {
     return (
         <>
             <div className="board" >
+                <h2>방명록</h2>
+                <br/>
+                <p>신랑신부에게 해주고 싶은 말씀을 써주세요.</p>
+                <p>욕설, 비방, 혐오감을 주는 언행은 삼가주세요.^^</p>
+                <br/>
                 <InputComment />
                 <BoardView boardList={boardList} />
             </div>

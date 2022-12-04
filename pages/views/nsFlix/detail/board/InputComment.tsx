@@ -68,31 +68,41 @@ const InputComment: NextPage<any> = () => {
     return (
         <>
             <div className="input-board">
-                <label htmlFor="input-name">작성자</label>
-                <input
-                    type="text"
-                    className="input-name"
-                    value={name}
-                    onChange={inputName}
-                />
-                <label htmlFor="input-name">연락처</label>
-                <input
-                    type="text"
-                    className="input-name"
-                    value={tel}
-                    onChange={inputTel}
-                />
-                <br />
 
+                <p>
+                    연락처는 신랑신부의 인물 대조용으로만 사용됩니다. 노출되거나 하지 않아요. <br />
+                    써주시면 너무 감사하겠습니다.
+                </p>
+
+                <div className="input-box">
+                    <label htmlFor="input-name">작성자</label>
+                    <input
+                        type="text"
+                        className="input-name"
+                        value={name}
+                        onChange={inputName}
+                    />
+                    <label htmlFor="input-name">연락처</label>
+                    <input
+                        type="text"
+                        className="input-name"
+                        value={tel}
+                        onChange={inputTel}
+                    />
+                    <button className="input-btn" onClick={submitComment}>
+                        등록
+                    </button>
+                </div>
+
+                <div className="input-box">
                 <label htmlFor="input-comment">내용</label>
                 <textarea
                     className="input-comment"
                     value={contents}
                     onChange={inputComment}
                 />
-                <button className="input-btn" onClick={submitComment}>
-                    등록
-                </button>
+                </div>
+
             </div>
         </>
     );

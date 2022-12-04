@@ -145,25 +145,55 @@
 
 .detail .board {
     width: 100%;
-    display: flex;
+    display: block;
+    padding: 10%;
 }
 
 .board .input-board {
     width: 100%;
     height: 200px;
+    font-size: 0.8rem;
+    display: flexbox;
 }
 
 .input-board label,
-input {
-    margin: 10 10;
+.input-board button {
+    margin: 10 20 10 0;
+    border-radius: 7px;
+    height: 1.2rem;
+    width: 5rem;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
-.input-board .input-name {
-    width: 10rem;
-    height: 2rem;
+.input-board p {
+    margin: 10 20 10 20;
 }
 
-.input-board .input-comment {
+.input-board .input-btn {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 0.2rem;
+}
+
+.input-board .input-btn:hover {
+    background-color: #cccccc;
+}
+
+.input-board .input-box {
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+
+.input-box .input-name {
+    width: 9rem;
+    border-radius: 7px;
+}
+
+.input-box .input-comment {
     margin: 0 10%;
+    width: 80%;
     height: auto;
+    border-radius: 7px;
 }

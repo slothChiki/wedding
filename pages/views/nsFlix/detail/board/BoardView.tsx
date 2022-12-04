@@ -12,16 +12,20 @@ const BoardView: NextPage<Props> = ({ boardList = [] }) => {
         <>
             <div className="boardlist">
                 <ul>
-                    {boardList.map((v, i) => (
-                        <a key={`board_${i}}`}>
-                            <li>
-                                <dl className='board-one'>
-                                    <dt>{v.name}</dt>
-                                    <dd> {v.contents}</dd>
-                                </dl>
-                            </li>
-                        </a>
-                    ))}
+                    {boardList ? null :
+                        (
+                            boardList.map((v, i) => (
+                                <a key={`board_${i}}`}>
+                                    <li>
+                                        <dl className='board-one'>
+                                            <dt>{v.name}</dt>
+                                            <dd> {v.contents}</dd>
+                                        </dl>
+                                    </li>
+                                </a>
+                            ))
+                        )
+                    }
                 </ul>
             </div>
         </>

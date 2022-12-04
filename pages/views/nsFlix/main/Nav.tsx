@@ -31,7 +31,7 @@ const Nav: NextPage<props> = ({}) => {
                     {/*    </div>*/}
                     {/*</div>*/}
                     <div className="icon kids">
-                        <a href="pages/views/nsFlix/main/Nav#">키즈</a>
+                        <a href="pages/views/nsFlix/main/Nav#">마음전하기</a>
                     </div>
                     <div className="icon bell">
                         <a href="pages/views/nsFlix/main/Nav#">
