@@ -10,12 +10,19 @@ interface Props {
 const BoardView: NextPage<Props> = ({ boardList = [] }) => {
     return (
         <>
-            <div className="card-board">
-                {boardList.map((v, i) => (
-                    <a key={i}>
-                        {v.idx} / {v.name}
-                    </a>
-                ))}
+            <div className="boardlist">
+                <ul>
+                    {boardList.map((v, i) => (
+                        <a key={`board_${i}}`}>
+                            <li>
+                                <dl className='board-one'>
+                                    <dt>{v.name}</dt>
+                                    <dd> {v.contents}</dd>
+                                </dl>
+                            </li>
+                        </a>
+                    ))}
+                </ul>
             </div>
         </>
     );

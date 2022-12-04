@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; // 리덕스 개발자 도구
-import * as weddingReducer from 'modules/reducer/wedding';
+import * as boardReducer from 'modules/reducer/board';
 import { useDispatch, useSelector } from 'react-redux';
 import { load } from '../../../../../modules/load';
 import { BoardListApi } from '../../../../../src/domain/board/api/board-list.api';
@@ -18,7 +18,7 @@ const InputComment: NextPage<any> = () => {
     const [contents, setContents] = useState('');
     const dispatch = useDispatch();
     const state = useSelector((state: RootState) => state.board);
-    
+
     const inputName = (e) => {
         setName(e.target.value);
     };
@@ -30,8 +30,11 @@ const InputComment: NextPage<any> = () => {
     const inputComment = (e) => {
         setContents(e.target.value);
     };
-    // const dispatch = useDispatch();
-
+    const resetInput = () => {
+        setName('');
+        setTel('');
+        setContents('');
+    }
     const submitComment = () => {
         const boardData = new BoardListApi({
             name: name,
@@ -47,9 +50,9 @@ const InputComment: NextPage<any> = () => {
         );
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         const inputState = state.apiResult.putBoardResult;
-        if(inputState == ErrorCode.SUCCESS){
+        if (inputState == ErrorCode.SUCCESS) {
             dispatch(
                 load({
                     apiPath: 'board/getBoard',
@@ -57,10 +60,10 @@ const InputComment: NextPage<any> = () => {
                     param: {},
                 }),
             );
-            
+            resetInput();
+            dispatch(boardReducer.resetCode({}));
         }
-      
-    },[])
+    }, [state.apiResult.putBoardResult])
 
     return (
         <>
@@ -79,6 +82,8 @@ const InputComment: NextPage<any> = () => {
                     value={tel}
                     onChange={inputTel}
                 />
+                <br />
+
                 <label htmlFor="input-comment">내용</label>
                 <textarea
                     className="input-comment"

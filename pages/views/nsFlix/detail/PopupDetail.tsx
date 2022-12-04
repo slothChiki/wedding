@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../modules/reducer/rootReducer';
 import ViewLocation from './ViewLocation';
 import { ModalType } from 'src/enums/wedding.enum';
+import ViewBoard from './ViewBoard';
 
 interface Props { }
 const PopupDetail: NextPage<Props> = ({ }) => {
@@ -31,8 +32,7 @@ const PopupDetail: NextPage<Props> = ({ }) => {
                         <ViewContents />
                         : modalType == ModalType.LOCATION ?
                             <ViewLocation />
-
-                            : <>방명록이요</>
+                        : <><ViewBoard /></>
                     }
                 </div>
             </div>

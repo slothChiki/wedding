@@ -142,3 +142,28 @@
     font-size: 2rem;
     color: crimson;
 }
+
+.detail .board {
+    width: 100%;
+    display: flex;
+}
+
+.board .input-board {
+    width: 100%;
+    height: 200px;
+}
+
+.input-board label,
+input {
+    margin: 10 10;
+}
+
+.input-board .input-name {
+    width: 10rem;
+    height: 2rem;
+}
+
+.input-board .input-comment {
+    margin: 0 10%;
+    height: auto;
+}

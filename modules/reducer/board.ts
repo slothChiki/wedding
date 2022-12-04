@@ -93,7 +93,10 @@ function board(state = initialState, action: BoardAction) {
         case RESET_COE:
             return {
                 ...state,
-                [action.param]: ErrorCode.DEFAULT_ERROR,
+                apiResult: {
+                    ...state.apiResult,
+                    putBoardResult: ErrorCode.DEFAULT_ERROR,
+                }
             }
         default:
             return state;
