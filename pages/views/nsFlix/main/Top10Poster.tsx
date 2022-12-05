@@ -1,11 +1,8 @@
 import { NextPage } from 'next';
-import styled from 'styled-components';
 import { PosterDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
 import { useDispatch } from 'react-redux';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
-import { detailDataChoice } from '../../../../modules/reducer/wedding';
-import { DetailType } from '../../../../src/enums/wedding.enum';
-import { ModalType } from 'dist/enums/wedding.enum';
+import { DetailType, ModalType } from '../../../../src/enums/wedding.enum';
 
 interface Props {
     poster: PosterDto;
@@ -22,7 +19,12 @@ const Top10Poster: NextPage<Props> = ({
     const dispatch = useDispatch();
     const detailDataChoice = () => {
         dispatch(weddingReducer.detailDataChoice({ ...poster } as PosterDto));
-        dispatch(weddingReducer.modalChange({showModal:true, modalType:ModalType.POSTER}));
+        dispatch(
+            weddingReducer.modalChange({
+                showModal: true,
+                modalType: ModalType.POSTER,
+            }),
+        );
     };
 
     return (

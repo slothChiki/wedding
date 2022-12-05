@@ -2,20 +2,18 @@ import { NextPage } from 'next';
 import { PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { DetailMenu, Sns, TimerType } from '../../../../src/enums/wedding.enum';
+import { TimerType } from '../../../../src/enums/wedding.enum';
 import { DetailType } from '../../../../dist/enums/wedding.enum';
-import styled from 'styled-components';
 import SocialShare from './SocialShare';
-import Timer from './Timer';
 import moment from 'moment';
+import Timer from '../main/Timer';
 
 interface Props {
-    data: PosterDto;
+    poster: PosterDto;
 }
 
 const DetailContents: NextPage<Props> = ({
-    data = { src: '', name: '', type: DetailType.CONTENTS },
+    poster = { src: '', name: '', type: DetailType.CONTENTS },
 }) => {
     const dispatch = useDispatch();
     const offModal = (e) => {
@@ -39,12 +37,12 @@ const DetailContents: NextPage<Props> = ({
                             rgba(36, 36, 36, 0.25) 70%,
                             rgba(36, 36, 36, 0.5) 80%,
                             rgba(36, 36, 36, 0.75) 90%,
-                            rgba(36, 36, 36, 1) 100%), url(${data.src})`,
+                            rgba(36, 36, 36, 1) 100%), url(${poster.src})`,
                     }}
                 >
                     <div className="detail-description">
                         <div className="detail-name">
-                            {data.name ? data.name : '6년째 연애중'}
+                            {poster.name ? poster.name : '6년째 연애중'}
                         </div>
                         <SocialShare />
                     </div>

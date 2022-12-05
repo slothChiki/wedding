@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
-    "prebuild:next": "sudo rimraf .next",
+    "prebuild:next": "rimraf .next",
     "build": "yarn build:next && yarn build:nest",
     "build:next": "next build --no-lint",
     "build:nest": "nest build --path ./tsconfig.server.json",
