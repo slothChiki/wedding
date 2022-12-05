@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "prebuild:next": "rimraf .next",
-    "build": "yarn build:next && yarn build:nest",
+    "build": "nest build",
     "build:next": "next build --no-lint",
     "build:nest": "nest build --path ./tsconfig.server.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
