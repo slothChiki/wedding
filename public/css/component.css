@@ -26,6 +26,7 @@
     /* max-width: 230px;
     height: 100%;
     border-radius: 8px; */
+    cursor: pointer;
 }
 
 .top10-container {
@@ -53,6 +54,7 @@
     display: inline-block;
     border-radius: 8px;
     position: relative;
+    cursor: pointer;
 }
 
 .top10-container .rank {
@@ -78,6 +80,7 @@
     height: 100%;
     border-radius: 8px;
     z-index: 5;
+    cursor: pointer;
 
 }
 

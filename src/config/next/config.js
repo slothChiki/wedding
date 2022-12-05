@@ -1,4 +1,6 @@
-const Config = { CURRENT_ENV: 'lo3ca3l' };
+const Config = {
+    CURRENT_ENV: 'lo3ca3l'
+};
 const mergedConfig = {
     Config,
 };

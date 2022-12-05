@@ -50,7 +50,7 @@ const LocationShare: NextPage<any> = () => {
     const weddingHallName = '중앙컨벤션센터';
     return (
         <>
-            <div className="location-navi  col-md-6">
+            <div className="navi  col-md-6">
                 <div id="wrap" className="share">
                     <h2>네비게이션 - 모바일만 지원됩니다.</h2>
                     <div

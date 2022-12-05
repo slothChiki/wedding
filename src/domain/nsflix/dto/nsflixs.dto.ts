@@ -25,3 +25,34 @@ export class PhotoDto {
     @IsString()
     src: string;
 }
+
+export class Actor {
+    constructor(options?: Partial<Actor>) {
+        if (options !== undefined) Object.assign(this, options);
+    }
+
+    @IsString()
+    name:string;
+
+    @IsString()
+    imgSrc:string;
+
+    @IsString()
+    bank:string;
+
+    @IsString()
+    account:string;
+
+    @IsString()
+    kakaoQr:string;
+
+    @IsString()
+    toss:string;
+
+    @IsString()
+    comment1:string;
+
+    
+    @IsString()
+    comment2:string;
+}

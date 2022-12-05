@@ -42,14 +42,14 @@ const Main: NextPage<Props> = ({}) => {
                     {/* 슬라이드 10개로 잘라야 함*/}
                     <div className="content-list">
                         <Top10Slider
-                            title={'나연이가 꼽은 TOP 10 콘텐츠'}
+                            title={'한국의 TOP 10 콘텐츠'}
                             list={posterList}
                             key={'top10'}
                         />
                     </div>
                     <div className="content-list">
                         <Top10Slider
-                            title={'상민이가 꼽은 TOP 10 콘텐츠'}
+                            title={'해외의 TOP 10 콘텐츠'}
                             list={posterList}
                             key={'top10'}
                         />

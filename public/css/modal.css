@@ -6,8 +6,10 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
 .container.modal::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+    display: none;
+    /* Chrome, Safari, Opera*/
 }
 
 .container .detail-modal {
@@ -15,9 +17,10 @@
 }
 
 .container .detail-modal.on {
-    display: grid;
-    grid-template-columns: 15% 70% 15%;
-    /*position: fixed;*/
+    /* display: grid;
+    grid-template-columns: 15% 70% 15%; */
+    display: flex;
+    /* position: fixed; */
     position: absolute;
     top: 0;
     left: 0;
@@ -33,8 +36,10 @@
     background-color: rgba(0, 0, 0, 0.381);
     z-index: 80;
 }
+
 .container .detail-modal.on::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+    display: none;
+    /* Chrome, Safari, Opera*/
 }
 
 .detail-modal .detail {
@@ -43,15 +48,34 @@
     /*background-color: rgba(36, 36, 36, 1);*/
     background-color: red;
     z-index: 81;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    position: relative;
+}
+
+
+.detail .modal-close{
+    position: absolute;
+    top:0;
+    left :85%;
+    background-image: url('/img/iconsX100.png') ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 90;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
 }
 
 .detail .detail-image img {
     border-radius: 8px;
     max-width: 100%;
 }
+
 .detail .detail-contents {
     border-radius: 8px;
-    max-width: 100%;
+    width: 100%;
     z-index: 82;
 }
 
@@ -92,6 +116,7 @@
     width: 100%;
     height: 20%;
 }
+
 .middle-introduce .left {
     float: left;
     width: 65%;
@@ -101,17 +126,89 @@
     vertical-align: center;
 }
 
-.middle-introduce .left span{
+.middle-introduce .left span {
     color: forestgreen;
     font-weight: bold;
     font-size: 0.9rem;
 }
-.middle-introduce .left i{
+
+.middle-introduce .left i {
     font-size: 1rem;
 }
+
 .middle-introduce .right {
     float: right;
     width: 35%;
     padding: 0% 3%;
     background-color: palegoldenrod;
+}
+
+.detail .location {
+    width: 100%;
+    display: flex;
+}
+
+.location .map {
+    width: '100%';
+    height: '600px'
+}
+
+.location .parking {
+    font-size: 2rem;
+    color: crimson;
+}
+
+.detail .board {
+    width: 100%;
+    display: block;
+    padding: 10%;
+}
+
+.board .input-board {
+    width: 100%;
+    height: 200px;
+    font-size: 0.8rem;
+    display: flexbox;
+}
+
+.input-board label,
+.input-board button {
+    margin: 10 20 10 0;
+    border-radius: 7px;
+    height: 1.2rem;
+    width: 5rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.input-board p {
+    margin: 10 20 10 20;
+}
+
+.input-board .input-btn {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 0.2rem;
+}
+
+.input-board .input-btn:hover {
+    background-color: #cccccc;
+}
+
+.input-board .input-box {
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+
+.input-box .input-name {
+    width: 9rem;
+    border-radius: 7px;
+}
+
+.input-box .input-comment {
+    margin: 0 10%;
+    width: 80%;
+    height: auto;
+    border-radius: 7px;
 }

@@ -5,10 +5,13 @@ import Next from 'next';
 import 'reflect-metadata';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import path from 'path';
 
 async function bootstrap() {
     const dev = process.env.NODE_ENV !== 'production';
-    const app = Next({ dev }); // create Next.js app
+    const app = Next({ dev ,
+        // conf: { distDir: `${path.relative(process.cwd(), __dirname)}/../next` },
+    }); // create Next.js app
 
     await app.prepare();
 

@@ -9,7 +9,7 @@ interface Props {
 const ParkingNotice: NextPage<any> = () => {
     return (
         <>
-            <div className="card-parking">
+            <div className="parking">
                 주차장 주차등록 반드시 하세요!
                 1층 카페와 축의대에서 하실 수 있습니다.
             </div>

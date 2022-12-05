@@ -73,7 +73,7 @@ const Footer= ({}) => {
                         <i className="fa-brands fa-facebook-square"  onClick={()=>{onSosialShare(Sns.FACEBOOK)}} />
                         <i className="fa-brands fa-instagram"  onClick={()=>{onSosialShare(Sns.INSTARGRAM)}} />
                         <i className="fa-brands fa-twitter" onClick={()=>{onSosialShare(Sns.TWITTER)}}/>
-                        <i className="fa-sharp fa-solid fa-copy" />
+                        <i className="fa-sharp fa-solid fa-copy" onClick={onCopyClipBoard} />
                         <img src='/img/kakao.png' style={{width:'1.5rem', height:'1.5rem', marginLeft:'4px'}}/>
                     </div>
                     <div className="options">

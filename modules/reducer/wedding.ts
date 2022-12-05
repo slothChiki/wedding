@@ -1,9 +1,13 @@
-import { PosterDto } from '../../dist/domain/nsflix/dto/nsflixs.dto';
-import { DetailType } from '../../dist/enums/wedding.enum';
+
+import { BoardListApi } from "src/domain/board/api/board-list.api";
+import { PosterDto } from "src/domain/nsflix/dto/nsflixs.dto";
+import { ActorType, DetailType, ModalType } from "src/enums/wedding.enum";
+
 
 const SET_INIT = 'SET_INIT';
 const MODAL_CHANGE = 'MODAL_CHANGE';
 const DETAIL_DATA_CHOICE = 'DETAIL_DATA_CHOICE';
+const CHOICE_MONEY_ACTOR = 'CHOICE_MONEY_ACTOR';
 
 interface IParam {
     type: string;
@@ -14,12 +18,18 @@ type State = {
     currentAction: string;
     showModal: boolean;
     detailData: PosterDto;
+    modalType: ModalType;
+    boardList: BoardListApi[];
+    sendingActor: ActorType;
 };
 
 const initialState: State = {
     currentAction: 'default(action)',
     showModal: false,
     detailData: { type: DetailType.IMG, src: '', name: '' },
+    modalType: ModalType.POSTER,
+    boardList: [],
+    sendingActor: ActorType.NY
 };
 
 export const initDetailInfo = (param) => ({
@@ -37,6 +47,11 @@ export const detailDataChoice = (param) => ({
     param: param,
 });
 
+export const choiceMoneyActor = (param) => ({
+    type: CHOICE_MONEY_ACTOR,
+    param: param,
+});
+
 type WeddingAction = IParam;
 
 function wedding(state = initialState, action: WeddingAction) {
@@ -50,7 +65,8 @@ function wedding(state = initialState, action: WeddingAction) {
             return {
                 ...state,
                 currentAction: action.type,
-                showModal: action.param,
+                showModal: action.param.showModal,
+                modalType: action.param.modalType,
             };
 
         case DETAIL_DATA_CHOICE:
@@ -59,6 +75,12 @@ function wedding(state = initialState, action: WeddingAction) {
                 currentAction: action.type,
                 detailData: action.param,
             };
+        case CHOICE_MONEY_ACTOR:
+            return {
+                ...state,
+                currentAction: action.type,
+                sendingActor: action.param,
+            }
         default:
             return state;
     }
