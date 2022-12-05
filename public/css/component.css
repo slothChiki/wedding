@@ -50,7 +50,7 @@
 }
 
 .top10-container .rank-poster {
-    width: 250px;
+    width: 220px;
     display: inline-block;
     border-radius: 8px;
     position: relative;
@@ -60,7 +60,7 @@
 .top10-container .rank {
     float: left;
     /*margin: 50%, 0, 0, 60px;*/
-    font-size: 220px;
+    font-size: 150px;
     font-weight: 600;
     text-align: right;
     line-height: 1;
@@ -68,10 +68,12 @@
     -webkit-text-stroke: 5px rgb(255, 255, 255);
     font-family: 'NetflixSans-Bold', sans-serif;
 
-    width: 110px;
+    width: 80px;
     height: 100%;
     z-index: 4;
     position: absolute;
+    top: 60px;
+    left: 20px;
 }
 
 .top10-container .image-container {

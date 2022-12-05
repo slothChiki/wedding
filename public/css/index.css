@@ -455,6 +455,13 @@ footer .wrap .options .option {
     color: #333;
     outline: none;
   }
+  main .description .buttons .play span {
+    font-size: 1.2rem;
+  }
+
+  main .description .buttons .detail span {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -472,6 +479,14 @@ footer .wrap .options .option {
 
   button {
     font-size: 0.5rem;
+  }
+
+  main .description .buttons .play span {
+    font-size: 0.8rem;
+  }
+
+  main .description .buttons .detail span {
+    font-size: 0.8rem;
   }
 }
 /*# sourceMappingURL=index.css.map */

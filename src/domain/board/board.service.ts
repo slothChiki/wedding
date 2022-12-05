@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { NotionService } from '../../common/notion/notion.service';
-import { UserInfoApi } from '../wedding/api/userInfo.api';
 import {
     CreatePageParameters,
     CreatePageResponse,

@@ -60,9 +60,9 @@ const NaverMap: NextPage<any> = () => {
             '</div>',
         ].join('');
 
-        const infowindow = new naver.maps.InfoWindow({
+        const infoWindow = new naver.maps.InfoWindow({
             content: contentString,
-            maxWidth: 200,
+            maxWidth: 300,
             // height: 50,
             backgroundColor: 'white',
             borderColor: 'black',
@@ -75,22 +75,28 @@ const NaverMap: NextPage<any> = () => {
         });
 
         naver.maps.Event.addListener(marker, 'click', function (e) {
-            if (infowindow.getMap()) {
-                infowindow.close();
+            if (infoWindow.getMap()) {
+                infoWindow.close();
             } else {
-                infowindow.open(map, marker);
+                infoWindow.open(map, marker);
             }
         });
 
-        infowindow.open(map, marker);
+        infoWindow.open(map, marker);
     }, []);
 
     return (
         <>
-            <div id="wrap" className="map">
+            <div id="wrap" className="naver-map">
                 <h2>예식 장소</h2>
                 <div
+                    className="map"
                     ref={mapDiv}
+                    style={{
+                        backgroundColor: 'green',
+                        width: '100%',
+                        height: '400px',
+                    }}
                 />
                 <code id="snippet" className="snippet" />
             </div>

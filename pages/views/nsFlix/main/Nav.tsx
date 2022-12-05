@@ -1,39 +1,68 @@
 import { NextPage } from 'next';
-import { TimerType, ModalType, ActorType } from '../../../../src/enums/wedding.enum';
+import {
+    TimerType,
+    ModalType,
+    ActorType,
+} from '../../../../src/enums/wedding.enum';
 import { useDispatch } from 'react-redux';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useState } from 'react';
 
-
-interface props { }
-const Nav: NextPage<props> = ({ }) => {
+interface props {}
+const Nav: NextPage<props> = ({}) => {
     const dispatch = useDispatch();
     const detailDataChoice = (modalType: ModalType, actor: ActorType) => {
         viewList();
-        dispatch(weddingReducer.modalChange({ showModal: true, modalType: modalType }));
+        dispatch(
+            weddingReducer.modalChange({
+                showModal: true,
+                modalType: modalType,
+            }),
+        );
         dispatch(weddingReducer.choiceMoneyActor(actor));
     };
 
     const [classOn, setClassOn] = useState(false);
     const viewList = () => {
         setClassOn(!classOn);
-    }
+    };
     return (
         <>
             <nav>
                 <div className="left">
                     <div className="logo">
-                        <a href="pages/views/nsFlix/main/Nav#">
+                        <a href="/">
                             <img src="./img/logo.png" alt="" />
                         </a>
                     </div>
-                    <div className={`mobile-menu ${classOn ? 'on' : ''}`} onClick={viewList}>축의금</div>
+                    <div
+                        className={`mobile-menu ${classOn ? 'on' : ''}`}
+                        onClick={viewList}
+                    >
+                        축의금
+                    </div>
                     <ul className={`menu-list ${classOn ? 'on' : ''}`}>
                         <li>
-                            <a onClick={() => { detailDataChoice(ModalType.MONEYGIFT, ActorType.NY) }}>신부에게 마음전하기</a>
+                            <a
+                                onClick={() => {
+                                    detailDataChoice(
+                                        ModalType.MONEYGIFT,
+                                        ActorType.NY,
+                                    );
+                                }}
+                            >
+                                신부에게 마음전하기
+                            </a>
                         </li>
                         <li>
-                            <a onClick={() => { detailDataChoice(ModalType.MONEYGIFT, ActorType.SM) }}>
+                            <a
+                                onClick={() => {
+                                    detailDataChoice(
+                                        ModalType.MONEYGIFT,
+                                        ActorType.SM,
+                                    );
+                                }}
+                            >
                                 신랑에게 마음전하기
                             </a>
                         </li>

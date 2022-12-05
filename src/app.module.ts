@@ -2,10 +2,8 @@ import { HttpModule, Module, Scope } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
 import Next from 'next';
 import { AppController } from './app.controller';
-import { WeddingController } from './domain/wedding/wedding.controller';
 import { NotionService } from './common/notion/notion.service';
 import { CustomHttpService } from './common/custom-http/customHttp.service';
-import { UserInfoService } from './domain/wedding/userInfo.service';
 import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER, APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 import { ValidationPipe } from './core/validation/validation.pipe';
@@ -23,6 +21,7 @@ import {
 import { WebExceptionFilter } from './core/exception/web-exception.filter';
 import { ResponseInterceptor } from './core/respons-interceptor/response.interceptor';
 import { NsflixController } from './domain/nsflix/nsflix.controller';
+import { ErrorController } from './domain/error/error.controller';
 
 @Module({
     imports: [
@@ -40,15 +39,14 @@ import { NsflixController } from './domain/nsflix/nsflix.controller';
     ],
     controllers: [
         AppController,
-        WeddingController,
         BoardController,
         NsflixController,
+        ErrorController,
     ],
     providers: [
         Logger,
         NotionService,
         CustomHttpService,
-        UserInfoService,
         BoardService,
         AccessLoggerService,
         RequestInfoService,

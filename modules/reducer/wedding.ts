@@ -1,8 +1,5 @@
-
-import { BoardListApi } from "src/domain/board/api/board-list.api";
-import { PosterDto } from "src/domain/nsflix/dto/nsflixs.dto";
-import { ActorType, DetailType, ModalType } from "src/enums/wedding.enum";
-
+import { PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
+import { ActorType, DetailType, ModalType } from 'src/enums/wedding.enum';
 
 const SET_INIT = 'SET_INIT';
 const MODAL_CHANGE = 'MODAL_CHANGE';
@@ -19,7 +16,6 @@ type State = {
     showModal: boolean;
     detailData: PosterDto;
     modalType: ModalType;
-    boardList: BoardListApi[];
     sendingActor: ActorType;
 };
 
@@ -28,8 +24,7 @@ const initialState: State = {
     showModal: false,
     detailData: { type: DetailType.IMG, src: '', name: '' },
     modalType: ModalType.POSTER,
-    boardList: [],
-    sendingActor: ActorType.NY
+    sendingActor: ActorType.NY,
 };
 
 export const initDetailInfo = (param) => ({
@@ -80,7 +75,7 @@ function wedding(state = initialState, action: WeddingAction) {
                 ...state,
                 currentAction: action.type,
                 sendingActor: action.param,
-            }
+            };
         default:
             return state;
     }
