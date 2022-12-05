@@ -7,7 +7,7 @@ import { RootState } from '../../../../modules/reducer/rootReducer';
 import ImageOnly from './ImageOnly';
 import DetailContents from './DetailContents';
 import { useEffect, useState } from 'react';
-import clipBoard from '../../../../dist/common/clip-board/clip-board';
+import clipBoard from '../../../../src/common/clip-board/clip-board';
 
 interface Props {}
 const SocialShare: NextPage<Props> = ({}) => {
