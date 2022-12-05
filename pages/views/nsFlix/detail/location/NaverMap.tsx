@@ -54,9 +54,9 @@ const NaverMap: NextPage<any> = () => {
         });
 
         const contentString = [
-            '<div class="iw_inner" style="padding:5px; margin: 5px 0px 5px 0px; width: 150px; height: 45px; text-align: center; ">',
-            '   <p style="foint-size: 2rem; margin: 0;">중앙컨벤션센터</p>',
-            '   <p style="font-size: 0.8rem; margin: 0;">대구 북구 호암로 51 컨벤션동</p>',
+            '<div class="iw_inner" style="padding:5px; margin: 5px 0px 5px 0px; width: 200px; height: 45px; text-align: center; color: black;">',
+            '   <p style="foint-size: 1.5rem; margin: 0; color: black;">중앙컨벤션센터</p>',
+            '   <p style="font-size: 0.8rem; margin: 0; color: black;">대구 북구 호암로 51 컨벤션동</p>',
             '</div>',
         ].join('');
 
@@ -88,7 +88,6 @@ const NaverMap: NextPage<any> = () => {
     return (
         <>
             <div id="wrap" className="naver-map">
-                <h2>예식 장소</h2>
                 <div
                     className="map"
                     ref={mapDiv}

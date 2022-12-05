@@ -1,10 +1,12 @@
-import { PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
-import { ActorType, DetailType, ModalType } from 'src/enums/wedding.enum';
+import { ActorDto, PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
+import { ActorType, DetailType } from 'src/enums/wedding.enum';
 
 const SET_INIT = 'SET_INIT';
-const MODAL_CHANGE = 'MODAL_CHANGE';
-const DETAIL_DATA_CHOICE = 'DETAIL_DATA_CHOICE';
-const CHOICE_MONEY_ACTOR = 'CHOICE_MONEY_ACTOR';
+const MODAL_ON = 'MODAL_ON';
+const MODAL_OFF = 'MODAL_OFF';
+const DETAIL_IMG_CHOICE = 'DETAIL_IMG_CHOICE';
+const DETAIL_CONTENTS_CHOICE = 'DETAIL_CONTENTS_CHOICE';
+const DETAIL_ACTOR_CHOICE = 'DETAIL_ACTOR_CHOICE';
 
 interface IParam {
     type: string;
@@ -14,17 +16,34 @@ interface IParam {
 type State = {
     currentAction: string;
     showModal: boolean;
-    detailData: PosterDto;
-    modalType: ModalType;
-    sendingActor: ActorType;
+    detailImage: string;
+    detailContents: PosterDto;
+    detailActor: ActorDto;
+    detailType: DetailType;
 };
 
 const initialState: State = {
     currentAction: 'default(action)',
     showModal: false,
-    detailData: { type: DetailType.IMG, src: '', name: '' },
-    modalType: ModalType.POSTER,
-    sendingActor: ActorType.NY,
+    detailImage: '',
+    detailContents: {
+        src: '',
+        name: '',
+        category: 0,
+        comment1: '',
+        comment2: '',
+    },
+    detailActor: {
+        name: '',
+        src: '',
+        bank: '',
+        kakaoQr: '',
+        account: '',
+        toss: '',
+        comment1: '',
+        comment2: '',
+    },
+    detailType: DetailType.IMG,
 };
 
 export const initDetailInfo = (param) => ({
@@ -32,18 +51,28 @@ export const initDetailInfo = (param) => ({
     param: param,
 });
 
-export const modalChange = (param) => ({
-    type: MODAL_CHANGE,
+export const modalOn = (param) => ({
+    type: MODAL_ON,
     param: param,
 });
 
-export const detailDataChoice = (param) => ({
-    type: DETAIL_DATA_CHOICE,
+export const modalOff = (param) => ({
+    type: MODAL_OFF,
     param: param,
 });
 
-export const choiceMoneyActor = (param) => ({
-    type: CHOICE_MONEY_ACTOR,
+export const detailImgChoice = (param) => ({
+    type: DETAIL_IMG_CHOICE,
+    param: param,
+});
+
+export const detailContentsChoice = (param) => ({
+    type: DETAIL_CONTENTS_CHOICE,
+    param: param,
+});
+
+export const detailActorChoice = (param) => ({
+    type: DETAIL_ACTOR_CHOICE,
     param: param,
 });
 
@@ -56,25 +85,38 @@ function wedding(state = initialState, action: WeddingAction) {
                 ...state,
                 currentAction: action.type,
             };
-        case MODAL_CHANGE:
+        case MODAL_ON:
             return {
                 ...state,
                 currentAction: action.type,
                 showModal: action.param.showModal,
-                modalType: action.param.modalType,
+                detailType: action.param.detailType,
             };
 
-        case DETAIL_DATA_CHOICE:
+        case MODAL_OFF:
             return {
                 ...state,
                 currentAction: action.type,
-                detailData: action.param,
+                showModal: false,
             };
-        case CHOICE_MONEY_ACTOR:
+
+        case DETAIL_IMG_CHOICE:
             return {
                 ...state,
                 currentAction: action.type,
-                sendingActor: action.param,
+                detailImage: action.param,
+            };
+        case DETAIL_CONTENTS_CHOICE:
+            return {
+                ...state,
+                currentAction: action.type,
+                detailContents: action.param,
+            };
+        case DETAIL_ACTOR_CHOICE:
+            return {
+                ...state,
+                currentAction: action.type,
+                detailActor: action.param,
             };
         default:
             return state;

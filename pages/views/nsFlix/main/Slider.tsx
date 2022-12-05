@@ -2,17 +2,34 @@ import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import 'swiper/css';
 import Photo from './Photo';
-import { PhotoDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
-import { imageMedia } from '../../../../src/enums/wedding.enum';
+import {
+    ActorDto,
+    PhotoDto,
+    PosterDto,
+} from '../../../../src/domain/nsflix/dto/nsflixs.dto';
+import {
+    DetailType,
+    imageMedia,
+    SliderType,
+} from '../../../../src/enums/wedding.enum';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch } from 'react-redux';
+import * as weddingReducer from '../../../../modules/reducer/wedding';
 
 interface Props {
+    list: Array<PosterDto | ActorDto | PhotoDto>;
     title: string;
-    list: PhotoDto[];
+    sliderType: SliderType;
 }
-const Slider: NextPage<Props> = ({ title = '', list = [] }) => {
+
+const Slider: NextPage<Props> = ({
+    list = [],
+    title = '',
+    sliderType = SliderType.IMG,
+}) => {
     const [movePx, setMovePx] = useState(0);
 
+    // 창 길이 만큼 움직이기 - 화살표 /////////////////////////////////////////////////////////////////////////////////
     useEffect(() => {
         const screen = window.innerWidth;
         console.log(screen);
@@ -78,7 +95,7 @@ const Slider: NextPage<Props> = ({ title = '', list = [] }) => {
             serCurPos(curPos + 1);
         }
     }
-
+    // 창 길이 만큼 움직이기 - 터치 /////////////////////////////////////////////////////////////////////////////////
     function touchStart(e) {
         e.stopPropagation();
         console.log(`touchStart --- ${e.changedTouches[0].pageX}`);
@@ -98,6 +115,38 @@ const Slider: NextPage<Props> = ({ title = '', list = [] }) => {
         }
     }
 
+    // 디테일 창 열기 ///////////////////////////////////////////////////////////////////////////////////////////
+    const dispatch = useDispatch();
+
+    const detailDataChoice = (v: PhotoDto | PosterDto | ActorDto) => {
+        let detailType = DetailType.IMG;
+        switch (sliderType) {
+            case SliderType.IMG:
+                dispatch(weddingReducer.detailImgChoice(v['src']));
+                detailType = DetailType.IMG;
+                break;
+            case SliderType.CONTENTS:
+                dispatch(
+                    weddingReducer.detailContentsChoice({ ...v } as PosterDto),
+                );
+                detailType = DetailType.CONTENTS;
+                break;
+            case SliderType.ACTOR:
+            default:
+                dispatch(
+                    weddingReducer.detailActorChoice({ ...v } as ActorDto),
+                );
+                detailType = DetailType.ACTOR;
+        }
+
+        dispatch(
+            weddingReducer.modalOn({
+                showModal: true,
+                detailType: detailType,
+            }),
+        );
+    };
+
     return (
         <>
             <h1>{title}</h1>
@@ -110,8 +159,11 @@ const Slider: NextPage<Props> = ({ title = '', list = [] }) => {
                     return (
                         <Photo
                             key={`${title}_${i}`}
-                            photo={v}
+                            src={v['src']}
                             slide={slidePx}
+                            clickMethod={() => {
+                                detailDataChoice(v);
+                            }}
                         />
                     );
                 })}

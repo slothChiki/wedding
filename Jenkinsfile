@@ -6,7 +6,11 @@ pipeline {
   stages {
       stage('Start') {
           steps {
-            sh 'npm install'
+         echo '---------------------------------------- BUILD ----------------------------------------'
+                         sh 'npm install --quiet --no-progress'
+                         sh 'npm run build'
+                         sh "node ./src/config/next/build.js next-env --env=${serverEnv}"
+                         sh 'npm run build:next'
           }
       }
       stage('Build') {

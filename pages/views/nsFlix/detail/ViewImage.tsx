@@ -1,30 +1,28 @@
 import { NextPage } from 'next';
-import { PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { DetailMenu, ModalType } from '../../../../src/enums/wedding.enum';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../../modules/reducer/rootReducer';
 
-interface Props {
-    src: string;
-}
-const ImageOnly: NextPage<Props> = ({ src = '' }) => {
+interface Props {}
+const ViewImage: NextPage<Props> = ({}) => {
     const dispatch = useDispatch();
+    const state = useSelector((state: RootState) => state.wedding);
     const offModal = (e) => {
         e.stopPropagation();
-        dispatch(weddingReducer.modalChange({showModal:false, modalType:ModalType.POSTER }));
+        dispatch(weddingReducer.modalOff({}));
     };
     const preventEvent = (e) => {
         e.stopPropagation();
     };
 
+    const image = state.detailImage;
     // const [detailMenu, setDetailMenu] = useState(DetailMenu.)
     return (
         <>
             <div className="detail-image" onClick={offModal}>
-                <img src={src} />
+                <img src={image} />
             </div>
         </>
     );
 };
-export default ImageOnly;
+export default ViewImage;

@@ -2,27 +2,51 @@ import { NextPage } from 'next';
 import { PosterDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
 import { useDispatch } from 'react-redux';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
-import { DetailType, ModalType } from '../../../../src/enums/wedding.enum';
+import { DetailType, SliderType } from '../../../../src/enums/wedding.enum';
+import {
+    ActorDto,
+    PhotoDto,
+} from '../../../../dist/domain/nsflix/dto/nsflixs.dto';
 
 interface Props {
-    poster: PosterDto;
+    data: PosterDto | ActorDto | PhotoDto;
     idx: number;
     slide: number;
+    detailType: DetailType;
 }
 
 const Top10Poster: NextPage<Props> = ({
-    poster = { typeof: DetailType.IMG, src: '', name: '' },
+    data = { src: '', name: '' },
     idx = 0,
     slide = 0,
+    detailType = DetailType.IMG,
 }) => {
     // TODO - props 로 줘야 할까?
     const dispatch = useDispatch();
+
     const detailDataChoice = () => {
-        dispatch(weddingReducer.detailDataChoice({ ...poster } as PosterDto));
+        switch (detailType) {
+            case DetailType.IMG:
+                dispatch(weddingReducer.detailImgChoice(data.src));
+                break;
+            case DetailType.CONTENTS:
+                dispatch(
+                    weddingReducer.detailContentsChoice({
+                        ...data,
+                    } as PosterDto),
+                );
+                break;
+            case DetailType.ACTOR:
+            default:
+                dispatch(
+                    weddingReducer.detailActorChoice({ ...data } as ActorDto),
+                );
+        }
+
         dispatch(
-            weddingReducer.modalChange({
+            weddingReducer.modalOn({
                 showModal: true,
-                modalType: ModalType.POSTER,
+                detailType: DetailType,
             }),
         );
     };
@@ -39,7 +63,7 @@ const Top10Poster: NextPage<Props> = ({
                 {/* <Link to={isMovie ? `/movie/${id}` : `/tv/${id}`}> */}
                 <div className="rank-poster">
                     <div className="rank">{idx + 1}</div>
-                    <img className="image-container" src={poster.src} />
+                    <img className="image-container" src={data.src} />
                 </div>
                 {/* </Link> */}
             </li>

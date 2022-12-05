@@ -4,8 +4,8 @@ import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useDispatch, useSelector } from 'react-redux';
 import { DetailType, Sns } from '../../../../src/enums/wedding.enum';
 import { RootState } from '../../../../modules/reducer/rootReducer';
-import ImageOnly from './ImageOnly';
-import DetailContents from './DetailContents';
+import ViewImage from './ViewImage';
+import ViewContents from './ViewContents';
 import { useEffect, useState } from 'react';
 import clipBoard from '../../../../src/common/clip-board/clip-board';
 

@@ -1,9 +1,5 @@
 import { NextPage } from 'next';
-import {
-    TimerType,
-    ModalType,
-    ActorType,
-} from '../../../../src/enums/wedding.enum';
+import { ActorType, DetailType } from '../../../../src/enums/wedding.enum';
 import { useDispatch } from 'react-redux';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useState } from 'react';
@@ -11,15 +7,15 @@ import { useState } from 'react';
 interface props {}
 const Nav: NextPage<props> = ({}) => {
     const dispatch = useDispatch();
-    const detailDataChoice = (modalType: ModalType, actor: ActorType) => {
+    const detailDataChoice = (actor: ActorType) => {
         viewList();
+        dispatch(weddingReducer.detailActorChoice(actor));
         dispatch(
-            weddingReducer.modalChange({
+            weddingReducer.modalOn({
                 showModal: true,
-                modalType: modalType,
+                detailType: DetailType.ACTOR,
             }),
         );
-        dispatch(weddingReducer.choiceMoneyActor(actor));
     };
 
     const [classOn, setClassOn] = useState(false);
@@ -45,10 +41,7 @@ const Nav: NextPage<props> = ({}) => {
                         <li>
                             <a
                                 onClick={() => {
-                                    detailDataChoice(
-                                        ModalType.MONEYGIFT,
-                                        ActorType.NY,
-                                    );
+                                    detailDataChoice(ActorType.NY);
                                 }}
                             >
                                 신부에게 마음전하기
@@ -57,10 +50,7 @@ const Nav: NextPage<props> = ({}) => {
                         <li>
                             <a
                                 onClick={() => {
-                                    detailDataChoice(
-                                        ModalType.MONEYGIFT,
-                                        ActorType.SM,
-                                    );
+                                    detailDataChoice(ActorType.SM);
                                 }}
                             >
                                 신랑에게 마음전하기

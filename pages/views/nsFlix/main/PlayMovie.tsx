@@ -1,15 +1,17 @@
 import { NextPage } from 'next';
 import Timer from './Timer';
 import moment from 'moment';
-import { TimerType, ModalType } from '../../../../src/enums/wedding.enum';
+import { TimerType, DetailType } from '../../../../src/enums/wedding.enum';
 import { useDispatch } from 'react-redux';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 
 interface Props {}
 const PlayMovie: NextPage<Props> = ({}) => {
     const dispatch = useDispatch();
-    const detailDataChoice = (modalType:ModalType) => {
-        dispatch(weddingReducer.modalChange({showModal:true, modalType:modalType}));
+    const detailDataChoice = (detailType: DetailType) => {
+        dispatch(
+            weddingReducer.modalOn({ showModal: true, detailType: detailType }),
+        );
     };
     return (
         <>
@@ -31,8 +33,7 @@ const PlayMovie: NextPage<Props> = ({}) => {
                     </h1>
                     <h3>매일 새로운 마음으로 갱신</h3>
                     <p>
-                        2023년 1월, 차원이 다른 결혼식이 온다. {' '}
-                        <br />
+                        2023년 1월, 차원이 다른 결혼식이 온다. <br />
                         전세계를 뒤흔들 역대급 결혼식의 시작!
                         <br />
                         [유부까지{' '}
@@ -50,11 +51,21 @@ const PlayMovie: NextPage<Props> = ({}) => {
                             <i className="fa-solid fa-play" />
                             <span>재생</span>
                         </button>
-                        <button className="detail" onClick={()=>{detailDataChoice(ModalType.LOCATION)}}>
+                        <button
+                            className="detail"
+                            onClick={() => {
+                                detailDataChoice(DetailType.LOCATION);
+                            }}
+                        >
                             <i className="fa-solid fa-car" />
                             <span> 오시는 길</span>
                         </button>
-                        <button className="detail"  onClick={()=>{detailDataChoice(ModalType.BOARD)}}>
+                        <button
+                            className="detail"
+                            onClick={() => {
+                                detailDataChoice(DetailType.BOARD);
+                            }}
+                        >
                             <i className="fa-solid fa-circle-info" />
                             <span> 방명록 </span>
                         </button>

@@ -1,9 +1,9 @@
-import { Actor } from '../dto/nsflixs.dto';
+import { ActorDto } from '../dto/nsflixs.dto';
 
-export const actorList: Actor[] = [
-    new Actor({
+export const actorList: ActorDto[] = [
+    new ActorDto({
         name: '박나연',
-        imgSrc: '',
+        src: '/images/bride.jpg',
         bank: '국민은행',
         account: '723002-00-096535',
         kakaoQr: 'FOydv8tBC',
@@ -13,9 +13,9 @@ export const actorList: Actor[] = [
         comment2:
             '결혼식 준비 많이 했습니다. 와서 보시고 즐거운 추억으로 남으셨으면 좋겠어요. 와주셔서 감사합니다. 물론 못오신 분들도 감사합니다! 잘 살께요><',
     }),
-    new Actor({
+    new ActorDto({
         name: '안상민',
-        imgSrc: '',
+        src: '/images/groom.jpg',
         bank: '하나은행',
         account: '359-910311-78707',
         kakaoQr: 'FPU3I5s0z',

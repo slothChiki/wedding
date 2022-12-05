@@ -2,10 +2,11 @@ import React, { FC } from 'react';
 import type { AppProps } from 'next/app';
 import wrapper from '../modules/store/store';
 import Head from 'next/head';
+import '../public/font/font.css';
 import '../public/css/index.css';
 import '../public/css/component.css';
 import '../public/css/modal.css';
-import '../public/font/font.css';
+import '../public/css/detail.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
     return (

@@ -1,68 +1,62 @@
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
-import { Navigation } from 'swiper';
 import Top10Poster from './Top10Poster';
-import { PosterDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
-import { imageMedia, moveMedia, top10Media } from '../../../../src/enums/wedding.enum';
+import {
+    PosterDto,
+    Top10Dto,
+} from '../../../../src/domain/nsflix/dto/nsflixs.dto';
+import { top10Media } from '../../../../src/enums/wedding.enum';
 import { useMediaQuery } from 'react-responsive';
+import { DetailType } from '../../../../dist/enums/wedding.enum';
 
 interface Props {
     title: string;
-    list: PosterDto[];
 }
-const Top10Slider: NextPage<Props> = ({
-    title = '',
-    list = [],
-}) => {
+const Top10Slider: NextPage<Props> = ({ title = '' }) => {
     const [movePx, setMovePx] = useState(0);
 
+    const list = [];
+
+    // 창 길이 만큼 움직이기 - 화살표 /////////////////////////////////////////////////////////////////////////////////
     useEffect(() => {
-        console.log(JSON.stringify(window.innerWidth));
-        console.log(movePx);
-        setMovePx(window.innerWidth);
+        const screen = window.innerWidth;
+        console.log(screen);
+        setMovePx((movePx) => screen);
         console.log(movePx);
 
-    }, []);
+        let mediaImgae: top10Media;
+        if (isDesktopOrLaptop) {
+            mediaImgae = top10Media.TAB;
+        } else if (isTablet) {
+            mediaImgae = top10Media.MOBILE;
+        } else {
+            mediaImgae = top10Media.PC;
+        }
+
+        findLimit(mediaImgae);
+    }, [movePx]);
 
     const [slidePx, setSlidePx] = useState(0);
     const [limit, setLimit] = useState(movePx);
 
     const findLimit = (imgSize: top10Media) => {
         const listLength = list.length;
-        const compLegth = listLength * (imgSize + 20);
+        const compLegth = listLength * (imgSize + 10);
 
-        const part = compLegth / movePx;
-        console.log(`part -> ${part}`);
-        setLimit(part * movePx * -1);
-        console.log(`slider -> ${limit}`);
+        const part = compLegth / movePx - 1;
+        setLimit(-1 * part * movePx);
     };
 
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1024px) and (max-width: 1279px)',
     });
     const isTablet = useMediaQuery({
-        query: '(min-width: 768px) and (max-width: 768px)',
+        query: '(min-width: 768px) and (max-width: 1023px)',
     });
     // const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
     const isMobileDevice = useMediaQuery({ query: '(max-width: 480px)' });
-
-    useEffect(() => {
-        let mediaImgae: top10Media;
-        if (isDesktopOrLaptop) {
-            mediaImgae = top10Media.TAB;
-        } else if (isTablet) { 
-            mediaImgae = top10Media.MOBILE; }
-        else {
-            mediaImgae = top10Media.PC;
-        }
-
-
-        findLimit(mediaImgae);
-    }, []);
-
 
     const slidePrev = () => {
         slidePx < 0 && setSlidePx(slidePx + movePx);
@@ -112,46 +106,50 @@ const Top10Slider: NextPage<Props> = ({
     }
     return (
         <>
-            <h1>{title}</h1>
-            {/* <div className="slider"> */}
-            <ul
-                className="top10-container"
-                onTouchStart={touchStart}
-                onTouchEnd={touchEnd}
-            >
-                {list.map((v, i) => {
-                    return (
-                        <Top10Poster
-                            key={`top10-${i}`}
-                            poster={v}
-                            slide={slidePx}
-                            idx={i}
-                        />
-                    );
-                })}
-            </ul>
+            {list.length > 0 ? (
+                <>
+                    <h1>{title}</h1>
+                    <ul
+                        className="top10-container"
+                        onTouchStart={touchStart}
+                        onTouchEnd={touchEnd}
+                    >
+                        {list.map((v, i) => (
+                            <Top10Poster
+                                key={`top10-1`}
+                                data={v.data}
+                                detailType={v.detailType}
+                                slide={slidePx}
+                                idx={i}
+                            />
+                        ))}
+                    </ul>
 
-            {slidePx === 0 ? null : (
-                <div
-                    className={`prev`}
-                    onClick={() => {
-                        slidePrev();
-                    }}
-                >
-                    <i className={`fa-solid fa-angle-right prev-arrow`} />
-                </div>
-            )}
+                    {slidePx === 0 ? null : (
+                        <div
+                            className={`prev`}
+                            onClick={() => {
+                                slidePrev();
+                            }}
+                        >
+                            <i
+                                className={`fa-solid fa-angle-right prev-arrow`}
+                            />
+                        </div>
+                    )}
 
-            {slidePx <= limit ? null : (
-                <div
-                    className={`next`}
-                    onClick={() => {
-                        slideNext();
-                    }}
-                >
-                    <i className={`fa-solid fa-angle-right`} />
-                </div>
-            )}
+                    {slidePx <= limit ? null : (
+                        <div
+                            className={`next`}
+                            onClick={() => {
+                                slideNext();
+                            }}
+                        >
+                            <i className={`fa-solid fa-angle-right`} />
+                        </div>
+                    )}
+                </>
+            ) : null}
         </>
     );
 };
