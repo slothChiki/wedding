@@ -3,7 +3,7 @@ import { ActorDto } from '../dto/nsflixs.dto';
 export const actorList: ActorDto[] = [
     new ActorDto({
         name: '박나연',
-        src: '/images/bride.jpg',
+        src: '/images/introduce/bride.jpg',
         bank: '국민은행',
         account: '723002-00-096535',
         kakaoQr: 'FOydv8tBC',
@@ -15,7 +15,7 @@ export const actorList: ActorDto[] = [
     }),
     new ActorDto({
         name: '안상민',
-        src: '/images/groom.jpg',
+        src: '/images/introduce/groom.jpg',
         bank: '하나은행',
         account: '359-910311-78707',
         kakaoQr: 'FPU3I5s0z',
