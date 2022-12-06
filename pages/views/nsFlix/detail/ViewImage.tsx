@@ -10,6 +10,7 @@ const ViewImage: NextPage<Props> = ({}) => {
     const offModal = (e) => {
         e.stopPropagation();
         dispatch(weddingReducer.modalOff({}));
+        window.history.back();
     };
     const preventEvent = (e) => {
         e.stopPropagation();

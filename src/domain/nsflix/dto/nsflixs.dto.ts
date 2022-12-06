@@ -21,10 +21,7 @@ export class PosterDto {
     @IsString()
     src: string;
 
-    @IsString()
-    thumbSrc: string;
-
-    @IsString()
+   @IsString()
     date: string;
 
     @IsString()

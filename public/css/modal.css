@@ -53,25 +53,32 @@
     border-radius: 8px;
     background-color: var(--color-level1);
     z-index: 81;
-    width: 800px;
+    width: 1000px;
     top: 15px;
     left: 50%;
     transform: translate(-50%, 0);
     position: absolute;
     height: auto;
+    overflow-y: auto;
 }
 
 .detail .modal-close {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
     margin-right: 0;
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 95;
+    z-index: 99;
     width: 80px;
     height: 80px;
     cursor: pointer;
+}
+
+.modal-close .cross_diagonal{
+    width: 100%;
+    height:100%;
+    position: relative;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%" stroke="white" stroke-width="5px"/></svg>'),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="white" stroke-width="5px"/></svg>');
 }
 
 .detail .contents {
@@ -81,17 +88,53 @@
 
 .detail .location,
 .detail .board {
-    padding: 2rem 1rem 1rem 1rem;
+    padding: 3rem;
     width: 100%;
     display: block;
+overflow-y: auto;
+    height: auto;
 }
+
 
 .detail .actor {
     padding: 10px;
     width: 100%;
     display: block;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1050px) {
+    .detail .modal-close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 70px;
+        height: 70px;
+        z-index: 99;
+        cursor: pointer;
+    }
+    .detail-modal .detail {
+        border-radius: 8px;
+        background-color: var(--color-level1);
+        z-index: 81;
+        width: 800px;
+        top: 15px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        position: absolute;
+        height: auto;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .detail .modal-close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 60px;
+        height: 60px;
+        z-index: 99;
+        cursor: pointer;
+    }
     .detail-modal .detail {
         border-radius: 8px;
         background-color: var(--color-level1);
@@ -102,24 +145,48 @@
         transform: translate(-50%, 0);
         position: absolute;
         height: auto;
+        overflow-y: auto;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
     .detail .modal-close {
         position: absolute;
-        top: 0;
-        right: 0;
-        background-image: url('/public/images/img/iconsX50.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        z-index: 95;
+        top: 5px;
+        right: 5px;
+        width: 50px;
+        height: 50px;
+        z-index: 99;
+        cursor: pointer;
+    }
+    .detail-modal .detail {
+        border-radius: 8px;
+        background-color: var(--color-level1);
+        z-index: 81;
+        width: 520px;
+        top: 15px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        position: absolute;
+        height: auto;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .detail .modal-close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 40px;
+        height: 40px;
+        z-index: 99;
         cursor: pointer;
     }
     .detail-modal .detail {
         border-radius: 0;
-        /*background-color: rgba(36, 36, 36, 1);*/
-        background-color: blue;
+        background-color: rgba(36, 36, 36, 1);
+        /* background-color: blue; */
         z-index: 81;
         width: 100%;
         position: relative;
@@ -127,5 +194,6 @@
         top: 0;
         left: 0;
         transform: translate(0, 0);
+        overflow-y: auto;
     }
 }

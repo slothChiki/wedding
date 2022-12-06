@@ -16,7 +16,6 @@ const BoardList: NextPage<Props> = ({}) => {
     const [lists, setLists] = useState(boardList.lists[0]);
 
     const changePage = (n: number) => {
-        console.log(`changePagfe - ${n}`);
         setPage(n);
         setLists(boardList.lists[n - 1]);
     };

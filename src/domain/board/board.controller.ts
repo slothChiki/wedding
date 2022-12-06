@@ -20,7 +20,7 @@ export class BoardController {
     @Post('/getBoard')
     async getBoard(): Promise<BoardPageDto> {
         const boardList = await this.boardService.getBoardList();
-        const limit = 3;
+        const limit = 5;
         const pageNum = Math.ceil(boardList.length / limit);
         let paging = new Array<number>(pageNum);
         const pageList = new Array<BoardListApi[]>(pageNum);

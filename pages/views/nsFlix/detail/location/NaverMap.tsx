@@ -14,7 +14,7 @@ const NaverMap: NextPage<any> = () => {
         // 지도에 표시할 위치의 위도와 경도 좌표를 파라미터로 넣어줍니다.
         const map = new naver.maps.Map(mapDiv.current, {
             center: new naver.maps.LatLng(35.8836624, 128.5959743), //지도의 초기 중심 좌표
-            zoom: 13, //지도의 초기 줌 레벨
+            zoom: 16, //지도의 초기 줌 레벨
             minZoom: 7, //지도의 최소 줌 레벨
             zoomControl: true, //줌 컨트롤의 표시 여부
             zoomControlOptions: {

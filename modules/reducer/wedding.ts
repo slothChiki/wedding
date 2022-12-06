@@ -28,7 +28,6 @@ const initialState: State = {
     detailImage: '',
     detailContents: {
         src: '',
-        thumbSrc: '',
         date: '',
         name: '',
         category: 0,

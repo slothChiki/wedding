@@ -33,7 +33,7 @@ const Congratulatory: NextPage<Props> = ({
                 await navigator.clipboard.writeText(
                     actor.bank + ' ' + actor.account,
                 );
-            } catch (err) {}
+            } catch (err) { }
         }
 
         if (onCopy !== 1 && !navigator.clipboard) {
@@ -67,17 +67,16 @@ const Congratulatory: NextPage<Props> = ({
                         <div
                             className="send-btn"
                             onClick={handleClickKakaoPay}
-                            id="forceRedirect"
                         >
-                            카카오페이 송금
+                            <a>카카오페이 송금</a>
                         </div>
                     </li>
                     <li>
-                        <div className="send-btn">toss 송금</div>
+                        <div className="send-btn"><a>toss 송금</a></div>
                     </li>
                     <li>
                         <div className="send-btn" onClick={onCopyClipBoard}>
-                            계좌번호 복사
+                            <a>계좌번호 복사</a>
                         </div>
                     </li>
                 </ul>

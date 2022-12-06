@@ -6,7 +6,8 @@ import Footer from './main/Footer';
 import Slider from './main/Slider';
 import Top10Slider from './main/Top10Slider';
 import {
-    posterPhotoList,
+    koreaList,
+    nationalList,
     studioPhotoList,
 } from '../../../src/domain/nsflix/variable/photo-list';
 import { actorList } from '../../../src/domain/nsflix/variable/actor-list';
@@ -14,6 +15,7 @@ import PopupDetail from './detail/PopupDetail';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../modules/reducer/rootReducer';
 import { SliderType } from '../../../src/enums/wedding.enum';
+import Introduce from './main/Introduce';
 
 interface Props {}
 const Main: NextPage<Props> = ({}) => {
@@ -23,7 +25,8 @@ const Main: NextPage<Props> = ({}) => {
 
     const studioList = studioPhotoList;
     const actors = actorList;
-    const posterList = posterPhotoList;
+    const nationals = nationalList;
+    const koreas = koreaList;
 
     // const [containerY, setContainerY] = useState(0);
     // TODO - 바디 고정
@@ -39,7 +42,7 @@ const Main: NextPage<Props> = ({}) => {
 
                 <section>
                     <div className="content-list">
-                        <Slider
+                        <Introduce
                             list={actors}
                             title={'우리 결혼합니다!'}
                             key={'wedding-introduce'}
@@ -55,7 +58,7 @@ const Main: NextPage<Props> = ({}) => {
                     </div>
                     <div className="content-list">
                         <Slider
-                            list={posterList}
+                            list={koreas}
                             title={'한국의 콘텐츠'}
                             key={'korea'}
                             sliderType={SliderType.CONTENTS}
@@ -63,7 +66,7 @@ const Main: NextPage<Props> = ({}) => {
                     </div>
                     <div className="content-list">
                         <Slider
-                            list={posterList}
+                            list={nationals}
                             title={'해외의 콘텐츠'}
                             key={'national'}
                             sliderType={SliderType.CONTENTS}

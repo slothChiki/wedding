@@ -42,7 +42,7 @@ const Top10Poster: NextPage<Props> = ({
                     weddingReducer.detailActorChoice({ ...data } as ActorDto),
                 );
         }
-
+        window.history.pushState({data:'main'},'','/');
         dispatch(
             weddingReducer.modalOn({
                 showModal: true,

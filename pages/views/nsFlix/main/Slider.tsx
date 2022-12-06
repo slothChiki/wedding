@@ -32,9 +32,7 @@ const Slider: NextPage<Props> = ({
     // 창 길이 만큼 움직이기 - 화살표 /////////////////////////////////////////////////////////////////////////////////
     useEffect(() => {
         const screen = window.innerWidth;
-        console.log(screen);
         setMovePx((movePx) => screen);
-        console.log(movePx);
 
         let mediaImgae: imageMedia;
         if (isDesktopOrLaptop) {
@@ -75,43 +73,23 @@ const Slider: NextPage<Props> = ({
         slidePx > limit && setSlidePx(slidePx - movePx);
     };
 
-    const [curPos, serCurPos] = useState(0);
-
     const [startX, setStartX] = useState(0);
     const [endX, setEndX] = useState(0);
-    const contentsWidth = 300; // TODO - 미디어에 맞게 바꿔야 함
 
-    // 뒤로가기, 앞으로 가기 함수 : 터치 이벤트가 발생(touchEnd())하면 호출 됨
-    function prev() {
-        if (curPos > 0) {
-            setSlidePx(slidePx + contentsWidth);
-            serCurPos(curPos - 1);
-        }
-    }
-
-    function next() {
-        if (curPos < 2) {
-            setSlidePx(slidePx + contentsWidth);
-            serCurPos(curPos + 1);
-        }
-    }
     // 창 길이 만큼 움직이기 - 터치 /////////////////////////////////////////////////////////////////////////////////
     function touchStart(e) {
         e.stopPropagation();
-        console.log(`touchStart --- ${e.changedTouches[0].pageX}`);
         setStartX(e.changedTouches[0].pageX);
     }
 
     function touchEnd(e) {
-        console.log(`touchEnd --- ${e.changedTouches[0].pageX}`);
 
         setEndX(e.changedTouches[0].pageX);
-        console.log(`startX- ${startX} / endX ${endX}`);
 
         if (startX > endX) {
-            next();
+            slideNext();
         } else {
-            prev();
+            slidePrev();
         }
     }
 
@@ -138,7 +116,7 @@ const Slider: NextPage<Props> = ({
                 );
                 detailType = DetailType.ACTOR;
         }
-
+        window.history.pushState({data:'main'},'','/');
         dispatch(
             weddingReducer.modalOn({
                 showModal: true,
@@ -159,7 +137,8 @@ const Slider: NextPage<Props> = ({
                     return (
                         <Photo
                             key={`${title}_${i}`}
-                            src={v['src']}
+                            data={v}
+                            sliderType={sliderType}
                             slide={slidePx}
                             clickMethod={() => {
                                 detailDataChoice(v);

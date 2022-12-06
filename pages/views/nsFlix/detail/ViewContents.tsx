@@ -11,7 +11,7 @@ import { RootState } from '../../../../modules/reducer/rootReducer';
 import Congratulatory from './common/Congratulatory';
 import { actorList } from '../../../../src/domain/nsflix/variable/actor-list';
 
-interface Props {}
+interface Props { }
 
 const ViewContents: NextPage<Props> = () => {
     const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const ViewContents: NextPage<Props> = () => {
                             rgba(36, 36, 36, 0.25) 70%,
                             rgba(36, 36, 36, 0.5) 80%,
                             rgba(36, 36, 36, 0.75) 90%,
-                            rgba(36, 36, 36, 1) 100%), url(${poster.thumbSrc})`,
+                            rgba(36, 36, 36, 1) 100%), url(${poster.src})`,
                     }}
                 >
                     <div className="detail-description">
@@ -67,8 +67,10 @@ const ViewContents: NextPage<Props> = () => {
                         등장인물 : <a>박나연</a>, <a>안상민</a>
                     </div>
                 </div>
-                <Congratulatory key={`money_groom`} actor={actors[1]} />
-                <Congratulatory key={`money_bride`} actor={actors[0]} />
+                <div className={`congratulatory-box`}>
+                    <Congratulatory key={`money_groom`} actor={actors[1]} />
+                    <Congratulatory key={`money_bride`} actor={actors[0]} />
+                </div>
             </div>
         </>
     );

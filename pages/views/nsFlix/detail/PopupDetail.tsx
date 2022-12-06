@@ -20,6 +20,7 @@ const PopupDetail: NextPage<Props> = ({}) => {
     const detailType: DetailType = state.detailType;
     const offModal = (e) => {
         dispatch(weddingReducer.modalOff({}));
+        window.history.back();
     };
     const preventEvent = (e) => {
         e.stopPropagation();
@@ -35,8 +36,9 @@ const PopupDetail: NextPage<Props> = ({}) => {
                     <div
                         className="modal-close"
                         onClick={offModal}
-                        style={{ backgroundImage: '/img/iconsX100.png' }}
-                    ></div>
+                    >
+                        <div className="cross_diagonal"></div>
+                    </div>
                     {detailType == DetailType.IMG ? (
                         <ViewImage />
                     ) : detailType == DetailType.CONTENTS ? (

@@ -1,11 +1,24 @@
-.share i{
+.share i {
     cursor: pointer;
 }
+
 .poster-container {
     transition: 0.2s linear;
     width: 100%;
-    /* height: 345px; */
-    /*margin-bottom: 5px;*/
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    /* border-radius: 7px;  */
+    list-style: none;
+}
+
+.poster-container.intro {
+    transition: 0.2s linear;
+    width: 100%;
+
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -20,6 +33,11 @@
     margin-right: 10px;
 }
 
+
+.poster-container.intro li {
+    margin-right: 10px;
+}
+
 .poster-container .image-container {
     width: 250px;
     height: 150px;
@@ -30,6 +48,10 @@
     height: 100%;
     border-radius: 8px; */
     cursor: pointer;
+}
+
+.poster-container .image-container img {
+    width: 250px;
 }
 
 .top10-container {
@@ -92,14 +114,24 @@
 @media screen and (max-width: 1023px) {
     .poster-container {
         height: 270px;
-        border-radius: 7px; 
+    }
+
+    .poster-container li {
+        height: 100%;
+        background-color: var(--color-level2);
+        border-radius: 8px;
     }
 
     .poster-container .image-container {
-        max-width: 180px;
-        height: 100%;
-        border-radius: 7px; 
+        width: 180px;
+        border-radius: 8px;
         object-fit: contain;
+        text-align: center;
+        color: var(--color-level4);
+    }
+
+    .poster-container .image-container img {
+        width: 180px;
     }
 
     .top10-container {
@@ -109,6 +141,7 @@
     .top10-container .rank-poster {
         width: 250px;
     }
+
     .top10-container .rank {
         float: left;
         width: 60px;
@@ -129,14 +162,28 @@
 @media screen and (max-width: 480px) {
     .poster-container {
         height: 240px;
-        border-radius: 7px; 
     }
+
     .poster-container .image-container {
-        max-width: 160px;
+        width: 160px;
         height: 100%;
-        border-radius: 7px; 
+        border-radius: 8px;
         object-fit: contain;
+        text-align: center;
+        color: var(--color-level4);
     }
+
+    .poster-container li {
+        height: 100%;
+        background-color: var(--color-level2);
+        border-radius: 8px;
+    }
+
+    .poster-container .image-container img {
+        width: 160px;
+        border-radius: 8px;
+    }
+
     .top10-container {
         height: 270px;
     }
@@ -144,6 +191,7 @@
     .top10-container .rank-poster {
         width: 220px;
     }
+
     .top10-container .rank {
         float: left;
         width: 60px;

@@ -1,110 +1,63 @@
 import { PhotoDto, PosterDto } from '../dto/nsflixs.dto';
 import { DetailType } from '../../../enums/wedding.enum';
 
-export const posterPhotoList: PosterDto[] = [
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_01.jpg',
-        thumbSrc: '/images/photo/photo_01.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_02.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_03.jpg',
-        thumbSrc: '/images/photo/photo_03.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_04.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_05.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_06.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_07.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_08.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_09.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_10.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_11.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_12.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_13.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_14.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_15.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_16.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_17.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_18.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_19.jpg',
-    }),
-    new PosterDto({
-        name: '',
-        src: '/images/photo/photo_20.jpg',
-    }),
+export const koreaList: PosterDto[] = [
+    new PosterDto({ src: '/images/contents/20170603_164358_Film1.jpg', date: '2017-06-03', category: 0, name: 'part1. 부산', comment1: '나이 더먹어도 손 꼭 잡고 다니자~', comment2: '영도에서. 갬성있는 필터를 한 번 써봤지.ㅋㅋ' }),
+    new PosterDto({ src: '/images/contents/20170603_183327_HDR.jpg', date: '2017-06-03', category: 0, name: 'part1. 부산', comment1: '각자 놀기 ㅋㅋ 사진은 내가 찍는다!', comment2: '나 혼자 뒤에서 모하누? ㅋㅋㅋㅋ ' }),
+    new PosterDto({ src: '/images/contents/20170723_155051.jpg', date: '2017-07-23', category: 0, name: 'part2. 창녕 우포늪', comment1: '더워 너무더워!! 나만더워?????', comment2: 'ㅇㅇ 난 신났엉. 자전거 왕신나. 덥긴 더웠는데 재밌었당' }),
+    new PosterDto({ src: '/images/contents/20170812_171407.jpg', date: '2017-08-12', category: 0, name: 'part3. 고향 앞산', comment1: '케이블카는 무서워.. 이런거라도 하자', comment2: 'ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ', }),
+    new PosterDto({ src: '/images/contents/20171209_131352.jpg', date: '2017-12-09', category: 0, name: 'part4. 통영', comment1: '케이블카 중에 제일 무서웠어 bb', comment2: '아 저 케이블카 진짜 무서웠지. 앞에 앉은 아저씨도 같이 덩달아 떨었는데 ㅋㅋ', }),
+    new PosterDto({ src: '/images/contents/20180505_105145.jpg', date: '2018-05-05', category: 0, name: 'part5. 단양', comment1: '내인생 최초이자 최후의 패러글라이딩…. 싫다…..', comment2: '쫄보야. 대왕쫄보', }),
+    new PosterDto({ src: '/images/contents/20180505_105817.jpg', date: '2018-05-05', category: 0, name: 'part5. 단양', comment1: '난 울고 자기는 혼자 씬이났어.. ㅋ', comment2: 'ㅋㅋ 신나보임ㅋㅋ 그리고 진짜 신났었음 ', }),
+    new PosterDto({ src: '/images/contents/20170504_154409.jpg', date: '2017-05-04', category: 1, name: 'part1. 여수광양순천', comment1: '고기는 진리.. 진지모드', comment2: '광양 불고기 장인 등장 ㅋㅋㅋ', }),
+    new PosterDto({ src: '/images/contents/20170504_183011.jpg', date: '2017-05-04', category: 1, name: 'part1. 여수광양순천', comment1: '둘다 뭐가 그리 웃겨서 사진도 이상해 ㅋ', comment2: '머 이래 신났노 ㅋㅋㅋㅋㅋㅋㅋ', }),
+    new PosterDto({ src: '/images/contents/20170504_183657.jpg', date: '2017-05-04', category: 1, name: 'part1. 여수광양순천', comment1: '누구신지….? ㅋㅋ 멀쩡하게 생겼네? ㅋ', comment2: 'ㅋㅋㅋ 나 볼거리 ?', }),
+    new PosterDto({ src: '/images/contents/20170505_154536.jpg', date: '2017-05-05', category: 1, name: 'part1. 여수광양순천', comment1: '순천만 비왔어 ㅠ.ㅠ 하루는 꼭 비와 ㅠ.ㅠ', comment2: '나 볼거리 2? ㅋㅋㅋㅋㅋㅋ 지만 잘나오고', }),
+    new PosterDto({ src: '/images/contents/20170505_162019.jpg', date: '2017-05-05', category: 1, name: 'part1. 여수광양순천', comment1: '비와서 기부니가 별로 별로!', comment2: 'ㅋㅋㅋ 뒤에 갈대 안보이는 게 좀 아쉽네', }),
+    new PosterDto({ src: '/images/contents/20180223_173841.jpg', date: '2018-02-23', category: 1, name: 'part2. 장흥', comment1: '혼자 끄적끄적… 해보고 싶었어 ㅋㅋ', comment2: '귀여웡ㅋㅋ 쓰랑꾼', }),
+    new PosterDto({ src: '/images/contents/20190607_163212.jpg', date: '2019-06-07', category: 1, name: 'part3. 해남', comment1: '덤벼라! 세상아! 혼자서도 진짜 잘놈…', comment2: '나. 바다에 도전한다', }),
+    new PosterDto({ src: '/images/contents/20200529_170757.jpg', date: '2020-05-29', category: 2, name: '우리사랑 양양', comment1: '텐트치고 씬난 애쁜이.. 난…. 더워 bb', comment2: '저 그늘막 텐트 저 날 쓰고 한번도 안썼네… 언제쓰지', }),
+    new PosterDto({ src: '/images/contents/20200529_171343.jpg', date: '2020-05-29', category: 2, name: '우리사랑 양양', comment1: '다리길게 하트~~', comment2: 'ㅋㅋㅋㅋ 이런 컨셉으로 좀 찍어볼까 ㅋㅋ 인스타 갬성?', }),
+    new PosterDto({ src: '/images/contents/20200530_111005.jpg', date: '2020-05-30', category: 2, name: '우리사랑 양양', comment1: '우리가 양양에 가는 목적! 섭!전!골! 쏘리질러~', comment2: '와 나의 사랑 섭전골 너의 사랑 섭전골. 칼국수 킬러', }),
+    new PosterDto({ src: '/images/contents/20200530_124727.jpg', date: '2020-05-30', category: 2, name: '우리사랑 양양', comment1: '양양만 오면 씬이나요 씬이! ', comment2: '이거 왜 골랐지 이 양아치가?????', }),
+    new PosterDto({ src: '/images/contents/20200716_121800.jpg', date: '2020-07-16', category: 3, name: '역시 제주도지', comment1: '주정뱅이 덕에 즐거운 애쁜이', comment2: '인간 이거 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 유쾌한 사진을 골랐군', }),
+];
+
+export const nationalList: PosterDto[] = [
+    new PosterDto({ src: '/images/contents/20170830_164957.jpg', date: '2017-08-30', category: 10, name: '첫 해외! 닛폰!', comment1: '나 아파서.. 내꺼까지 전부 야무지게.. 냠!!!', comment2: '규카츠 개꿀맛. 니꺼 다 뺏어먹어서 더 꿀맛', }),
+    new PosterDto({ src: '/images/contents/20170830_213131.jpg', date: '2017-08-30', category: 10, name: '첫 해외! 닛폰!', comment1: '이건 여행이 아냐.. 표정봐.. ㅋㅋ 다싫은 표정 ㅋ ', comment2: 'ㅋㅋㅋ 왜 나만 지친겨ㅜㅜㅜㅜㅜ 진짜 힘들었어', }),
+    new PosterDto({ src: '/images/contents/20170831_164921.jpg', date: '2017-08-31', category: 10, name: '첫 해외! 닛폰!', comment1: '에비수 박물관! 여행의 가장 큰 목적? ㅋㅋ', comment2: 'ㅋㅋ 에비스 ㅜㅜㅜ 이제 못먹지만..ㅜㅜ', }),
+    new PosterDto({ src: '/images/contents/20181029_223549.jpg', date: '2018-10-29', category: 11, name: '코쿤캅!!!! 태국!', comment1: '더울땐 맥주가 쵝오!!', comment2: '첫날 일정 끝나고 마신 맥주. 크 개꿀맛', }),
+    new PosterDto({ src: '/images/contents/20181030_121936.jpg', date: '2018-10-30', category: 11, name: '코쿤캅!!!! 태국!', comment1: '멍청함이 예뻐 ㅋㅋ', comment2: '똑같지 않나? 너무 귀여워', }),
+    new PosterDto({ src: '/images/contents/20181030_122439.jpg', date: '2018-10-30', category: 11, name: '코쿤캅!!!! 태국!', comment1: '요래요래 들어서 집에 가져가자~', comment2: 'ㅋㅋ 진짜 열씨미 찍었당 ㅋㅋㅋㅋㅋㅋ', }),
+    new PosterDto({ src: '/images/contents/20181030_143159.jpg', date: '2018-10-30', category: 11, name: '코쿤캅!!!! 태국!', comment1: '힙하게 뽝~!', comment2: '저 와불 너무 비인간적이라서 기괴했지 ㅋㅋ 발까락 지문 징그러', }),
+    new PosterDto({ src: '/images/contents/20181030_143420.jpg', date: '2018-10-30', category: 11, name: '코쿤캅!!!! 태국!', comment1: '멀쩡한 사진도 필요하겠…..', comment2: 'ㅋㅋ이거 너무 예뻐. 탑과 하늘 우리 그리고 썬글라스. 완벽', }),
+    new PosterDto({ src: '/images/contents/20181031_234228.jpg', date: '2018-10-31', category: 11, name: '코쿤캅!!!! 태국!', comment1: '태국에서의 클럽데이! 호뤄호뤄~', comment2: 'ㅋㅋㅋ 태국에서 보내는 할로윈 특별했다 ㅋㅋㅋㅋㅋㅋㅋ 별로 안무서웠쪄', }),
+    new PosterDto({ src: '/images/contents/20191228_101307.jpg', date: '2019-12-28', category: 12, name: '대만이다~', comment1: '착한 외국인이 먼저 찍어준다고 해서 ㅎ', comment2: '저기서 만난 한국 청년과 사진 푸다오했던 기억이 새록새록', }),
+    new PosterDto({ src: '/images/contents/20191230_124849.jpg', date: '2019-12-30', category: 12, name: '대만이다~', comment1: '파도온다 튀어 튀어~!!', comment2: '도망쳐!', }),
+    new PosterDto({ src: '/images/contents/20191230_150439.jpg', date: '2019-12-30', category: 12, name: '대만이다~', comment1: '무서운척?.. 난 진짜 못건너 갔지…. ㅋ', comment2: 'ㅋㅋ내가 또 쫄보를 대신해서 무서운 척 해줬다. 나 넘 착해', }),
+
 ];
 
 export const studioPhotoList: PhotoDto[] = [
-    new PhotoDto({ src: '/images/photo/photo_01.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_02.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_03.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_04.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_05.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_06.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_07.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_08.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_09.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_10.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_11.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_12.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_13.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_14.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_15.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_16.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_17.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_18.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_19.jpg' }),
-    new PhotoDto({ src: '/images/photo/photo_20.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_01.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_02.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_03.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_04.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_05.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_06.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_07.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_08.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_09.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_10.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_11.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_12.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_13.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_14.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_15.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_16.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_17.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_18.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_19.jpg' }),
+    new PhotoDto({ src: '/images/studio/photo_20.jpg' }),
 ];

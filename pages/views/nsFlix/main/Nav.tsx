@@ -9,6 +9,7 @@ const Nav: NextPage<props> = ({}) => {
     const dispatch = useDispatch();
     const detailDataChoice = (actor: ActorType) => {
         viewList();
+        window.history.pushState({data:'main'},'','/');
         dispatch(weddingReducer.detailActorChoice(actor));
         dispatch(
             weddingReducer.modalOn({
