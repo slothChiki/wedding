@@ -1,14 +1,38 @@
-/*-------------------------contents------------------------------------*/
-.contents img {
-    border-radius: 8px;
-    max-width: 100%;
-    z-index: 83;
+/*-------------------------common------------------------------------*/
+.send-choice {
+    margin: 1rem 0;
+    display: flex;
+    list-style: none;
 }
-
+.send-btn {
+    width: 12rem;
+    height: 2rem;
+    border-radius: 8px;
+    background-color: var(--color-level4);
+    color: var(--color-level1);
+    text-align: center;
+    margin: 0.5rem 2rem;
+    padding: 0.2rem;
+}
+@media screen and (max-width: 600px) {
+    .send-choice {
+        display: block;
+    }
+    .send-btn {
+        width: 7rem;
+        border-radius: 8px;
+        background-color: var(--color-level4);
+        color: var(--color-level1);
+        text-align: center;
+        margin: 0.5rem 2rem;
+        padding: 0.2rem;
+    }
+}
+/*-------------------------contents------------------------------------*/
 .contents .top-image {
     border-radius: 8px;
     width: 100%;
-    height: 350px;
+    height: 50%;
     z-index: 84;
     background-size: 100%;
     position: relative;
@@ -16,13 +40,13 @@
 
 .top-image .detail-description {
     position: absolute;
-    top: 60%;
+    top: 70%;
     left: 5%;
 }
 
 .detail-description .detail-name {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .detail-description .share i {
@@ -31,7 +55,7 @@
     margin-left: 0.5rem;
 }
 
-.detail-contents .middle-introduce {
+.contents .middle-introduce {
     display: inline-block;
     width: 100%;
     height: 20%;
@@ -39,7 +63,7 @@
 .middle-introduce .left {
     float: left;
     width: 65%;
-    padding: 0% 5%;
+    padding: 0 5%;
     font-weight: bolder;
     font-size: 0.8rem;
     vertical-align: center;
@@ -56,77 +80,196 @@
 }
 
 .middle-introduce .right {
+    color: #6f6f6f;
+    font-size: 0.8rem;
     float: right;
     width: 35%;
-    padding: 0% 3%;
-    background-color: palegoldenrod;
+    padding: 0 3%;
+}
+
+.right a {
+    font-style: unset;
+}
+@media screen and (max-width: 600px) {
+    .middle-introduce .right {
+      display: none;
+    }
 }
 
 /*-------------------------location------------------------------------*/
 
-.location .map {
+.location .naver-map {
     margin-top: 20px;
     width: 100%;
-    height: 600px;
+    height: 400px;
+}
+
+.location .navigation {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+}
+.navigation span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.navigation .share {
+    display: block;
+}
+.navigation .navi-list {
+    display: flex;
+}
+.share .navi {
+    font-size: 0.4rem;
+    margin-right: 20px;
+    display: block;
+}
+
+.navi .navi-logo {
+    width: 50px;
+    height: 50px;
 }
 
 .location .parking {
-    font-size: 2rem;
+    margin-left: 10%;
+    font-size: 1.1rem;
+    font-weight: bold;
     color: crimson;
+}
+
+@media screen and (max-width: 600px) {
+    .location .naver-map {
+        margin-top: 20px;
+        width: 100%;
+        height: 200px;
+        border-radius: 8px;
+    }
+    .location .navigation {
+        margin-top: 20px;
+        width: 100%;
+        display: block;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .navigation .parking {
+        margin: 20px 0;
+    }
 }
 /*-------------------------board------------------------------------*/
 .board .input-board {
     width: 100%;
-    height: 200px;
-    font-size: 0.8rem;
-    /*display: flexbox;*/
-}
-
-.input-board label,
-.input-board button {
-    margin: 10px 20px 10px 0;
-    border-radius: 7px;
-    height: 1.2rem;
-    width: 5rem;
-    font-size: 0.8rem;
-    text-align: center;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
 }
 
 .input-board p {
-    margin: 10px 20px 10px 20px;
+    color: #f2f2f2;
+    margin: 0 20px 5px 20px;
+}
+.input-board .inputs {
+    border: 1px solid #f2f2f2;
+    padding: 10px 5px;
 }
 
-.input-board .input-btn {
+.inputs .input-box {
     font-size: 0.8rem;
     display: flex;
-    align-items: flex-end;
-    padding-top: 0.2rem;
+    margin: 5px 0;
 }
 
-.input-board .input-btn:hover {
-    background-color: #cccccc;
+.input-box label {
+    margin-right: 10px;
 }
-
-.input-board .input-box {
-    display: inline-flex;
-    margin-bottom: 20px;
+.input-box input,
+.input-box textarea {
+    color: var(--color-level1);
+    padding: 2px;
 }
-
 .input-box .input-name {
     width: 9rem;
-    border-radius: 7px;
+    border-radius: 4px;
+    margin-right: 10px;
 }
 
 .input-box .input-comment {
-    margin: 0 10%;
-    width: 80%;
+    width: 90%;
     height: auto;
-    border-radius: 7px;
+    border-radius: 4px;
+}
+
+.input-box .input-btn {
+    font-size: 0.8rem;
+    align-items: flex-end;
+    color: #2a2a2a;
+    padding-top: 0.2rem;
+}
+
+.input-box .input-btn:hover {
+    background-color: var(--color-level4);
+}
+
+.board .board-list {
+    font-size: 0.8rem;
+    width: 100%;
+}
+
+.board-list ul {
+    list-style: none;
+}
+
+.board-list .board-one {
+    margin-bottom: 10px;
+    padding: 5px;
+    box-sizing: content-box;
+    border: 1px solid var(--color-level3);
+}
+.board-one .up {
+    padding: 5px;
+}
+.board-one .down {
+    border: 1px dotted var(--color-level3);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.board .pagination ul {
+    list-style: none;
+    display: flow;
+    text-align: center;
+}
+.board .pagination li {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.pagination .page.on {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    .input-board .inputs {
+        border: 1px solid var(--color-level3);
+        padding: 3px 5px;
+    }
+    .inputs .input-box {
+        font-size: 0.8rem;
+        display: flex;
+    }
+    .input-box label {
+        display: none;
+    }
+    .input-box .input-name {
+        width: 6rem;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
 }
 /*-------------------------image------------------------------------*/
 
 .detail .detail-image img {
-    border-radius: 8px;
+    border-radius: 4px;
     max-width: 100%;
 }
 

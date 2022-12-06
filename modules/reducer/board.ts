@@ -1,6 +1,7 @@
 import { MainManu } from '../../src/enums/wedding.enum';
-import { ErrorCode } from '../../src/core/exception/errorCode'
+import { ErrorCode } from '../../src/core/exception/errorCode';
 import { BoardListApi } from '../../src/domain/board/api/board-list.api';
+import { BoardPageDto } from '../../src/domain/board/api/board-page.dto';
 
 const GET_BOARD = 'board/getBoard';
 const GET_BOARD_SUCCESS = 'board/getBoard_SUCCESS';
@@ -21,7 +22,7 @@ interface IParam {
 
 type State = {
     current_action: string;
-    boardList: BoardListApi[];
+    boardList: BoardPageDto;
     apiResult: {
         putBoardResult: ErrorCode;
     };
@@ -29,7 +30,7 @@ type State = {
 
 const initialState: State = {
     current_action: 'default',
-    boardList: [],
+    boardList: { lists: [], boardPage: [0] },
     apiResult: {
         putBoardResult: ErrorCode.DEFAULT_ERROR,
     },
@@ -96,8 +97,8 @@ function board(state = initialState, action: BoardAction) {
                 apiResult: {
                     ...state.apiResult,
                     putBoardResult: ErrorCode.DEFAULT_ERROR,
-                }
-            }
+                },
+            };
         default:
             return state;
     }

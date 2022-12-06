@@ -28,7 +28,7 @@ const Nav: NextPage<props> = ({}) => {
                 <div className="left">
                     <div className="logo">
                         <a href="/">
-                            <img src="./img/logo.png" alt="" />
+                            <img src="/images/icon/logo.png" alt="" />
                         </a>
                     </div>
                     <div

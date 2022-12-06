@@ -5,6 +5,7 @@ export const posterPhotoList: PosterDto[] = [
     new PosterDto({
         name: '',
         src: '/photo/photo_01.jpg',
+        thumbSrc: '/photo/photo_01.jpg',
     }),
     new PosterDto({
         name: '',
@@ -13,6 +14,7 @@ export const posterPhotoList: PosterDto[] = [
     new PosterDto({
         name: '',
         src: '/photo/photo_03.jpg',
+        thumbSrc: '/photo/photo_03.jpg',
     }),
     new PosterDto({
         name: '',

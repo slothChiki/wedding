@@ -77,22 +77,22 @@ const Main: NextPage<Props> = ({}) => {
                             list={studioList}
                         />
                     </div>
-                    <div className="content-list">
-                        <Slider
-                            list={posterList}
-                            title={'호러/스릴러 콘텐츠'}
-                            key={'horror'}
-                            sliderType={SliderType.CONTENTS}
-                        />
-                    </div>
-                    <div className="content-list">
-                        <Slider
-                            list={posterList}
-                            title={'코미디 콘텐츠'}
-                            key={'comedy'}
-                            sliderType={SliderType.CONTENTS}
-                        />
-                    </div>
+                    {/*<div className="content-list">*/}
+                    {/*    <Slider*/}
+                    {/*        list={posterList}*/}
+                    {/*        title={'호러/스릴러 시리즈'}*/}
+                    {/*        key={'horror'}*/}
+                    {/*        sliderType={SliderType.CONTENTS}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
+                    {/*<div className="content-list">*/}
+                    {/*    <Slider*/}
+                    {/*        list={posterList}*/}
+                    {/*        title={'코미디 시리즈'}*/}
+                    {/*        key={'comedy'}*/}
+                    {/*        sliderType={SliderType.CONTENTS}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                 </section>
                 <Footer />
                 <PopupDetail />

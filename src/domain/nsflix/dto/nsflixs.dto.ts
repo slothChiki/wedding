@@ -22,6 +22,12 @@ export class PosterDto {
     src: string;
 
     @IsString()
+    thumbSrc: string;
+
+    @IsString()
+    date: string;
+
+    @IsString()
     comment1: string;
 
     @IsString()

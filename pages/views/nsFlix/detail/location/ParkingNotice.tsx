@@ -10,7 +10,7 @@ const ParkingNotice: NextPage<any> = () => {
     return (
         <>
             <div className="parking">
-                주차장 주차등록 반드시 하세요!
+                주차장 주차등록 반드시 하세요! <br />
                 1층 카페와 축의대에서 하실 수 있습니다.
             </div>
         </>

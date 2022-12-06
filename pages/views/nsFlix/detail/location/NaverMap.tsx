@@ -94,7 +94,8 @@ const NaverMap: NextPage<any> = () => {
                     style={{
                         backgroundColor: 'green',
                         width: '100%',
-                        height: '400px',
+                        height: '100%',
+                        borderRadius: '8px',
                     }}
                 />
                 <code id="snippet" className="snippet" />

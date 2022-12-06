@@ -12,7 +12,6 @@ const ViewLocation: NextPage<Props> = ({}) => {
                 <h2>예식 장소</h2>
                 <NaverMap />
                 <LocationShare />
-                <ParkingNotice />
             </div>
         </>
     );

@@ -61,6 +61,7 @@ nav .left .logo a img {
 }
 
 nav .left .mobile-menu {
+  font-size: 1rem;
   display: none;
 }
 
@@ -323,6 +324,7 @@ footer .wrap {
 footer .wrap .social-icons i {
   font-size: 1.5rem;
   margin: 0 0.3em;
+  cursor: pointer;
 }
 
 footer .wrap .options {
@@ -333,6 +335,7 @@ footer .wrap .options {
 
 footer .wrap .options .option {
   color: #6f6f6f;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1437px) {
@@ -465,6 +468,9 @@ footer .wrap .options .option {
 }
 
 @media screen and (max-width: 768px) {
+  body{
+    font-size: 13px;
+  }
   main .description h1 {
     display: none;
   }

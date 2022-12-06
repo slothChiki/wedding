@@ -1,3 +1,10 @@
+:root {
+    --color-level1: #1C1C1C;
+    --color-level2: #585858;
+    --color-level3: #a4a4a4;
+    --color-level4: #d8d8d8;
+    --color-level5: #fafafa;
+}
 .container.modal {
     width: 100%;
     height: 100%;
@@ -43,45 +50,82 @@
 }
 
 .detail-modal .detail {
-    margin-top: 15px;
     border-radius: 8px;
-    /*background-color: rgba(36, 36, 36, 1);*/
-    background-color: red;
+    background-color: var(--color-level1);
     z-index: 81;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-    position: relative;
+    width: 800px;
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    height: auto;
 }
 
 .detail .modal-close {
     position: absolute;
     top: 0;
-    margin-left: 70%;
-    margin-right: 10%;
-    background-image: url('/public/img/iconsX100.png');
+    right: 0;
+    margin-right: 0;
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: 90;
-    width: 100px;
-    height: 100px;
+    z-index: 95;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
 }
 
-.detail .detail-contents {
-    border-radius: 8px;
+.detail .contents {
     width: 100%;
-    z-index: 82;
+    display: block;
 }
 
-.detail .location {
+.detail .location,
+.detail .board {
+    padding: 2rem 1rem 1rem 1rem;
+    width: 100%;
+    display: block;
+}
+
+.detail .actor {
     padding: 10px;
     width: 100%;
     display: block;
 }
+@media screen and (max-width: 900px) {
+    .detail-modal .detail {
+        border-radius: 8px;
+        background-color: var(--color-level1);
+        z-index: 81;
+        width: 600px;
+        top: 15px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        position: absolute;
+        height: auto;
+    }
+}
 
-.detail .board {
-    width: 100%;
-    display: block;
-    padding: 10%;
+@media screen and (max-width: 600px) {
+    .detail .modal-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-image: url('/public/images/img/iconsX50.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 95;
+        cursor: pointer;
+    }
+    .detail-modal .detail {
+        border-radius: 0;
+        /*background-color: rgba(36, 36, 36, 1);*/
+        background-color: blue;
+        z-index: 81;
+        width: 100%;
+        position: relative;
+        height: auto;
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+    }
 }

@@ -11,6 +11,7 @@ const Config = {
     Notionkey: 'secret_fQoqH2YbA4BnqX1fdLsLTIsR1NvBPJ5WvPTtthF7eA2',
     userInfoDb: '72579980abd04fd6b3a326f8fadd6945',
     boardDB: 'd416183a2ca6416e9fd3d223c2cd4807',
+    cardDB: '427a0ba1973449948caed9b2968e2f1a',
 };
 export default Config;
 

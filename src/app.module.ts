@@ -22,6 +22,8 @@ import { WebExceptionFilter } from './core/exception/web-exception.filter';
 import { ResponseInterceptor } from './core/respons-interceptor/response.interceptor';
 import { NsflixController } from './domain/nsflix/nsflix.controller';
 import { ErrorController } from './domain/error/error.controller';
+import { CardRequestController } from './domain/card-request/card-request.controller';
+import { CardRequestService } from './domain/card-request/card-request.service';
 
 @Module({
     imports: [
@@ -40,6 +42,7 @@ import { ErrorController } from './domain/error/error.controller';
     controllers: [
         AppController,
         BoardController,
+        CardRequestController,
         NsflixController,
         ErrorController,
     ],
@@ -48,6 +51,7 @@ import { ErrorController } from './domain/error/error.controller';
         NotionService,
         CustomHttpService,
         BoardService,
+        CardRequestService,
         AccessLoggerService,
         RequestInfoService,
         {

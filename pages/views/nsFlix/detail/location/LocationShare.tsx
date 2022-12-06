@@ -1,7 +1,8 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Navigation } from '../../../../../src/enums/wedding.enum';
+import ParkingNotice from './ParkingNotice';
+
 // import Kakao from './KakaoSdk'
 
 interface Props {
@@ -50,37 +51,55 @@ const LocationShare: NextPage<any> = () => {
     const weddingHallName = '중앙컨벤션센터';
     return (
         <>
-            <div className="navi  col-md-6">
-                <div id="wrap" className="share">
-                    <h2>네비게이션 - 모바일만 지원됩니다.</h2>
-                    <div
-                        className="navi"
-                        key="navi-1"
-                        onClick={() => {
-                            handlerNavi(Navigation.TMAP);
-                        }}
-                    >
-                        Tmap
-                    </div>
-                    <div
-                        className="navi"
-                        onClick={() => {
-                            handlerNavi(Navigation.KAKAO);
-                        }}
-                        key="navi-2"
-                    >
-                        카카오
-                    </div>
-                    <div
-                        className="navi"
-                        key="navi-3"
-                        onClick={() => {
-                            handlerNavi(Navigation.NAVER);
-                        }}
-                    >
-                        네이버 길찾기
+            <div className="navigation">
+                <div className={`share`}>
+                    <p>
+                        <span> 길 안내 </span> 모바일만 지원됩니다.
+                    </p>
+                    <br />
+                    <div className="navi-list">
+                        <div
+                            className="navi"
+                            key="navi-1"
+                            onClick={() => {
+                                handlerNavi(Navigation.TMAP);
+                            }}
+                        >
+                            <img
+                                className="navi-logo"
+                                src="/images/icon/tmap.webp"
+                            />
+                            <div>Tmap</div>
+                        </div>
+                        <div
+                            className="navi"
+                            onClick={() => {
+                                handlerNavi(Navigation.KAKAO);
+                            }}
+                            key="navi-2"
+                        >
+                            <img
+                                className="navi-logo"
+                                src="/images/icon/kakao.webp"
+                            />
+                            <div>kakao</div>
+                        </div>
+                        <div
+                            className="navi"
+                            key="navi-3"
+                            onClick={() => {
+                                handlerNavi(Navigation.NAVER);
+                            }}
+                        >
+                            <img
+                                className="navi-logo"
+                                src="/images/icon/naver.webp"
+                            />
+                            <div>네이버 길찾기</div>
+                        </div>
                     </div>
                 </div>
+                <ParkingNotice />
             </div>
         </>
     );

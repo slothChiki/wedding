@@ -32,7 +32,11 @@ const PopupDetail: NextPage<Props> = ({}) => {
                 onClick={offModal}
             >
                 <div className="detail" onClick={preventEvent}>
-                    <div className="modal-close" onClick={offModal}></div>
+                    <div
+                        className="modal-close"
+                        onClick={offModal}
+                        style={{ backgroundImage: '/img/iconsX100.png' }}
+                    ></div>
                     {detailType == DetailType.IMG ? (
                         <ViewImage />
                     ) : detailType == DetailType.CONTENTS ? (

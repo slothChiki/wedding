@@ -34,7 +34,7 @@ const InputComment: NextPage<any> = () => {
         setName('');
         setTel('');
         setContents('');
-    }
+    };
     const submitComment = () => {
         const boardData = new BoardListApi({
             name: name,
@@ -63,46 +63,50 @@ const InputComment: NextPage<any> = () => {
             resetInput();
             dispatch(boardReducer.resetCode({}));
         }
-    }, [state.apiResult.putBoardResult])
+    }, [state.apiResult.putBoardResult]);
 
     return (
         <>
             <div className="input-board">
-
                 <p>
-                    연락처는 신랑신부의 인물 대조용으로만 사용됩니다. 노출되거나 하지 않아요. <br />
+                    연락처는 신랑신부의 인물 대조용으로만 사용됩니다. 노출되거나
+                    하지 않아요. <br />
                     써주시면 너무 감사하겠습니다.
                 </p>
 
-                <div className="input-box">
-                    <label htmlFor="input-name">작성자</label>
-                    <input
-                        type="text"
-                        className="input-name"
-                        value={name}
-                        onChange={inputName}
-                    />
-                    <label htmlFor="input-name">연락처</label>
-                    <input
-                        type="text"
-                        className="input-name"
-                        value={tel}
-                        onChange={inputTel}
-                    />
-                    <button className="input-btn" onClick={submitComment}>
-                        등록
-                    </button>
-                </div>
+                <div className="inputs">
+                    <div className="input-box">
+                        <label htmlFor="input-name">작성자 </label>
+                        <input
+                            type="text"
+                            className="input-name"
+                            value={name}
+                            onChange={inputName}
+                            placeholder="작성자"
+                        />
+                        <label htmlFor="input-name">연락처 </label>
+                        <input
+                            type="text"
+                            className="input-name"
+                            value={tel}
+                            onChange={inputTel}
+                            placeholder="연락처"
+                        />
+                        <button className="input-btn" onClick={submitComment}>
+                            등록
+                        </button>
+                    </div>
 
-                <div className="input-box">
-                <label htmlFor="input-comment">내용</label>
-                <textarea
-                    className="input-comment"
-                    value={contents}
-                    onChange={inputComment}
-                />
+                    <div className="input-box">
+                        <label htmlFor="input-comment">내용 </label>
+                        <textarea
+                            className="input-comment"
+                            value={contents}
+                            onChange={inputComment}
+                            placeholder="내용을 써주세요."
+                        />
+                    </div>
                 </div>
-
             </div>
         </>
     );

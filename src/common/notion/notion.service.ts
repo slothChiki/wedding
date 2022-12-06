@@ -27,6 +27,7 @@ export class NotionService {
             database_id: dataBaseKey,
             sorts: [{ timestamp: 'created_time', direction: 'descending' }],
         });
+        console.log(JSON.stringify(res));
 
         return res;
     }
