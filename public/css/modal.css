@@ -1,5 +1,5 @@
 :root {
-    --color-level1: #1C1C1C;
+    --color-level1: #1c1c1c;
     --color-level2: #585858;
     --color-level3: #a4a4a4;
     --color-level4: #d8d8d8;
@@ -73,12 +73,12 @@
     cursor: pointer;
 }
 
-.modal-close .cross_diagonal{
+.modal-close .cross_diagonal {
     width: 100%;
-    height:100%;
+    height: 100%;
     position: relative;
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%" stroke="white" stroke-width="5px"/></svg>'),
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="white" stroke-width="5px"/></svg>');
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="white" stroke-width="5px"/></svg>');
 }
 
 .detail .contents {
@@ -87,20 +87,15 @@
 }
 
 .detail .location,
-.detail .board {
+.detail .board,
+.detail .actor {
     padding: 3rem;
     width: 100%;
     display: block;
-overflow-y: auto;
+    overflow-y: auto;
     height: auto;
 }
 
-
-.detail .actor {
-    padding: 10px;
-    width: 100%;
-    display: block;
-}
 @media screen and (max-width: 1050px) {
     .detail .modal-close {
         position: absolute;

@@ -52,13 +52,15 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
                 <meta charSet="UTF-8" />
                 <meta name="format-detection" content="telephone=no" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-                <meta property="og:image" content="/img/logo.png" />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="NSFLIX" />
+                <meta property="og:image" content="/images/icon/logo.png" />
                 <meta property="og:title" content="최고의 감동: NSFLIX" />
                 <meta
                     property="og:description"
                     content="2023. 1. 7 (토) 14:00 중앙컨벤션센터"
                 />
-                <title>나연 상민 모바일 청첩장</title>
+                <title>최고의 감동: NSFLIX</title>
             </Head>
             <Component {...pageProps} />
         </>

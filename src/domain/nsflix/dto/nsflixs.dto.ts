@@ -1,4 +1,4 @@
-import { IsNumber, IsObject, IsString } from 'class-validator';
+import { IsArray, IsNumber, IsObject, IsString } from 'class-validator';
 import { DetailType } from '../../../enums/wedding.enum';
 
 export class Top10Dto {
@@ -21,7 +21,7 @@ export class PosterDto {
     @IsString()
     src: string;
 
-   @IsString()
+    @IsString()
     date: string;
 
     @IsString()
@@ -52,6 +52,9 @@ export class ActorDto {
 
     @IsString()
     src: string;
+
+    @IsArray()
+    photoList: string[] | null;
 
     @IsString()
     bank: string;

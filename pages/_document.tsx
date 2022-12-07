@@ -1,12 +1,11 @@
 import Document, {
-    Html,
+    DocumentContext,
     Head,
+    Html,
     Main,
     NextScript,
-    DocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import Script from 'next/script';
 import React from 'react';
 import NaverMap from './views/nsFlix/detail/location/script/NaverMapScript';
 
@@ -41,6 +40,7 @@ export default class MyDocument extends Document {
             // <Html data-dark='true'>
             <Html>
                 <Head>
+                    <title>나연 상민 모바일 청첩장</title>
                     <script
                         src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.js"
                         integrity="sha384-geDMoEPQD/YUg5vIzKYMrqDwvs/7jrTormn7E/g4EqLSSAssbMDTe0n+bc+hkAyi"

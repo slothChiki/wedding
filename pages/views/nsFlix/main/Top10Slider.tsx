@@ -3,28 +3,20 @@ import React, { useEffect, useState } from 'react';
 
 import 'swiper/css';
 import Top10Poster from './Top10Poster';
-import {
-    PosterDto,
-    Top10Dto,
-} from '../../../../src/domain/nsflix/dto/nsflixs.dto';
 import { top10Media } from '../../../../src/enums/wedding.enum';
 import { useMediaQuery } from 'react-responsive';
-import { DetailType } from '../../../../dist/enums/wedding.enum';
 
 interface Props {
     title: string;
+    list: any;
 }
-const Top10Slider: NextPage<Props> = ({ title = '' }) => {
+const Top10Slider: NextPage<Props> = ({ title = '', list }) => {
     const [movePx, setMovePx] = useState(0);
-
-    const list = [];
 
     // 창 길이 만큼 움직이기 - 화살표 /////////////////////////////////////////////////////////////////////////////////
     useEffect(() => {
         const screen = window.innerWidth;
-        console.log(screen);
         setMovePx((movePx) => screen);
-        console.log(movePx);
 
         let mediaImgae: top10Media;
         if (isDesktopOrLaptop) {
@@ -64,7 +56,7 @@ const Top10Slider: NextPage<Props> = ({ title = '' }) => {
     const slideNext = () => {
         slidePx > limit && setSlidePx(slidePx - movePx);
     };
-    
+
     const [startX, setStartX] = useState(0);
     const [endX, setEndX] = useState(0);
     const contentsWidth = 300; // TODO - 미디어에 맞게 바꿔야 함
@@ -83,7 +75,6 @@ const Top10Slider: NextPage<Props> = ({ title = '' }) => {
         } else {
             slidePrev();
         }
-
     }
     return (
         <>
@@ -97,7 +88,7 @@ const Top10Slider: NextPage<Props> = ({ title = '' }) => {
                     >
                         {list.map((v, i) => (
                             <Top10Poster
-                                key={`top10-1`}
+                                key={`top10-${i}`}
                                 data={v.data}
                                 detailType={v.detailType}
                                 slide={slidePx}

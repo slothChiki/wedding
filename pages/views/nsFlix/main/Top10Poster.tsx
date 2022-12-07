@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import { PosterDto } from '../../../../src/domain/nsflix/dto/nsflixs.dto';
 import { useDispatch } from 'react-redux';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
-import { DetailType, SliderType } from '../../../../src/enums/wedding.enum';
+import { DetailType } from '../../../../src/enums/wedding.enum';
 import {
     ActorDto,
     PhotoDto,
@@ -42,11 +42,11 @@ const Top10Poster: NextPage<Props> = ({
                     weddingReducer.detailActorChoice({ ...data } as ActorDto),
                 );
         }
-        window.history.pushState({data:'main'},'','/');
+        window.history.pushState({ data: 'main' }, '', '/');
         dispatch(
             weddingReducer.modalOn({
                 showModal: true,
-                detailType: DetailType,
+                detailType: detailType,
             }),
         );
     };

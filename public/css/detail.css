@@ -15,7 +15,7 @@
     font-weight: bold;
     font-size: 1.3rem;
 }
-.send-btn a{
+.send-btn a {
     color: var(--color-level1);
 }
 
@@ -57,11 +57,11 @@
 }
 
 @media screen and (max-width: 650px) {
-    .congratulatory-box{
+    .congratulatory-box {
         display: flex;
         width: 100%;
     }
-    .congratulatory{
+    .congratulatory {
         width: 100%;
     }
     .congratulatory .send-choice {
@@ -144,7 +144,6 @@
     margin-top: 0.3rem;
 }
 
-
 .middle-introduce .left span {
     color: forestgreen;
     font-weight: bold;
@@ -167,13 +166,13 @@
     font-style: unset;
 }
 
-.contents .congratulatory{
+.contents .congratulatory {
     margin: 5%;
 }
 
 @media screen and (max-width: 600px) {
     .middle-introduce .right {
-      display: none;
+        display: none;
     }
 }
 @media screen and (max-width: 1050px) {
@@ -256,7 +255,6 @@
 }
 
 @media screen and (max-width: 1050px) {
-   
 }
 
 @media screen and (max-width: 850px) {
@@ -286,7 +284,6 @@
 }
 
 @media screen and (max-width: 650px) {
- 
 }
 @media screen and (max-width: 480px) {
 }
@@ -384,15 +381,10 @@
     font-weight: bold;
 }
 
-@media screen and (max-width: 600px) {
-   
-}
 @media screen and (max-width: 1050px) {
-   
 }
 
 @media screen and (max-width: 850px) {
-  
 }
 
 @media screen and (max-width: 650px) {
@@ -429,3 +421,15 @@
 }
 
 /*-------------------------actor------------------------------------*/
+
+@media screen and (max-width: 1050px) {
+}
+
+@media screen and (max-width: 850px) {
+}
+
+@media screen and (max-width: 650px) {
+}
+
+@media screen and (max-width: 480px) {
+}

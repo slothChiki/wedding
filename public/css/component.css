@@ -41,8 +41,8 @@
 .poster-container .image-container {
     width: 250px;
     height: 150px;
-    background: #262626;
-    background: linear-gradient(312deg, #262626 0%, #333333 54%, #2a2a2a 100%);
+    /*!*background: #262626;*!*/
+    /*background: linear-gradient(312deg, #262626 0%, #333333 54%, #2a2a2a 100%);*/
     object-fit: cover;
     /* max-width: 230px;
     height: 100%;
@@ -52,6 +52,9 @@
 
 .poster-container .image-container img {
     width: 250px;
+}
+
+.poster-container .image-container .small-name {
 }
 
 .top10-container {
@@ -118,7 +121,7 @@
 
     .poster-container li {
         height: 100%;
-        background-color: var(--color-level2);
+        background-color: var(--color-level1);
         border-radius: 8px;
     }
 
@@ -175,7 +178,7 @@
 
     .poster-container li {
         height: 100%;
-        background-color: var(--color-level2);
+        background-color: var(--color-level1);
         border-radius: 8px;
     }
 

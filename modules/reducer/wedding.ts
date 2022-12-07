@@ -1,5 +1,5 @@
 import { ActorDto, PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
-import { ActorType, DetailType } from 'src/enums/wedding.enum';
+import { DetailType } from 'src/enums/wedding.enum';
 
 const SET_INIT = 'SET_INIT';
 const MODAL_ON = 'MODAL_ON';
@@ -37,6 +37,7 @@ const initialState: State = {
     detailActor: {
         name: '',
         src: '',
+        photoList: [],
         bank: '',
         kakaoQr: '',
         account: '',

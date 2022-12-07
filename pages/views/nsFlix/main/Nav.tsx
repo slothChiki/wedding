@@ -3,14 +3,23 @@ import { ActorType, DetailType } from '../../../../src/enums/wedding.enum';
 import { useDispatch } from 'react-redux';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useState } from 'react';
+import { actorList } from '../../../../src/domain/nsflix/variable/actor-list';
 
 interface props {}
 const Nav: NextPage<props> = ({}) => {
     const dispatch = useDispatch();
+    const actors = actorList;
     const detailDataChoice = (actor: ActorType) => {
         viewList();
-        window.history.pushState({data:'main'},'','/');
-        dispatch(weddingReducer.detailActorChoice(actor));
+        window.history.pushState({ data: 'main' }, '', '/');
+        switch (actor) {
+            case ActorType.NY:
+                dispatch(weddingReducer.detailActorChoice(actors[0]));
+                break;
+            case ActorType.SM:
+            default:
+                dispatch(weddingReducer.detailActorChoice(actors[1]));
+        }
         dispatch(
             weddingReducer.modalOn({
                 showModal: true,
