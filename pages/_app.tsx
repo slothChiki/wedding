@@ -7,35 +7,40 @@ import '../public/css/index.css';
 import '../public/css/component.css';
 import '../public/css/modal.css';
 import '../public/css/detail.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../modules/reducer/rootReducer';
+import * as weddingReducer from '../modules/reducer/wedding';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
+    const dispatch = useDispatch();
+    const state = useSelector((state: RootState) => state.wedding);
+    const showModal = state.showModal;
     useEffect(() => {
         window.addEventListener('contextmenu', (e) => {
-            console.log(`dont touch`);
             e.preventDefault();
         });
     }, []);
     // 뒤로가기 조절 //////////////////////////////////////////////////////////////////////
-    // useEffect(() => {
-    //     // window.addEventListener('popstate', handleBack);
-    //     console.log(`modal --- ${JSON.stringify(window.history.state)}`);
-    //
-    //     const handleRouter = (e) => {
-    //         e.preventDefault();
-    //         e.stopPropagation();
-    //         console.log(`beforePopState --- ${showModal}`);
-    //         if (showModal) {
-    //             dispatch(weddingReducer.modalOff({}));
-    //             return;
-    //         }
-    //         return window.history.back();
-    //     };
-    //     window.addEventListener('popstate', handleRouter);
-    //
-    //     return () => {
-    //         window.removeEventListener('popstate', handleRouter);
-    //     };
-    // }, []);
+    const backBtn = (event) => {
+        event.preventDefault();
+        if (showModal) {
+            dispatch(weddingReducer.modalOff({}));
+            event.preventDefault();
+            return;
+        } else {
+            return window.history.back();
+        }
+    };
+    useEffect(() => {
+        if (showModal) {
+            window.addEventListener('popstate', (event) => {
+                backBtn(event);
+            });
+        }
+        window.removeEventListener('popstate', (event) => {
+            backBtn(event);
+        });
+    }, [showModal]);
 
     return (
         <>

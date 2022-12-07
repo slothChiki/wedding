@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../modules/reducer/rootReducer';
 import { SliderType } from '../../../src/enums/wedding.enum';
 import Introduce from './main/Introduce';
+import * as weddingReducer from '../../../modules/reducer/wedding';
 
 interface Props {}
 const Main: NextPage<Props> = ({}) => {
