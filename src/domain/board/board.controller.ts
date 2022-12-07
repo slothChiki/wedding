@@ -12,7 +12,6 @@ export class BoardController {
     @RestApi()
     @Post('/putBoard')
     async putBoard(@Body() body: BoardListApi) {
-        console.log('putBoard');
         return await this.boardService.putBoardPage(body);
     }
 

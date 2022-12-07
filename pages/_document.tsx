@@ -55,7 +55,17 @@ export default class MyDocument extends Document {
                     />
                     <NaverMap />
                 </Head>
-                <body>
+                <body
+                    onContextMenu={() => {
+                        return false;
+                    }}
+                    onSelectCapture={() => {
+                        return false;
+                    }}
+                    onDragStart={() => {
+                        return false;
+                    }}
+                >
                     <Main />
                     <NextScript />
                 </body>

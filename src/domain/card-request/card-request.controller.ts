@@ -10,7 +10,6 @@ export class CardRequestController {
     @RestApi()
     @Post('/putRequest')
     async putRequest(@Body() body: CardRequestApi) {
-        console.log('putRequest');
         return await this.cardService.putCardRequest(body);
     }
 }

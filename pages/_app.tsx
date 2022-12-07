@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import wrapper from '../modules/store/store';
 import Head from 'next/head';
@@ -9,6 +9,34 @@ import '../public/css/modal.css';
 import '../public/css/detail.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
+    useEffect(() => {
+        window.addEventListener('contextmenu', (e) => {
+            console.log(`dont touch`);
+            e.preventDefault();
+        });
+    }, []);
+    // 뒤로가기 조절 //////////////////////////////////////////////////////////////////////
+    // useEffect(() => {
+    //     // window.addEventListener('popstate', handleBack);
+    //     console.log(`modal --- ${JSON.stringify(window.history.state)}`);
+    //
+    //     const handleRouter = (e) => {
+    //         e.preventDefault();
+    //         e.stopPropagation();
+    //         console.log(`beforePopState --- ${showModal}`);
+    //         if (showModal) {
+    //             dispatch(weddingReducer.modalOff({}));
+    //             return;
+    //         }
+    //         return window.history.back();
+    //     };
+    //     window.addEventListener('popstate', handleRouter);
+    //
+    //     return () => {
+    //         window.removeEventListener('popstate', handleRouter);
+    //     };
+    // }, []);
+
     return (
         <>
             <Head>
