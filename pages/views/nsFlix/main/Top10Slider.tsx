@@ -15,7 +15,6 @@ const Top10Slider: NextPage<Props> = ({ title = '', list }) => {
     useEffect(() => {
         const screen = window.innerWidth;
         setMovePx((movePx) => screen);
-
         let mediaImgae: top10Media;
         if (isDesktopOrLaptop) {
             mediaImgae = top10Media.PC;

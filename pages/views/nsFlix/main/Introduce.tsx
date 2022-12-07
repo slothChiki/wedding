@@ -28,14 +28,13 @@ const Introduce: NextPage<Props> = ({ list = [], title = '' }) => {
     useEffect(() => {
         const screen = window.innerWidth;
         setMovePx((movePx) => screen);
-
         let mediaImgae: imageMedia;
         if (isDesktopOrLaptop) {
-            mediaImgae = imageMedia.TAB;
-        } else if (isTablet) {
-            mediaImgae = imageMedia.MOBILE;
-        } else {
             mediaImgae = imageMedia.PC;
+        } else if (isTablet) {
+            mediaImgae = imageMedia.TAB;
+        } else {
+            mediaImgae = imageMedia.MOBILE;
         }
 
         findLimit(mediaImgae);

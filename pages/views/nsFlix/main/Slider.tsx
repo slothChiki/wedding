@@ -32,7 +32,6 @@ const Slider: NextPage<Props> = ({
     useEffect(() => {
         const screen = window.innerWidth;
         setMovePx((movePx) => screen);
-        console.log(movePx);
         let mediaImgae: imageMedia;
         if (isDesktopOrLaptop) {
             mediaImgae = imageMedia.PC;
