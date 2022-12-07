@@ -49,6 +49,7 @@ export class BoardService {
                 ),
             } as BoardListApi);
         }
+        console.log(JSON.stringify(boardList));
         return boardList;
     }
 

@@ -15,13 +15,13 @@ const BoardOne: NextPage<Props> = ({
         idx: '',
     },
 }) => {
-    const date = moment(board.regDate).format('YY년 MM월 DD일');
+    const date = moment(board.regDate).format('YYYY년 MM월 DD일');
     return (
         <>
             <li>
                 <div className="board-one">
                     <div className="up">
-                        <label>이름 </label> {board.name} <label>작성일 </label>{' '}
+                        <label>이름{` `} </label> <strong>{board.name}</strong> {` `}<label>작성일{' '} </label>
                         {date}
                     </div>
                     <div className="down"> {board.contents}</div>
