@@ -63,9 +63,19 @@ const Top10Poster: NextPage<Props> = ({
                 {/* <Link to={isMovie ? `/movie/${id}` : `/tv/${id}`}> */}
                 <div className="rank-poster">
                     <div className="rank">{idx + 1}</div>
-                    <img className="image-container" src={data.src} />
+                    <div className="image-container">
+                        <img src={data.src} />
+                        {detailType !== DetailType.IMG ? (
+                            data['name'] ? (
+                                <div className={`small-name`}>
+                                    {data['name']}
+                                </div>
+                            ) : (
+                                ''
+                            )
+                        ) : null}
+                    </div>
                 </div>
-                {/* </Link> */}
             </li>
         </>
     );

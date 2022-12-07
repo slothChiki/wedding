@@ -7,6 +7,8 @@ import '../public/css/index.css';
 import '../public/css/component.css';
 import '../public/css/modal.css';
 import '../public/css/detail.css';
+import 'swiper/swiper.min.css';
+import 'swiper/components/navigation/navigation.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../modules/reducer/rootReducer';
 import * as weddingReducer from '../modules/reducer/wedding';

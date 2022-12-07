@@ -1,16 +1,14 @@
 import { NextPage } from 'next';
-import { PosterDto } from 'src/domain/nsflix/dto/nsflixs.dto';
-import * as weddingReducer from '../../../../modules/reducer/wedding';
 import { useDispatch, useSelector } from 'react-redux';
-import { DetailType, Sns } from '../../../../src/enums/wedding.enum';
+import { Sns } from '../../../../src/enums/wedding.enum';
 import { RootState } from '../../../../modules/reducer/rootReducer';
-import ViewImage from './ViewImage';
-import ViewContents from './ViewContents';
 import { useEffect, useState } from 'react';
 import clipBoard from '../../../../src/common/clip-board/clip-board';
 
-interface Props {}
-const SocialShare: NextPage<Props> = ({}) => {
+interface Props {
+    shadow: string;
+}
+const SocialShare: NextPage<Props> = ({ shadow = '' }) => {
     const dispatch = useDispatch();
     const state = useSelector((state: RootState) => state.wedding);
     const [currentUrl, setcurrentUrl] = useState(null);
@@ -75,7 +73,7 @@ const SocialShare: NextPage<Props> = ({}) => {
     };
     return (
         <>
-            <div className="share">
+            <div className={`share ${shadow}`}>
                 <i
                     className="fa-brands fa-facebook-square"
                     onClick={() => {

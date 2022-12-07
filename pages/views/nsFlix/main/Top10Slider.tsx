@@ -1,7 +1,5 @@
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
-
-import 'swiper/css';
 import Top10Poster from './Top10Poster';
 import { top10Media } from '../../../../src/enums/wedding.enum';
 import { useMediaQuery } from 'react-responsive';
@@ -78,49 +76,51 @@ const Top10Slider: NextPage<Props> = ({ title = '', list }) => {
     }
     return (
         <>
-            {list.length > 0 ? (
-                <>
-                    <h1>{title}</h1>
-                    <ul
-                        className="top10-container"
-                        onTouchStart={touchStart}
-                        onTouchEnd={touchEnd}
-                    >
-                        {list.map((v, i) => (
-                            <Top10Poster
-                                key={`top10-${i}`}
-                                data={v.data}
-                                detailType={v.detailType}
-                                slide={slidePx}
-                                idx={i}
-                            />
-                        ))}
-                    </ul>
-
-                    {slidePx === 0 ? null : (
-                        <div
-                            className={`prev`}
-                            onClick={() => {
-                                slidePrev();
-                            }}
+            {list ? (
+                list.length > 0 ? (
+                    <>
+                        <h1>{title}</h1>
+                        <ul
+                            className="top10-container"
+                            onTouchStart={touchStart}
+                            onTouchEnd={touchEnd}
                         >
-                            <i
-                                className={`fa-solid fa-angle-right prev-arrow`}
-                            />
-                        </div>
-                    )}
+                            {list.map((v, i) => (
+                                <Top10Poster
+                                    key={`top10-${i}`}
+                                    data={v.data}
+                                    detailType={v.detailType}
+                                    slide={slidePx}
+                                    idx={i}
+                                />
+                            ))}
+                        </ul>
 
-                    {slidePx <= limit ? null : (
-                        <div
-                            className={`next`}
-                            onClick={() => {
-                                slideNext();
-                            }}
-                        >
-                            <i className={`fa-solid fa-angle-right`} />
-                        </div>
-                    )}
-                </>
+                        {slidePx === 0 ? null : (
+                            <div
+                                className={`prev`}
+                                onClick={() => {
+                                    slidePrev();
+                                }}
+                            >
+                                <i
+                                    className={`fa-solid fa-angle-right prev-arrow`}
+                                />
+                            </div>
+                        )}
+
+                        {slidePx <= limit ? null : (
+                            <div
+                                className={`next`}
+                                onClick={() => {
+                                    slideNext();
+                                }}
+                            >
+                                <i className={`fa-solid fa-angle-right`} />
+                            </div>
+                        )}
+                    </>
+                ) : null
             ) : null}
         </>
     );

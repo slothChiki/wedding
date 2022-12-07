@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Nav from './main/Nav';
-import React from 'react';
+import React, { useEffect } from 'react';
 import PlayMovie from './main/PlayMovie';
 import Footer from './main/Footer';
 import Slider from './main/Slider';
@@ -25,25 +25,25 @@ const Main: NextPage<Props> = ({}) => {
     const showModal = state.showModal;
 
     // TODO - 배포 전 주석 제거!!
-    // useEffect(() => {
-    //     const msgList = [
-    //         '%c개발자이신가요.........',
-    //         '%c절 살려주세요... 여기 보지 마세요',
-    //         '%c수치사 할 것 같네영....',
-    //         '%c버그 제보 환영하지만',
-    //         '%c이거 두 번 다시 건들고 싶지 않아요.',
-    //         '%c추억으로 간직하게 해주세요.',
-    //         '%c그치만 와주셔서 환영합니다~!!!!',
-    //         '%c기술 공유, 한수 가르침 환영해용><',
-    //     ];
-    //     const css =
-    //         "font-size: 2em; color: #ff0; background-color: #000;font-family: 'Noto Sans KR';";
-    //     for (let msg of msgList) {
-    //         setTimeout(() => {
-    //             console.log(msg, css);
-    //         }, 1000);
-    //     }
-    // }, []);
+    useEffect(() => {
+        const msgList = [
+            '%c개발자이신가요.........',
+            '%c절 살려주세요... 여기 보지 마세요',
+            '%c수치사 할 것 같네영....',
+            '%c버그 제보 환영하지만',
+            '%c이거 두 번 다시 건들고 싶지 않아요.',
+            '%c추억으로 간직하게 해주세요.',
+            '%c그치만 와주셔서 환영합니다~!!!!',
+            '%c기술 공유, 한수 가르침 환영해용><',
+        ];
+        const css =
+            "font-size: 2em; color: #ff0; background-color: #000;font-family: 'Noto Sans KR';";
+        for (let msg of msgList) {
+            setTimeout(() => {
+                console.log(msg, css);
+            }, 1000);
+        }
+    }, []);
     // const [containerY, setContainerY] = useState(0);
     // TODO - 바디 고정
 
@@ -70,7 +70,6 @@ const Main: NextPage<Props> = ({}) => {
                             list={actorList}
                             title={'우리 결혼합니다!'}
                             key={'wedding-introduce'}
-                            sliderType={SliderType.ACTOR}
                         />
                     </div>
                     {/* 슬라이드 10개로 잘라야 함*/}

@@ -17,9 +17,8 @@
 
 .poster-container.intro {
     transition: 0.2s linear;
-    width: 100%;
-
-    display: flex;
+    width: auto;
+    display: flow;
     flex-direction: row;
     align-items: flex-start;
     position: relative;
@@ -27,14 +26,13 @@
     /* border-radius: 7px;  */
     list-style: none;
 }
-
 .poster-container li {
     flex: 1 1 20px;
     margin-right: 10px;
 }
 
-
 .poster-container.intro li {
+    flex: 0 0 0;
     margin-right: 10px;
 }
 
@@ -46,7 +44,7 @@
     object-fit: cover;
     /* max-width: 230px;
     height: 100%;
-    border-radius: 8px; */
+    /*border-radius: 8px; *!*/
     cursor: pointer;
 }
 
@@ -109,11 +107,19 @@
     width: 140px;
     height: 100%;
     border-radius: 8px;
-    z-index: 5;
     cursor: pointer;
-
 }
-
+.top10-container .image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: 5;
+}
+.top10-container .image-container .small-name {
+    margin: 2vh 1vw;
+    float: right;
+    font-size: 0.6rem;
+}
 @media screen and (max-width: 1023px) {
     .poster-container {
         height: 270px;
@@ -143,6 +149,7 @@
 
     .top10-container .rank-poster {
         width: 250px;
+        text-align: center;
     }
 
     .top10-container .rank {
@@ -211,5 +218,4 @@
         height: 100%;
         border-radius: 8px;
     }
-
 }

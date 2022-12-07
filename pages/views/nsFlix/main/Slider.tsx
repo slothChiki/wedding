@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
-import 'swiper/css';
 import Photo from './Photo';
 import {
     ActorDto,
@@ -33,7 +32,7 @@ const Slider: NextPage<Props> = ({
     useEffect(() => {
         const screen = window.innerWidth;
         setMovePx((movePx) => screen);
-
+        console.log(movePx);
         let mediaImgae: imageMedia;
         if (isDesktopOrLaptop) {
             mediaImgae = imageMedia.TAB;
@@ -83,7 +82,6 @@ const Slider: NextPage<Props> = ({
     }
 
     function touchEnd(e) {
-
         setEndX(e.changedTouches[0].pageX);
 
         if (startX > endX) {
@@ -116,7 +114,7 @@ const Slider: NextPage<Props> = ({
                 );
                 detailType = DetailType.ACTOR;
         }
-        window.history.pushState({data:'main'},'','/');
+        window.history.pushState({ data: 'main' }, '', '/');
         dispatch(
             weddingReducer.modalOn({
                 showModal: true,

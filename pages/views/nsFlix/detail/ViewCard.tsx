@@ -6,12 +6,11 @@ import { TimerType } from '../../../../src/enums/wedding.enum';
 import SocialShare from './SocialShare';
 import moment from 'moment';
 import Timer from '../main/Timer';
-import { DetailType } from '../../../../dist/enums/wedding.enum';
 import { RootState } from '../../../../modules/reducer/rootReducer';
 import Congratulatory from './common/Congratulatory';
 import { actorList } from '../../../../src/domain/nsflix/variable/actor-list';
 
-interface Props { }
+interface Props {}
 
 const ViewCard: NextPage<Props> = () => {
     const dispatch = useDispatch();
@@ -44,7 +43,7 @@ const ViewCard: NextPage<Props> = () => {
                         <div className="detail-name">
                             {poster.name ? poster.name : '6년째 연애중'}
                         </div>
-                        <SocialShare />
+                        <SocialShare shadow={''} />
                     </div>
                 </div>
                 <div className="middle-introduce">

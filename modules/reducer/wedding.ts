@@ -30,7 +30,7 @@ const initialState: State = {
         src: '',
         date: '',
         name: '',
-        category: 0,
+        category: '',
         comment1: '',
         comment2: '',
     },

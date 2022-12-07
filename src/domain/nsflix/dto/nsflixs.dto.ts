@@ -30,8 +30,8 @@ export class PosterDto {
     @IsString()
     comment2: string;
 
-    @IsNumber()
-    category: number; // 연관된 여행 카테고리
+    @IsString()
+    category: string; // 연관된 여행 카테고리
 }
 
 export class PhotoDto {

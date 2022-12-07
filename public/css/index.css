@@ -13,6 +13,8 @@ body {
   -ms-user-select: none;
   -webkit-user-select: none;
 
+  --swiper-navigation-color: #ccc;
+
   width: 100%;
   height: 100%;
   overflow-x: hidden;

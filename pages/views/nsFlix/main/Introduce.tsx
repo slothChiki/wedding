@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
-import 'swiper/css';
 import Photo from './Photo';
 import {
     ActorDto,
@@ -15,18 +14,14 @@ import {
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch } from 'react-redux';
 import * as weddingReducer from '../../../../modules/reducer/wedding';
+import { weddingCard } from '../../../../src/domain/nsflix/variable/photo-list';
 
 interface Props {
     list: Array<PosterDto | ActorDto | PhotoDto>;
     title: string;
-    sliderType: SliderType;
 }
 
-const Introduce: NextPage<Props> = ({
-    list = [],
-    title = '',
-    sliderType = SliderType.IMG,
-}) => {
+const Introduce: NextPage<Props> = ({ list = [], title = '' }) => {
     const [movePx, setMovePx] = useState(0);
 
     // 창 길이 만큼 움직이기 - 화살표 /////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +78,6 @@ const Introduce: NextPage<Props> = ({
     }
 
     function touchEnd(e) {
-
         setEndX(e.changedTouches[0].pageX);
 
         if (startX > endX) {
@@ -96,27 +90,26 @@ const Introduce: NextPage<Props> = ({
     // 디테일 창 열기 ///////////////////////////////////////////////////////////////////////////////////////////
     const dispatch = useDispatch();
 
-    const detailDataChoice = (v: PhotoDto | PosterDto | ActorDto) => {
-        let detailType = DetailType.IMG;
-        switch (sliderType) {
-            case SliderType.IMG:
+    const detailDataChoice = (
+        v: PhotoDto | PosterDto | ActorDto,
+        detailType: DetailType,
+    ) => {
+        switch (detailType) {
+            case DetailType.IMG:
                 dispatch(weddingReducer.detailImgChoice(v['src']));
-                detailType = DetailType.IMG;
                 break;
-            case SliderType.CONTENTS:
+            case DetailType.CONTENTS:
                 dispatch(
                     weddingReducer.detailContentsChoice({ ...v } as PosterDto),
                 );
-                detailType = DetailType.CONTENTS;
                 break;
-            case SliderType.ACTOR:
+            case DetailType.ACTOR:
             default:
                 dispatch(
                     weddingReducer.detailActorChoice({ ...v } as ActorDto),
                 );
-                detailType = DetailType.ACTOR;
         }
-        window.history.pushState({data:'main'},'','/');
+        window.history.pushState({ data: 'main' }, '', '/');
         dispatch(
             weddingReducer.modalOn({
                 showModal: true,
@@ -133,15 +126,24 @@ const Introduce: NextPage<Props> = ({
                 onTouchStart={touchStart}
                 onTouchEnd={touchEnd}
             >
+                <Photo
+                    key={`${title}_1`}
+                    data={weddingCard}
+                    sliderType={SliderType.CONTENTS}
+                    slide={slidePx}
+                    clickMethod={() => {
+                        detailDataChoice(weddingCard, DetailType.CONTENTS);
+                    }}
+                />
                 {list.map((v, i) => {
                     return (
                         <Photo
-                            key={`${title}_${i}`}
+                            key={`${title}_${i + 1}`}
                             data={v}
-                            sliderType={sliderType}
+                            sliderType={SliderType.ACTOR}
                             slide={slidePx}
                             clickMethod={() => {
-                                detailDataChoice(v);
+                                detailDataChoice(v, DetailType.ACTOR);
                             }}
                         />
                     );
