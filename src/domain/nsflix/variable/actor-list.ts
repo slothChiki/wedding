@@ -15,7 +15,7 @@ export const actorList: ActorDto[] = [
         bank: '국민은행',
         account: '723002-00-096535',
         kakaoQr: 'FOydv8tBC',
-        toss: '',
+        toss: 'nayeonS2',
         comment1:
             '실감이 안나네요ㅎㅎㅎ 그래도 둘이 같이 살면서 서로 의지하고 보듬으면서 살 생각을 하니 든든하고, 저도 책임감이 확 드네요 ㅎㅎ 내 가족의 건강과 영화를 위하여!!',
         comment2:
@@ -34,7 +34,7 @@ export const actorList: ActorDto[] = [
         bank: '하나은행',
         account: '359-910311-78707',
         kakaoQr: 'FPU3I5s0z',
-        toss: '',
+        toss: '안상민입니다',
         comment1:
             '이제 정말 서로의 삶에도 책임감을 가지면서 살아야 겠다는 생각?',
         comment2:

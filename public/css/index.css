@@ -157,7 +157,7 @@ main .video video {
 
 main .description {
   position: absolute;
-  bottom: 30%;
+  bottom: 10%;
   left: 40px;
   max-width: 500px;
 }
@@ -195,11 +195,11 @@ main .description .buttons .play * {
 
 main .description .buttons .play i {
   color: black;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 main .description .buttons .play span {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 main .description .buttons .detail {
@@ -210,14 +210,14 @@ main .description .buttons .detail {
 }
 
 main .description .buttons .detail i {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 main .description .buttons .detail:hover {
   background-color: rgba(58, 58, 59, 0.7);
 }
 main .description .buttons .detail span {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 main .age-info {
