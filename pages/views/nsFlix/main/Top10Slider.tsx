@@ -15,14 +15,13 @@ const Top10Slider: NextPage<Props> = ({ title = '', list }) => {
     useEffect(() => {
         const screen = window.innerWidth;
         setMovePx((movePx) => screen);
-
         let mediaImgae: top10Media;
         if (isDesktopOrLaptop) {
-            mediaImgae = top10Media.TAB;
-        } else if (isTablet) {
-            mediaImgae = top10Media.MOBILE;
-        } else {
             mediaImgae = top10Media.PC;
+        } else if (isTablet) {
+            mediaImgae = top10Media.TAB;
+        } else {
+            mediaImgae = top10Media.MOBILE;
         }
 
         findLimit(mediaImgae);
@@ -40,10 +39,10 @@ const Top10Slider: NextPage<Props> = ({ title = '', list }) => {
     };
 
     const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1024px) and (max-width: 1279px)',
+        query: '(min-width: 1024px)',
     });
     const isTablet = useMediaQuery({
-        query: '(min-width: 768px) and (max-width: 1023px)',
+        query: '(min-width: 480px) and (max-width: 1023px)',
     });
     // const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
     const isMobileDevice = useMediaQuery({ query: '(max-width: 480px)' });

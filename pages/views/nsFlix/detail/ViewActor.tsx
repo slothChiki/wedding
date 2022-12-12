@@ -19,8 +19,8 @@ import SwiperCore, {
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
-interface Props {}
-const ViewActor: NextPage<Props> = ({}) => {
+interface Props { }
+const ViewActor: NextPage<Props> = ({ }) => {
     const state = useSelector((state: RootState) => state.wedding);
     const actor: ActorDto = state.detailActor;
     const [swiper, setSwiper] = useState(null);
@@ -72,15 +72,15 @@ const ViewActor: NextPage<Props> = ({}) => {
                     <div className="center">
                         <p>
                             <span>
-                                {`>>`} 결혼 날짜가
+                            {' '}{`>>`} 결혼 날짜가{' '}
                                 <Timer
-                                    startDate={'2017-04-17'}
-                                    endDate={moment(new Date())
+                                    startDate={moment(new Date())
                                         .format('YYYY-MM-DD')
                                         .toString()}
-                                    type={TimerType.FLOW}
-                                />{' '}
-                                밖에 남지 았았습니다. 소감이 어떠신가요?
+                                    endDate={'2023-01-07'}
+                                    type={TimerType.DDAY}
+                                />
+                                일 밖에 남지 았았습니다. 소감이 어떠신가요?
                             </span>
                             <br />
                             {actor.comment1}

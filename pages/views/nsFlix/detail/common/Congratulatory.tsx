@@ -56,6 +56,10 @@ const Congratulatory: NextPage<Props> = ({
         }, 3000);
     };
 
+    const tossPay = ()=>{
+        window.open(`https://toss.me/${actor.toss}`);
+    }
+
     return (
         <>
             <div className={`congratulatory`}>
@@ -72,7 +76,7 @@ const Congratulatory: NextPage<Props> = ({
                         </div>
                     </li>
                     <li>
-                        <div className="send-btn"><a>toss 송금</a></div>
+                        <div className="send-btn" onClick={tossPay}><a>toss 송금</a></div>
                     </li>
                     <li>
                         <div className="send-btn" onClick={onCopyClipBoard}>

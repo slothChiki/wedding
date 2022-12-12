@@ -27,36 +27,36 @@ const Introduce: NextPage<Props> = ({ list = [], title = '' }) => {
     // 창 길이 만큼 움직이기 - 화살표 /////////////////////////////////////////////////////////////////////////////////
     useEffect(() => {
         const screen = window.innerWidth;
+        
         setMovePx((movePx) => screen);
-
         let mediaImgae: imageMedia;
         if (isDesktopOrLaptop) {
-            mediaImgae = imageMedia.TAB;
-        } else if (isTablet) {
-            mediaImgae = imageMedia.MOBILE;
-        } else {
             mediaImgae = imageMedia.PC;
+        } else if (isTablet) {
+            mediaImgae = imageMedia.TAB;
+        } else {
+            mediaImgae = imageMedia.MOBILE;
         }
 
         findLimit(mediaImgae);
+        console.log(limit);
     }, [movePx]);
 
     const [slidePx, setSlidePx] = useState(0);
     const [limit, setLimit] = useState(movePx);
 
     const findLimit = (imgSize: imageMedia) => {
-        const listLength = list.length;
+        const listLength = list.length + 1;
         const compLegth = listLength * (imgSize + 10);
-
         const part = compLegth / movePx - 1;
         setLimit(-1 * part * movePx);
     };
 
     const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1024px) and (max-width: 1279px)',
+        query: '(min-width: 1024px)',
     });
     const isTablet = useMediaQuery({
-        query: '(min-width: 768px) and (max-width: 1023px)',
+        query: '(min-width: 480px) and (max-width: 1023px)',
     });
     // const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
     const isMobileDevice = useMediaQuery({ query: '(max-width: 480px)' });

@@ -66,7 +66,6 @@ const InputComment: NextPage<any> = () => {
         setMsg(msg);
     };
     useEffect(() => {
-        console.log(valName + ' / ' + valTel + ' / ' + valContents + ' / ');
         if (!changMsg && !tel && !contents) {
             changMsg('');
         }

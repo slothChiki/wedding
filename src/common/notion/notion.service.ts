@@ -27,7 +27,6 @@ export class NotionService {
             database_id: dataBaseKey,
             sorts: [{ timestamp: 'created_time', direction: 'descending' }],
         });
-        console.log(JSON.stringify(res));
 
         return res;
     }
@@ -86,7 +85,7 @@ export class NotionService {
             case PropertiesType.RICH_TEXT:
                 return data['rich_text'][0]['plain_text'];
             case PropertiesType.DATE:
-                return data['start'];
+                return data['date']['start'];
             default:
                 return '';
         }

@@ -157,7 +157,7 @@ main .video video {
 
 main .description {
   position: absolute;
-  bottom: 20%;
+  bottom: 10%;
   left: 40px;
   max-width: 600px;
 }

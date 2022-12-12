@@ -32,14 +32,13 @@ const Slider: NextPage<Props> = ({
     useEffect(() => {
         const screen = window.innerWidth;
         setMovePx((movePx) => screen);
-        console.log(movePx);
         let mediaImgae: imageMedia;
         if (isDesktopOrLaptop) {
-            mediaImgae = imageMedia.TAB;
-        } else if (isTablet) {
-            mediaImgae = imageMedia.MOBILE;
-        } else {
             mediaImgae = imageMedia.PC;
+        } else if (isTablet) {
+            mediaImgae = imageMedia.TAB;
+        } else {
+            mediaImgae = imageMedia.MOBILE;
         }
 
         findLimit(mediaImgae);
@@ -50,17 +49,17 @@ const Slider: NextPage<Props> = ({
 
     const findLimit = (imgSize: imageMedia) => {
         const listLength = list.length;
-        const compLegth = listLength * (imgSize + 10);
+        const compLegth = listLength * (imgSize + 20);
 
         const part = compLegth / movePx - 1;
         setLimit(-1 * part * movePx);
     };
 
     const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1024px) and (max-width: 1279px)',
+        query: '(min-width: 1024px)',
     });
     const isTablet = useMediaQuery({
-        query: '(min-width: 768px) and (max-width: 1023px)',
+        query: '(min-width: 480px) and (max-width: 1023px)',
     });
     // const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
     const isMobileDevice = useMediaQuery({ query: '(max-width: 480px)' });

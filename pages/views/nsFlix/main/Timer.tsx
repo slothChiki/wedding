@@ -16,8 +16,6 @@ const Timer: NextPage<Props> = ({
     const [day, setDay] = useState('');
 
     useEffect(() => {
-        console.log(`endDate --- ${endDate}`);
-        console.log(`startDate --- ${startDate}`);
         let f = '';
         let s = '';
         if (type == TimerType.DDAY) {
