@@ -28,6 +28,7 @@ const initialState: State = {
     detailImage: '',
     detailContents: {
         src: '',
+        thumbSrc: '',
         date: '',
         name: '',
         category: '',
@@ -37,6 +38,7 @@ const initialState: State = {
     detailActor: {
         name: '',
         src: '',
+        thumbSrc: '',
         photoList: [],
         bank: '',
         kakaoQr: '',
