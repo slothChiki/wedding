@@ -22,6 +22,9 @@ export class PosterDto {
     src: string;
 
     @IsString()
+    thumbSrc: string;
+
+    @IsString()
     date: string;
 
     @IsString()
@@ -40,6 +43,9 @@ export class PhotoDto {
     }
     @IsString()
     src: string;
+
+    @IsString()
+    thumbSrc: string;
 }
 
 export class ActorDto {
@@ -52,6 +58,9 @@ export class ActorDto {
 
     @IsString()
     src: string;
+
+    @IsString()
+    thumbSrc: string;
 
     @IsArray()
     photoList: string[] | null;

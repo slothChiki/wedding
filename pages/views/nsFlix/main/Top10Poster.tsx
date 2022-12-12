@@ -64,7 +64,7 @@ const Top10Poster: NextPage<Props> = ({
                 <div className="rank-poster">
                     <div className="rank">{idx + 1}</div>
                     <div className="image-container">
-                        <img src={data.src} />
+                        <img src={data.thumbSrc} />
                         {detailType !== DetailType.IMG ? (
                             data['name'] ? (
                                 <div className={`small-name`}>

@@ -4,6 +4,7 @@ export const actorList: ActorDto[] = [
     new ActorDto({
         name: '박나연',
         src: '/images/introduce/wny01.jpg',
+        thumbSrc: '/images/introduce/wny01.jpg',
         photoList: [
             '/images/introduce/wny01.jpg',
             '/images/introduce/wny02.jpg',
@@ -24,6 +25,7 @@ export const actorList: ActorDto[] = [
     new ActorDto({
         name: '안상민',
         src: '/images/introduce/wsm01.jpg',
+        thumbSrc: '/images/introduce/wsm01.jpg',
         photoList: [
             '/images/introduce/wsm01.jpg',
             '/images/introduce/wsm02.jpg',

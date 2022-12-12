@@ -5,6 +5,7 @@ import { actorList } from './actor-list';
 export const koreaList: PosterDto[] = [
     new PosterDto({
         src: '/images/contents/20170603_164358_Film1.jpg',
+        thumbSrc: '/images/contents/small_20170603_164358_Film1.jpg',
         date: '2017-06-03',
         category: 'part1. 부산',
         name: '손톱 좀!!',
@@ -13,6 +14,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170603_183327_HDR.jpg',
+        thumbSrc: '/images/contents/small_20170603_183327_HDR.jpg',
         date: '2017-06-03',
         category: 'part1. 부산',
         name: '나만 잘나오면 되',
@@ -21,6 +23,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170723_155051.jpg',
+        thumbSrc: '/images/contents/small_20170723_155051.jpg',
         date: '2017-07-23',
         category: 'part2. 창녕 우포늪',
         name: '극과 극',
@@ -29,6 +32,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170812_171407.jpg',
+        thumbSrc: '/images/contents/small_20170812_171407.jpg',
         date: '2017-08-12',
         category: 'part3. 고향 앞산',
         name: '무서움을 피하는 법',
@@ -38,6 +42,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20171209_131352.jpg',
+        thumbSrc: '/images/contents/small_20171209_131352.jpg',
         date: '2017-12-09',
         category: 'part4. 통영',
         name: '이건 아냐….',
@@ -47,6 +52,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20180505_105145.jpg',
+        thumbSrc: '/images/contents/small_20180505_105145.jpg',
         date: '2018-05-05',
         category: 'part5. 단양',
         name: '돈 줘도 안함',
@@ -55,6 +61,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20180505_105817.jpg',
+        thumbSrc: '/images/contents/small_20180505_105817.jpg',
         date: '2018-05-05',
         category: 'part5. 단양',
         name: '맨 몸으로도 날 판ㅋ',
@@ -63,6 +70,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170504_154409.jpg',
+        thumbSrc: '/images/contents/small_20170504_154409.jpg',
         date: '2017-05-04',
         category: 'part1. 여수광양순천',
         name: '구이 명인 납시오',
@@ -71,6 +79,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170504_183011.jpg',
+        thumbSrc: '/images/contents/small_20170504_183011.jpg',
         date: '2017-05-04',
         category: 'part1. 여수광양순천',
         name: '미쳐ㅆ… ?',
@@ -79,6 +88,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170504_183657.jpg',
+        thumbSrc: '/images/contents/small_20170504_183657.jpg',
         date: '2017-05-04',
         category: 'part1. 여수광양순천',
         name: '정상인',
@@ -87,6 +97,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170505_154536.jpg',
+        thumbSrc: '/images/contents/small_20170505_154536.jpg',
         date: '2017-05-05',
         category: 'part1. 여수광양순천',
         name: '비의 아이…..',
@@ -95,6 +106,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170505_162019.jpg',
+        thumbSrc: '/images/contents/small_20170505_162019.jpg',
         date: '2017-05-05',
         category: 'part1. 여수광양순천',
         name: '혓바닥 뽑히ㄴ….',
@@ -103,6 +115,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20180223_173841.jpg',
+        thumbSrc: '/images/contents/small_20180223_173841.jpg',
         date: '2018-02-23',
         category: 'part2. 장흥',
         name: '좀 짝다!?',
@@ -111,6 +124,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20190607_163212.jpg',
+        thumbSrc: '/images/contents/small_20190607_163212.jpg',
         date: '2019-06-07',
         category: 'part3. 해남',
         name: '재밌냐?',
@@ -119,6 +133,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20200529_170757.jpg',
+        thumbSrc: '/images/contents/small_20200529_170757.jpg',
         date: '2020-05-29',
         category: '우리사랑 양양',
         name: '3번째 여행 드디어 텐트',
@@ -127,6 +142,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20200529_171343.jpg',
+        thumbSrc: '/images/contents/small_20200529_171343.jpg',
         date: '2020-05-29',
         category: '우리사랑 양양',
         name: '이렇게 길고 싶다.. 다리..',
@@ -135,6 +151,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20200530_111005.jpg',
+        thumbSrc: '/images/contents/small_20200530_111005.jpg',
         date: '2020-05-30',
         category: '우리사랑 양양',
         name: '소리질러~~!!',
@@ -143,6 +160,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20200530_124727.jpg',
+        thumbSrc: '/images/contents/small_20200530_124727.jpg',
         date: '2020-05-30',
         category: '우리사랑 양양',
         name: '3번째인데도 좋아',
@@ -151,6 +169,7 @@ export const koreaList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20200716_121800.jpg',
+        thumbSrc: '/images/contents/small_20200716_121800.jpg',
         date: '2020-07-16',
         category: '역시 제주도지',
         name: '멍청해도 햄볶아요',
@@ -163,6 +182,7 @@ export const koreaList: PosterDto[] = [
 export const nationalList: PosterDto[] = [
     new PosterDto({
         src: '/images/contents/20170830_164957.jpg',
+        thumbSrc: '/images/contents/small_20170830_164957.jpg',
         date: '2017-08-30',
         category: '첫 해외! 닛폰!',
         name: '먹을때 젤 예뻐',
@@ -171,6 +191,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170830_213131.jpg',
+        thumbSrc: '/images/contents/small_20170830_213131.jpg',
         date: '2017-08-30',
         category: '첫 해외! 닛폰!',
         name: '넋이라도 있고 없고..',
@@ -179,6 +200,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20170831_164921.jpg',
+        thumbSrc: '/images/contents/small_20170831_164921.jpg',
         date: '2017-08-31',
         category: '첫 해외! 닛폰!',
         name: '빨대만 있으면….',
@@ -187,6 +209,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20181029_223549.jpg',
+        thumbSrc: '/images/contents/small_20181029_223549.jpg',
         date: '2018-10-29',
         category: '코쿤캅!!!! 태국!',
         name: 'J.M.T',
@@ -195,6 +218,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20181030_121936.jpg',
+        thumbSrc: '/images/contents/small_20181030_121936.jpg',
         date: '2018-10-30',
         category: '코쿤캅!!!! 태국!',
         name: '틀린그림찾기',
@@ -203,6 +227,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20181030_122439.jpg',
+        thumbSrc: '/images/contents/small_20181030_122439.jpg',
         date: '2018-10-30',
         category: '코쿤캅!!!! 태국!',
         name: '진짜 가져오면 얼마?',
@@ -211,6 +236,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20181030_143159.jpg',
+        thumbSrc: '/images/contents/small_20181030_143159.jpg',
         date: '2018-10-30',
         category: '코쿤캅!!!! 태국!',
         name: '첫 썬그라쓰',
@@ -220,6 +246,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20181030_143420.jpg',
+        thumbSrc: '/images/contents/small_20181030_143420.jpg',
         date: '2018-10-30',
         category: '코쿤캅!!!! 태국!',
         name: '예쁘게 예쁘게',
@@ -228,6 +255,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20181031_234228.jpg',
+        thumbSrc: '/images/contents/small_20181031_234228.jpg',
         date: '2018-10-31',
         category: '코쿤캅!!!! 태국!',
         name: '둠칫둠칫 나이트',
@@ -237,6 +265,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20191228_101307.jpg',
+        thumbSrc: '/images/contents/small_20191228_101307.jpg',
         date: '2019-12-28',
         category: '대만이다~',
         name: '포토스팟',
@@ -245,6 +274,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20191230_124849.jpg',
+        thumbSrc: '/images/contents/small_20191230_124849.jpg',
         date: '2019-12-30',
         category: '대만이다~',
         name: '졸라 진지함',
@@ -253,6 +283,7 @@ export const nationalList: PosterDto[] = [
     }),
     new PosterDto({
         src: '/images/contents/20191230_150439.jpg',
+        thumbSrc: '/images/contents/small_20191230_150439.jpg',
         date: '2019-12-30',
         category: '대만이다~',
         name: '이런거 누가 만드노?',
@@ -262,30 +293,91 @@ export const nationalList: PosterDto[] = [
 ];
 
 export const studioPhotoList: PhotoDto[] = [
-    new PhotoDto({ src: '/images/studio/photo_01.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_02.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_03.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_04.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_05.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_06.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_07.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_08.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_09.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_10.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_11.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_12.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_13.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_14.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_15.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_16.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_17.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_18.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_19.jpg' }),
-    new PhotoDto({ src: '/images/studio/photo_20.jpg' }),
+    new PhotoDto({
+        src: '/images/studio/photo_01.jpg',
+        thumbSrc: '/images/studio/small_photo_01.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_02.jpg',
+        thumbSrc: '/images/studio/small_photo_02.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_03.jpg',
+        thumbSrc: '/images/studio/small_photo_03.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_04.jpg',
+        thumbSrc: '/images/studio/small_photo_04.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_05.jpg',
+        thumbSrc: '/images/studio/small_photo_05.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_06.jpg',
+        thumbSrc: '/images/studio/small_photo_06.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_07.jpg',
+        thumbSrc: '/images/studio/small_photo_07.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_08.jpg',
+        thumbSrc: '/images/studio/small_photo_08.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_09.jpg',
+        thumbSrc: '/images/studio/small_photo_09.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_10.jpg',
+        thumbSrc: '/images/studio/small_photo_10.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_11.jpg',
+        thumbSrc: '/images/studio/small_photo_11.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_12.jpg',
+        thumbSrc: '/images/studio/small_photo_12.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_13.jpg',
+        thumbSrc: '/images/studio/small_photo_13.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_14.jpg',
+        thumbSrc: '/images/studio/small_photo_14.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_15.jpg',
+        thumbSrc: '/images/studio/small_photo_15.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_16.jpg',
+        thumbSrc: '/images/studio/small_photo_16.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_17.jpg',
+        thumbSrc: '/images/studio/small_photo_17.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_18.jpg',
+        thumbSrc: '/images/studio/small_photo_18.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_20.jpg',
+        thumbSrc: '/images/studio/small_photo_20.jpg',
+    }),
+    new PhotoDto({
+        src: '/images/studio/photo_19.jpg',
+        thumbSrc: '/images/studio/small_photo_19.jpg',
+    }),
 ];
 
 export const weddingCard = new PosterDto({
     src: '/images/introduce/wedding-party.jpg',
+    thumbSrc: '/images/introduce/wedding-party.jpg',
     name: '우리 결혼합니다.',
     comment1: '2023년 1월 7일 14:00 중앙컨벤션센터 2층',
     comment2: '모바일 청첩장은 계속 업데이트됩니다!',

@@ -157,9 +157,9 @@ main .video video {
 
 main .description {
   position: absolute;
-  bottom: 30%;
+  bottom: 20%;
   left: 40px;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 main .description h1 {
@@ -176,6 +176,7 @@ main .description p {
 
 main .description .buttons {
   display: flex;
+  width: auto;
   gap: 10px;
 }
 

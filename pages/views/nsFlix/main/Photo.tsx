@@ -10,10 +10,16 @@ interface Props {
     sliderType: SliderType;
 }
 
-const Photo: NextPage<Props> = ({ data = { src: '' }, slide = 0, clickMethod, sliderType = SliderType.IMG }) => {
+const Photo: NextPage<Props> = ({
+    data = { src: '' },
+    slide = 0,
+    clickMethod,
+    sliderType = SliderType.IMG,
+}) => {
     // TODO - props 로 줘야 할까?
 
-    const category = sliderType === SliderType.CONTENTS ? data['category'] : null;
+    const category =
+        sliderType === SliderType.CONTENTS ? data['category'] : null;
     return (
         <>
             <li
@@ -24,10 +30,11 @@ const Photo: NextPage<Props> = ({ data = { src: '' }, slide = 0, clickMethod, sl
                 onClick={clickMethod}
             >
                 <div className="image-container">
-                    <img src={data.src} />
+                    <img src={data.thumbSrc} />
                     {sliderType !== SliderType.IMG ? (
                         <div className={`small-name`}>
-                            {category}<br />
+                            {category}
+                            <br />
                             {data['name']}
                         </div>
                     ) : null}
