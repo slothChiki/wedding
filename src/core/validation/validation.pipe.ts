@@ -2,7 +2,7 @@ import { PipeTransform, Injectable, ArgumentMetadata } from '@nestjs/common';
 import { validate } from 'class-validator';
 import { plainToInstance } from 'class-transformer';
 import * as util from 'util';
-import { WebException } from '../exception/WebException';
+import { WebException } from '../exception/web-exception';
 import { ErrorCode } from '../exception/errorCode';
 
 @Injectable()

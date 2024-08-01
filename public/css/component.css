@@ -1,0 +1,218 @@
+.share i {
+    cursor: pointer;
+}
+
+.poster-container {
+    transition: 0.2s linear;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    /* border-radius: 7px;  */
+    list-style: none;
+}
+
+.poster-container.intro {
+    transition: 0.2s linear;
+    width: auto;
+    display: flow;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    /* border-radius: 7px;  */
+    list-style: none;
+}
+.poster-container li {
+    flex: 1 1 20px;
+    margin-right: 10px;
+}
+
+.poster-container.intro li {
+    flex: 0 0 0;
+    margin-right: 10px;
+}
+
+.poster-container .image-container {
+    width: 250px;
+    height: 150px;
+    /*!*background: #262626;*!*/
+    /*background: linear-gradient(312deg, #262626 0%, #333333 54%, #2a2a2a 100%);*/
+    object-fit: cover;
+    /* max-width: 230px;
+    height: 100%;
+    /*border-radius: 8px; *!*/
+    cursor: pointer;
+}
+
+.poster-container .image-container img {
+    width: 250px;
+}
+
+.top10-container {
+    transition: 0.2s linear;
+    width: 100%;
+    /* margin: 10px; */
+    /* height: 345px; */
+    /* margin-bottom: 5px; */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    /* border-radius: 7px;  */
+    list-style: none;
+}
+
+.top10-container li {
+    flex: 1 1 20px;
+    margin-right: 10px;
+}
+
+.top10-container .rank-poster {
+    width: 220px;
+    display: inline-block;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.top10-container .rank {
+    float: left;
+    /*margin: 50%, 0, 0, 60px;*/
+    font-size: 150px;
+    font-weight: 600;
+    text-align: right;
+    line-height: 1;
+    color: #000;
+    -webkit-text-stroke: 5px rgb(255, 255, 255);
+    font-family: 'NetflixSans-Bold', sans-serif;
+
+    width: 80px;
+    height: 100%;
+    z-index: 4;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+}
+
+.top10-container .image-container {
+    float: right;
+    width: 140px;
+    height: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.top10-container .image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: 5;
+}
+.top10-container .image-container .small-name {
+    margin: 2vh 1vw;
+    float: right;
+    font-size: 0.6rem;
+}
+@media screen and (max-width: 1023px) {
+    .poster-container {
+        height: 270px;
+    }
+
+    .poster-container li {
+        height: 100%;
+        background-color: var(--color-level1);
+        border-radius: 8px;
+    }
+
+    .poster-container .image-container {
+        width: 180px;
+        border-radius: 8px;
+        object-fit: contain;
+        text-align: center;
+        color: var(--color-level4);
+    }
+
+    .poster-container .image-container img {
+        width: 180px;
+    }
+
+    .top10-container {
+        height: 270px;
+    }
+
+    .top10-container .rank-poster {
+        width: 250px;
+        text-align: center;
+    }
+
+    .top10-container .rank {
+        float: left;
+        width: 60px;
+        height: 100%;
+        font-size: 180px;
+        font-weight: 800;
+        top: 85px;
+    }
+
+    .top10-container .image-container {
+        float: right;
+        width: 180px;
+        height: 100%;
+        border-radius: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .poster-container {
+        height: 240px;
+    }
+
+    .poster-container .image-container {
+        width: 160px;
+        height: 100%;
+        border-radius: 8px;
+        object-fit: contain;
+        text-align: center;
+        color: var(--color-level4);
+    }
+
+    .poster-container li {
+        height: 100%;
+        background-color: var(--color-level1);
+        border-radius: 8px;
+    }
+
+    .poster-container .image-container img {
+        width: 160px;
+        border-radius: 8px;
+    }
+
+    .top10-container {
+        height: 270px;
+    }
+
+    .top10-container .rank-poster {
+        width: 220px;
+    }
+
+    .top10-container .rank {
+        float: left;
+        width: 60px;
+        height: 100%;
+        font-size: 155px;
+        font-weight: 800;
+        left: 3px;
+        top: 80px;
+    }
+
+    .top10-container .image-container {
+        float: right;
+        width: 160px;
+        height: 100%;
+        border-radius: 8px;
+    }
+}
